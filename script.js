@@ -8,28 +8,31 @@ function scrollToSection(sectionId) {
 
 // Функция для показа витрины MINIMAL
 function showMinimalShowcase() {
+  hideAllShowcases(); // Скрываем все витрины
   const showcase = document.getElementById('minimal-showcase');
   if (showcase) {
-    hideAllShowcases(); // Скрываем все витрины
     showcase.classList.remove('hidden'); // Показываем витрину MINIMAL
-
-    // Если витрина уже видима, прокручиваем к ней
-    if (!showcase.classList.contains('hidden')) {
-      scrollToSection('minimal-showcase');
-    }
   }
 }
 
 // Функция для показа витрины FIGHTER
 function showFighterShowcase() {
+  hideAllShowcases(); // Скрываем все витрины
   const showcase = document.getElementById('fighter-showcase');
   if (showcase) {
-    hideAllShowcases(); // Скрываем все витрины
     showcase.classList.remove('hidden'); // Показываем витрину FIGHTER
-
-    // Если витрина уже видима, прокручиваем к ней
-    if (!showcase.classList.contains('hidden')) {
-      scrollToSection('fighter-showcase');
-    }
   }
+}
+
+// Функция для скрытия всех витрин
+function hideAllShowcases() {
+  const showcases = document.querySelectorAll('.showcase-section');
+  showcases.forEach(showcase => {
+    showcase.classList.add('hidden'); // Добавляем класс hidden всем витринам
+  });
+}
+
+// Функция для возврата к коллекциям
+function goBack() {
+  hideAllShowcases(); // Скрываем все витрины
 }
