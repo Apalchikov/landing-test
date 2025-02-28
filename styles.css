@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #000;
+  background-color: #000; /* ЧЕРНЫЙ ФОН */
   color: #fff;
 }
 
@@ -17,39 +17,13 @@ body {
   padding: 20px;
 }
 
-/* Звездное небо для главной секции */
+/* Главная секция */
 .hero-section {
-  position: relative;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  overflow: hidden;
-}
-
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1));
-  z-index: 1;
-}
-
-.hero-section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://i.imgur.com/7XJvQfO.jpg') no-repeat center center; /* Звездное небо */
-  background-size: cover;
-  filter: brightness(0.7); /* Снижаем яркость фона */
-  z-index: 0;
 }
 
 .logo {
@@ -58,13 +32,11 @@ body {
   font-weight: bold;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  z-index: 2;
 }
 
 .slogan {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  z-index: 2;
 }
 
 button {
