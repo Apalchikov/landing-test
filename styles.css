@@ -54,7 +54,7 @@ body {
 
 .logo {
   font-family: 'Bebas Neue', cursive; /* Агрессивный шрифт */
-  font-size: 6rem;
+  font-size: 8rem; /* Увеличенный размер логотипа */
   font-weight: bold;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -161,7 +161,7 @@ button:hover {
 /* Адаптивность */
 @media (max-width: 768px) {
   .logo {
-    font-size: 4rem;
+    font-size: 6rem; /* Уменьшаем размер логотипа для мобильных */
   }
 
   .slogan {
