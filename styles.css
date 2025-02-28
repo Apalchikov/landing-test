@@ -60,7 +60,8 @@ button {
   transition: transform 0.3s ease-in-out;
 }
 
-button:hover {
+button:hover,
+button:focus {
   transform: scale(1.1);
 }
 
@@ -77,4 +78,25 @@ button:hover {
 
 #cart-items li {
   margin: 10px 0;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 3rem; /* Уменьшаем размер логотипа */
+  }
+
+  .slogan {
+    font-size: 1.2rem; /* Уменьшаем размер слогана */
+  }
+
+  button {
+    font-size: 0.9rem; /* Уменьшаем размер текста кнопок */
+    padding: 8px 16px; /* Сокращаем внутренние отступы */
+  }
+
+  .categories button {
+    font-size: 0.9rem; /* Уменьшаем размер текста кнопок категорий */
+    padding: 8px 16px; /* Сокращаем внутренние отступы */
+  }
 }
