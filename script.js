@@ -28,7 +28,7 @@ function showFighterShowcase() {
 function hideAllShowcases() {
   const showcases = document.querySelectorAll('.showcase-section');
   showcases.forEach(showcase => {
-    showcase.classList.add('hidden');
+    showcase.classList.add('hidden'); // Добавляем класс hidden всем витринам
   });
 }
 
