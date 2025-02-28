@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #000; /* ЧЕРНЫЙ ФОН */
+  background: linear-gradient(45deg, #000 80%, #ffcc00 20%); /* ЧЕРНО-ЖЕЛТЫЙ ГРАДИЕНТ */
   color: #fff;
 }
 
@@ -88,9 +88,9 @@ button:hover {
 
 .collection-item img {
   width: 100%; /* Ширина равна ширине карточки */
-  height: 200px; /* Фиксированная высота для изображений */
+  height: 200px; /* Фиксированная высота */
   object-fit: cover; /* Масштабируем изображение, сохраняя пропорции */
-  border-radius: 5px 5px 0 0; /* Закругляем углы только сверху */
+  border-radius: 5px 5px 0 0; /* Закругление углов только сверху */
 }
 
 .collection-item h3,
@@ -102,7 +102,7 @@ button:hover {
 /* Витрина коллекции MINIMAL */
 .showcase-section {
   padding: 40px 0;
-  background-color: #000; /* ЧЕРНЫЙ ФОН */
+  background: linear-gradient(45deg, #000 80%, #ffcc00 20%); /* ЧЕРНО-ЖЕЛТЫЙ ГРАДИЕНТ */
 }
 
 .product-grid {
@@ -127,9 +127,9 @@ button:hover {
 
 .product-item img {
   width: 100%; /* Ширина равна ширине карточки */
-  height: 200px; /* Фиксированная высота для изображений */
+  height: 200px; /* Фиксированная высота */
   object-fit: cover; /* Масштабируем изображение, сохраняя пропорции */
-  border-radius: 5px 5px 0 0; /* Закругляем углы только сверху */
+  border-radius: 5px 5px 0 0; /* Закругление углов только сверху */
 }
 
 .product-item h4 {
