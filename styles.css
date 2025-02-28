@@ -80,7 +80,7 @@ button:hover {
   text-align: center;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
-  padding: 25px; /* ЕЩЕ БОЛЬШЕ ВНУТРЕННИХ ОТСТУПОВ */
+  padding: 25px; /* Внутренние отступы */
 }
 
 .collection-item:hover {
@@ -89,19 +89,19 @@ button:hover {
 
 .collection-item img {
   width: 100%; /* Ширина равна ширине карточки */
-  height: 400px; /* УВЕЛИЧИВАЕМ ВЫСОТУ ИЗОБРАЖЕНИЯ ДО 400PX */
-  object-fit: cover; /* Сохраняем пропорции */
+  height: 100%; /* Высота равна высоте карточки */
+  object-fit: cover; /* Автоподгонка изображения */
   border-radius: 8px 8px 0 0; /* Закругляем только верхние углы */
 }
 
 .collection-item h3 {
-  font-size: 2.2rem; /* ЕЩЕ БОЛЬШЕ ЗАГОЛОВОК */
+  font-size: 2.2rem; /* Размер заголовка */
   margin: 20px 0 10px;
   color: #fff; /* Белый текст */
 }
 
 .collection-item p {
-  font-size: 1.4rem; /* ЕЩЕ БОЛЬШЕ ОПИСАНИЕ */
+  font-size: 1.4rem; /* Размер описания */
   margin: 10px 0 25px;
   color: #fff; /* Белый текст */
 }
@@ -196,7 +196,7 @@ button:hover {
   }
 
   .collection-item img {
-    height: 300px; /* Уменьшаем высоту изображений для мобильных */
+    height: 100%; /* Высота изображения адаптируется автоматически */
   }
 
   .collection-item h3 {
