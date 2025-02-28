@@ -10,7 +10,7 @@ function scrollToSection(sectionId) {
 function showMinimalShowcase() {
   const showcase = document.getElementById('minimal-showcase');
   if (showcase) {
-    showcase.classList.remove('hidden'); // Убираем класс hidden
+    showcase.classList.remove('hidden'); // Показываем витрину
   }
 }
 
@@ -18,11 +18,6 @@ function showMinimalShowcase() {
 function goBack() {
   const showcase = document.getElementById('minimal-showcase');
   if (showcase) {
-    showcase.classList.add('hidden'); // Добавляем класс hidden
+    showcase.classList.add('hidden'); // Скрываем витрину
   }
-}
-
-// Функция для показа модального окна (если понадобится для других коллекций)
-function showCollection(collectionName) {
-  alert(`Коллекция "${collectionName}" будет доступна soon!`);
 }
