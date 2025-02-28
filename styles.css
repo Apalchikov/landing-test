@@ -75,12 +75,12 @@ button:hover {
 
 .collection-item {
   background-color: #333;
-  border-radius: 8px; /* Закругляем углы */
+  border-radius: 8px; /* Закругление углов */
   overflow: hidden; /* Убираем вылезающие части */
   text-align: center;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
-  padding: 20px; /* Добавляем внутренние отступы */
+  position: relative; /* Родительский блок для абсолютного позиционирования */
 }
 
 .collection-item:hover {
@@ -89,20 +89,30 @@ button:hover {
 
 .collection-item img {
   width: 100%; /* Ширина равна ширине карточки */
-  height: 350px; /* Увеличиваем высоту изображения до 350px */
-  object-fit: cover; /* Сохраняем пропорции */
-  border-radius: 8px 8px 0 0; /* Закругляем только верхние углы */
+  height: 400px; /* Высота изображения */
+  object-fit: cover; /* Автоподгонка изображения */
+  border-radius: 8px; /* Закругляем углы изображения */
+}
+
+.collection-item-content {
+  position: absolute; /* Размещаем текст поверх изображения */
+  bottom: 20px; /* Располагаем текст внизу карточки */
+  left: 0;
+  right: 0;
+  text-align: center; /* Центрируем текст */
+  background: rgba(0, 0, 0, 0.6); /* Полупрозрачный черный фон для контраста */
+  padding: 10px; /* Добавляем отступы вокруг текста */
 }
 
 .collection-item h3 {
-  font-size: 2rem; /* Увеличиваем размер заголовка */
-  margin: 15px 0 5px;
+  font-size: 2.2rem; /* Размер заголовка */
+  margin: 5px 0;
   color: #fff; /* Белый текст */
 }
 
 .collection-item p {
-  font-size: 1.3rem; /* Увеличиваем размер описания */
-  margin: 5px 0 20px;
+  font-size: 1.4rem; /* Размер описания */
+  margin: 5px 0;
   color: #fff; /* Белый текст */
 }
 
@@ -134,7 +144,7 @@ button:hover {
 
 .product-item img {
   width: 100%; /* Ширина равна ширине карточки */
-  height: 200px; /* Высота изображений товаров остается без изменений */
+  height: 200px; /* Высота изображений товаров */
   object-fit: cover; /* Сохраняем пропорции */
   border-radius: 5px 5px 0 0; /* Закругляем только верхние углы */
 }
@@ -192,18 +202,18 @@ button:hover {
   }
 
   .collection-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Уменьшаем ширину карточек для мобильных */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Уменьшаем минимальную ширину для мобильных */
   }
 
   .collection-item img {
-    height: 250px; /* Уменьшаем высоту изображений для мобильных */
+    height: 300px; /* Уменьшаем высоту изображений для мобильных */
   }
 
   .collection-item h3 {
-    font-size: 1.5rem; /* Уменьшаем размер заголовка для мобильных */
+    font-size: 1.6rem; /* Уменьшаем размер заголовка для мобильных */
   }
 
   .collection-item p {
-    font-size: 1rem; /* Уменьшаем размер описания для мобильных */
+    font-size: 1.1rem; /* Уменьшаем размер описания для мобильных */
   }
 }
