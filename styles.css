@@ -25,8 +25,26 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  /* Фон грозового неба */
+  background: url('https://i.imgur.com/9QZKfEe.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
 }
 
+/* Затемнение фона для контраста */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Полупрозрачный черный фон */
+  z-index: 1;
+}
+
+/* Логотип DYNASTY поверх фона */
 .logo {
   font-family: 'Bebas Neue', cursive;
   font-size: 8rem;
@@ -34,17 +52,26 @@ body {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin: 0;
+  position: relative;
+  z-index: 2; /* Помещаем логотип поверх фона */
+  color: #fff; /* Белый текст для контраста */
 }
 
 .slogan {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  position: relative;
+  z-index: 2; /* Помещаем слоган поверх фона */
+  color: #fff;
 }
 
 .about-text {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 40px;
+  position: relative;
+  z-index: 2; /* Помещаем текст поверх фона */
+  color: #fff;
 }
 
 button {
@@ -56,6 +83,8 @@ button {
   cursor: pointer;
   border-radius: 5px;
   transition: transform 0.3s ease-in-out;
+  position: relative;
+  z-index: 2; /* Помещаем кнопку поверх фона */
 }
 
 button:hover {
@@ -65,6 +94,7 @@ button:hover {
 /* Секция "Коллекции" */
 .collections-section {
   padding: 40px 0;
+  background-color: #000; /* ЧИСТО-ЧЕРНЫЙ ФОН */
 }
 
 .collection-grid {
