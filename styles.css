@@ -161,6 +161,10 @@ button:hover {
   color: #fff;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Секция "Контакты" */
 #contacts h2 {
   font-size: 2rem;
