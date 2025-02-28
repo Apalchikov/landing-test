@@ -69,8 +69,8 @@ button:hover {
 
 .collection-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивный грид */
+  gap: 20px; /* Отступ между карточками */
 }
 
 .collection-item {
@@ -80,23 +80,22 @@ button:hover {
   text-align: center;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
-  text-decoration: none; /* Убираем подчеркивание ссылок */
 }
 
 .collection-item:hover {
   transform: scale(1.05);
 }
 
-.collection-item h3,
-.collection-item p {
-  color: #fff; /* БЕЛЫЙ ТЕКСТ */
-  margin: 5px 0;
-}
-
 .collection-item img {
   width: 100%;
   height: auto;
   border-radius: 5px;
+}
+
+.collection-item h3,
+.collection-item p {
+  color: #fff; /* БЕЛЫЙ ТЕКСТ */
+  margin: 5px 0;
 }
 
 /* Витрина коллекции MINIMAL */
@@ -107,8 +106,8 @@ button:hover {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивный грид */
+  gap: 20px; /* Отступ между карточками */
   margin-top: 20px;
 }
 
@@ -166,4 +165,20 @@ button:hover {
 
 #contacts a:hover {
   transform: scale(1.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 6rem; /* Уменьшаем размер логотипа для мобильных */
+  }
+
+  .slogan {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
 }
