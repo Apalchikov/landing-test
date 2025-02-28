@@ -13,36 +13,42 @@
   <header class="hero-section">
     <div class="container">
       <h1 class="logo">DYNASTY</h1>
-      <p class="slogan">Ваш стиль - ваша история.</p>
-      <p class="about-text">DYNASTY - это ваша свобода самовыражения через стиль. Каждый образ становится частью вашей уникальной истории с качественной одеждой, отражающей современные тренды и индивидуальность.</p>
-      <button onclick="scrollToSection('categories')">Просмотреть коллекцию</button>
+      <p class="slogan">Ваш стиль — ваша история.</p>
+      <p class="about-text">DYNASTY — это ваша свобода самовыражения через стиль. Каждый образ становится частью вашей уникальной истории с качественной одеждой, отражающей современные тренды и индивидуальность.</p>
+      <button onclick="scrollToSection('collections')">Просмотреть коллекции</button>
     </div>
   </header>
 
-  <!-- Секция "Категории товаров" -->
-  <section id="categories" class="section categories-section">
+  <!-- Секция "Коллекции" -->
+  <section id="collections" class="section collections-section">
     <div class="container">
-      <h2>Коллекции</h2>
-      <div class="categories-grid">
-        <div class="category-item" onclick="addToCart('Толстовка', 50)">
-          <img src="https://via.placeholder.com/150" alt="Толстовка">
-          <p>Толстовка</p>
-          <span>$50</span>
+      <h2>Наши коллекции</h2>
+      <div class="collection-grid">
+        <!-- Коллекция MINIMAL -->
+        <div class="collection-item" onclick="showCollection('minimal')">
+          <img src="https://via.placeholder.com/300" alt="MINIMAL Collection">
+          <h3>MINIMAL</h3>
+          <p>Минимализм в каждом детале.</p>
         </div>
-        <div class="category-item" onclick="addToCart('Футболка', 30)">
-          <img src="https://via.placeholder.com/150" alt="Футболка">
-          <p>Футболка</p>
-          <span>$30</span>
-        </div>
-        <div class="category-item" onclick="addToCart('Джинсы', 80)">
-          <img src="https://via.placeholder.com/150" alt="Джинсы">
-          <p>Джинсы</p>
-          <span>$80</span>
+
+        <!-- Коллекция FIGHTER -->
+        <div class="collection-item" onclick="showCollection('fighter')">
+          <img src="https://via.placeholder.com/300" alt="FIGHTER Collection">
+          <h3>FIGHTER</h3>
+          <p>Сила и уверенность в каждом образе.</p>
         </div>
       </div>
-      <button onclick="openCart()">Посмотреть корзину</button>
     </div>
   </section>
+
+  <!-- Модальное окно для просмотра коллекции -->
+  <div id="collection-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2 id="collection-title"></h2>
+      <ul id="collection-items"></ul>
+      <button onclick="closeCollection()">Закрыть</button>
+    </div>
+  </div>
 
   <!-- Секция "Контакты" -->
   <section id="contacts" class="section">
@@ -53,16 +59,6 @@
       <a href="https://instagram.com/dynastybrand" target="_blank">Instagram</a>
     </div>
   </section>
-
-  <!-- Модальное окно корзины -->
-  <div id="cart-modal" class="modal hidden">
-    <div class="modal-content">
-      <h2>Корзина</h2>
-      <ul id="cart-items"></ul>
-      <p id="total-price">Общая сумма: $0</p>
-      <button onclick="closeCart()">Закрыть</button>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
