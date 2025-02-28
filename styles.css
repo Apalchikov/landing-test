@@ -69,13 +69,13 @@ button:hover {
 
 .collection-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивный грид */
-  gap: 20px; /* Отступ между карточками */
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Увеличиваем минимальную ширину карточек до 450px */
+  gap: 30px; /* Увеличиваем отступ между карточками */
 }
 
 .collection-item {
   background-color: #333;
-  border-radius: 5px;
+  border-radius: 8px; /* Закругляем углы */
   overflow: hidden; /* Убираем вылезающие части изображений */
   text-align: center;
   cursor: pointer;
@@ -88,15 +88,21 @@ button:hover {
 
 .collection-item img {
   width: 100%; /* Ширина равна ширине карточки */
-  height: 200px; /* Фиксированная высота */
+  height: 300px; /* Увеличиваем высоту изображения до 300px */
   object-fit: cover; /* Масштабируем изображение, сохраняя пропорции */
-  border-radius: 5px 5px 0 0; /* Закругление углов только сверху */
+  border-radius: 8px 8px 0 0; /* Закругление углов только сверху */
 }
 
-.collection-item h3,
-.collection-item p {
+.collection-item h3 {
+  font-size: 1.8rem; /* Увеличиваем размер заголовка */
+  margin: 15px 0 5px; /* Корректируем отступы */
   color: #fff; /* БЕЛЫЙ ТЕКСТ */
-  margin: 5px 0;
+}
+
+.collection-item p {
+  font-size: 1.2rem; /* Увеличиваем размер описания */
+  margin: 5px 0 15px; /* Корректируем отступы */
+  color: #fff; /* БЕЛЫЙ ТЕКСТ */
 }
 
 /* Витрина коллекции MINIMAL */
@@ -107,7 +113,7 @@ button:hover {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивный грид */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Размеры товаров остаются без изменений */
   gap: 20px; /* Отступ между карточками */
   margin-top: 20px;
 }
@@ -127,7 +133,7 @@ button:hover {
 
 .product-item img {
   width: 100%; /* Ширина равна ширине карточки */
-  height: 200px; /* Фиксированная высота */
+  height: 200px; /* Высота остается без изменений */
   object-fit: cover; /* Масштабируем изображение, сохраняя пропорции */
   border-radius: 5px 5px 0 0; /* Закругление углов только сверху */
 }
@@ -184,8 +190,19 @@ button:hover {
     padding: 8px 16px;
   }
 
-  .collection-item img,
-  .product-item img {
-    height: 150px; /* Уменьшаем высоту изображений для мобильных */
+  .collection-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Уменьшаем размер карточек для мобильных */
+  }
+
+  .collection-item img {
+    height: 250px; /* Уменьшаем высоту изображений для мобильных */
+  }
+
+  .collection-item h3 {
+    font-size: 1.5rem; /* Уменьшаем размер заголовка для мобильных */
+  }
+
+  .collection-item p {
+    font-size: 1rem; /* Уменьшаем размер описания для мобильных */
   }
 }
