@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(45deg, #000 80%, #ffcc00 20%); /* ЧЕРНО-ЖЕЛТЫЙ ГРАДИЕНТ */
+  background-color: #000; /* ЧИСТО-ЧЕРНЫЙ ФОН */
   color: #fff;
 }
 
@@ -102,7 +102,7 @@ button:hover {
 /* Витрина коллекции MINIMAL */
 .showcase-section {
   padding: 40px 0;
-  background: linear-gradient(45deg, #000 80%, #ffcc00 20%); /* ЧЕРНО-ЖЕЛТЫЙ ГРАДИЕНТ */
+  background-color: #000; /* ЧИСТО-ЧЕРНЫЙ ФОН */
 }
 
 .product-grid {
