@@ -28,10 +28,11 @@ body {
 
 .logo {
   font-family: 'Bebas Neue', cursive; /* Агрессивный шрифт */
-  font-size: 8rem; /* Увеличенный размер логотипа */
+  font-size: 8rem; /* Размер логотипа */
   font-weight: bold;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  letter-spacing: 0.2em; /* Промежутки между буквами */
+  text-transform: uppercase; /* Все буквы в верхнем регистре */
+  margin: 0; /* Убираем лишние отступы */
 }
 
 .slogan {
