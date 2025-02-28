@@ -27,15 +27,19 @@
         <!-- Коллекция MINIMAL -->
         <div class="collection-item" onclick="showMinimalShowcase()">
           <img src="https://cdn.zenden.cloud/oeR8tNVmuRHmH_25FzuAnTVGysUaT0qU17nqj7Bfya8/resize:fit:1440:600:false:false:ce:0:0/aHR0cHM6Ly9iYWNrZW5kLnNhbGFtYW5kZXIucnUvdXBsb2FkL2libG9jay8wN2QvanEwaDlkMXM0NDk4dG14MjE2dDducGt2bDIwMm0yeGQucG5n.png" alt="MINIMAL Collection">
-          <h3>MINIMAL</h3>
-          <p>Минимализм в каждом детале.</p>
+          <div class="collection-item-content">
+            <h3>MINIMAL</h3>
+            <p>Минимализм в каждом детале.</p>
+          </div>
         </div>
 
         <!-- Коллекция FIGHTER -->
-        <div class="collection-item" onclick="alert('Коллекция FIGHTER будет доступна soon!')">
+        <div class="collection-item" onclick="showFighterShowcase()">
           <img src="https://img08.rl0.ru/afisha/e1200x800i/daily.afisha.ru/uploads/images/b/8a/b8a18c1b099ac560f5c1fc27618ed838.jpg" alt="FIGHTER Collection">
-          <h3>FIGHTER</h3>
-          <p>Сила и уверенность в каждом образе.</p>
+          <div class="collection-item-content">
+            <h3>FIGHTER</h3>
+            <p>Сила и уверенность в каждом образе.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -49,30 +53,68 @@
       <div class="product-grid">
         <!-- Товар 1 -->
         <div class="product-item">
-          <img src="https://static.insales-cdn.com/r/JBn0FfTLI1A/rs:fit:1000:0:1/q:100/plain/images/products/1/5852/655922908/%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B0_%D1%87%D0%B5%D1%80%D0%BD%D0%B0%D1%8F_1.jpg@jpg" alt="Белая рубашка">
+          <img src="https://via.placeholder.com/300" alt="Белая рубашка">
           <h4>Белая рубашка</h4>
           <span>$60</span>
         </div>
 
         <!-- Товар 2 -->
         <div class="product-item">
-          <img src="https://static.insales-cdn.com/r/JBn0FfTLI1A/rs:fit:1000:0:1/q:100/plain/images/products/1/5852/655922908/%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B0_%D1%87%D0%B5%D1%80%D0%BD%D0%B0%D1%8F_1.jpg@jpg" alt="Черные брюки">
+          <img src="https://via.placeholder.com/300" alt="Черные брюки">
           <h4>Черные брюки</h4>
           <span>$80</span>
         </div>
 
         <!-- Товар 3 -->
         <div class="product-item">
-          <img src="https://static.insales-cdn.com/r/JBn0FfTLI1A/rs:fit:1000:0:1/q:100/plain/images/products/1/5852/655922908/%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B0_%D1%87%D0%B5%D1%80%D0%BD%D0%B0%D1%8F_1.jpg@jpg" alt="Классические туфли">
+          <img src="https://via.placeholder.com/300" alt="Классические туфли">
           <h4>Классические туфли</h4>
           <span>$120</span>
         </div>
 
         <!-- Товар 4 -->
         <div class="product-item">
-          <img src="https://static.insales-cdn.com/r/JBn0FfTLI1A/rs:fit:1000:0:1/q:100/plain/images/products/1/5852/655922908/%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B0_%D1%87%D0%B5%D1%80%D0%BD%D0%B0%D1%8F_1.jpg@jpg" alt="Простой свитер">
+          <img src="https://via.placeholder.com/300" alt="Простой свитер">
           <h4>Простой свитер</h4>
           <span>$70</span>
+        </div>
+      </div>
+      <button onclick="goBack()">Назад к коллекциям</button>
+    </div>
+  </section>
+
+  <!-- Витрина коллекции FIGHTER -->
+  <section id="fighter-showcase" class="section showcase-section hidden">
+    <div class="container">
+      <h2>Коллекция FIGHTER</h2>
+      <p>Сила и уверенность в каждом образе. Агрессивный стиль для настоящих бойцов.</p>
+      <div class="product-grid">
+        <!-- Товар 1 -->
+        <div class="product-item">
+          <img src="https://via.placeholder.com/300" alt="Спортивный костюм">
+          <h4>Спортивный костюм</h4>
+          <span>$90</span>
+        </div>
+
+        <!-- Товар 2 -->
+        <div class="product-item">
+          <img src="https://via.placeholder.com/300" alt="Кроссовки">
+          <h4>Кроссовки</h4>
+          <span>$100</span>
+        </div>
+
+        <!-- Товар 3 -->
+        <div class="product-item">
+          <img src="https://via.placeholder.com/300" alt="Бейсболка">
+          <h4>Бейсболка</h4>
+          <span>$25</span>
+        </div>
+
+        <!-- Товар 4 -->
+        <div class="product-item">
+          <img src="https://via.placeholder.com/300" alt="Тренировочный жилет">
+          <h4>Тренировочный жилет</h4>
+          <span>$45</span>
         </div>
       </div>
       <button onclick="goBack()">Назад к коллекциям</button>
