@@ -1,14 +1,11 @@
 // Переменная для хранения корзины
 let cart = [];
 
-// Функция для переключения экранов
-function switchScreen(screenId) {
-  const screens = document.querySelectorAll('.screen');
-  screens.forEach((screen) => screen.classList.remove('active'));
-
-  const targetScreen = document.getElementById(screenId + '-screen');
-  if (targetScreen) {
-    targetScreen.classList.add('active');
+// Функция для прокрутки к секции
+function scrollToSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
   }
 }
 
@@ -39,4 +36,15 @@ function updateCart() {
 
   // Обновляем общую сумму
   totalPriceElement.textContent = `Общая сумма: $${total}`;
+}
+
+// Открытие модального окна корзины
+function openCart() {
+  updateCart();
+  document.getElementById('cart-modal').classList.remove('hidden');
+}
+
+// Закрытие модального окна корзины
+function closeCart() {
+  document.getElementById('cart-modal').classList.add('hidden');
 }
