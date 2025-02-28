@@ -104,7 +104,6 @@ button:hover {
 /* Витрина коллекции MINIMAL */
 .showcase-section {
   padding: 40px 0;
-  background-color: #000; /* ЧЕРНЫЙ ФОН */
 }
 
 .product-grid {
@@ -115,7 +114,7 @@ button:hover {
 }
 
 .product-item {
-  background-color: #333; /* Темно-серый фон для карточек товаров */
+  background-color: #333;
   border-radius: 5px;
   padding: 10px;
   text-align: center;
@@ -136,13 +135,11 @@ button:hover {
 .product-item h4 {
   font-size: 1.2rem;
   margin: 10px 0;
-  color: #fff; /* БЕЛЫЙ ТЕКСТ */
 }
 
 .product-item span {
   font-size: 1rem;
   font-weight: bold;
-  color: #fff; /* БЕЛЫЙ ТЕКСТ */
 }
 
 .hidden {
