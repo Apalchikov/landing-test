@@ -85,7 +85,7 @@ button:hover {
 /* Секция "О бренде" */
 #about {
   padding: 80px 0; /* Увеличиваем отступы для лучшей видимости */
-  background-color: #111; /* Темный фон для контраста */
+  background-color: #000; /* ЧЕРНЫЙ ФОН */
 }
 
 #about h2 {
@@ -101,7 +101,7 @@ button:hover {
 /* Секция "Категории товаров" */
 .categories-section {
   padding: 80px 0; /* Увеличиваем отступы */
-  background-color: #000; /* Черный фон */
+  background-color: #000; /* ЧЕРНЫЙ ФОН */
 }
 
 .categories-grid {
@@ -140,7 +140,7 @@ button:hover {
 /* Секция "Контакты" */
 #contacts {
   padding: 80px 0;
-  background-color: #111;
+  background-color: #000; /* ЧЕРНЫЙ ФОН */
 }
 
 #contacts h2 {
