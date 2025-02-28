@@ -38,13 +38,13 @@ body {
 
 .slogan {
   font-size: 1.5rem;
-  margin-bottom: 10px; /* Уменьшаем отступ до текста "О бренде" */
+  margin-bottom: 10px; /* Отступ до текста "О бренде" */
 }
 
 .about-text {
   font-size: 1rem;
   line-height: 1.6;
-  margin-bottom: 20px; /* Отступ до кнопки */
+  margin-bottom: 40px; /* Увеличиваем отступ до кнопки */
 }
 
 button {
