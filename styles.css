@@ -21,6 +21,7 @@ body {
 .hero-section {
   height: 100vh;
   display: flex;
+  flex-direction: column; /* Вертикальное расположение элементов */
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -37,7 +38,13 @@ body {
 
 .slogan {
   font-size: 1.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px; /* Уменьшаем отступ до текста "О бренде" */
+}
+
+.about-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px; /* Отступ до кнопки */
 }
 
 button {
@@ -57,36 +64,16 @@ button:hover {
 
 /* Секции */
 .section {
-  padding: 40px 0; /* Уменьшаем отступы между секциями */
+  padding: 40px 0; /* Отступы между секциями */
   text-align: center;
   background-color: #000; /* ЧЕРНЫЙ ФОН */
-}
-
-/* Секция "О бренде" */
-#about {
-  padding-bottom: 20px; /* Уменьшаем отступ снизу для "О бренде" */
-}
-
-#about h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-#about p {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-/* Секция "Категории товаров" */
-.categories-section {
-  padding-top: 20px; /* Уменьшаем отступ сверху для "Коллекции" */
 }
 
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
-  margin-top: 20px; /* Уменьшаем отступ до товаров */
+  margin-top: 20px;
 }
 
 .category-item {
@@ -110,16 +97,12 @@ button:hover {
 
 /* Кнопка "Посмотреть корзину" */
 .categories-section button {
-  margin-top: 20px; /* Уменьшаем отступ до кнопки */
+  margin-top: 20px;
   font-size: 1.2rem;
   padding: 15px 30px;
 }
 
 /* Секция "Контакты" */
-#contacts {
-  padding-top: 40px; /* Возвращаем стандартные отступы для "Контактов" */
-}
-
 #contacts h2 {
   font-size: 2rem;
   margin-bottom: 10px;
