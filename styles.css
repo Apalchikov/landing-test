@@ -80,7 +80,7 @@ button:hover {
   text-align: center;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
-  text-decoration: none; /* Убираем подчеркивание */
+  text-decoration: none; /* Убираем подчеркивание ссылок */
 }
 
 .collection-item:hover {
@@ -89,17 +89,14 @@ button:hover {
 
 .collection-item h3,
 .collection-item p {
-  color: #fff; /* Белый цвет для заголовков и описания */
+  color: #fff; /* БЕЛЫЙ ТЕКСТ */
   margin: 5px 0;
 }
 
-.collection-item a {
-  color: #fff; /* Белый цвет для ссылок внутри карточки */
-  text-decoration: none; /* Убираем подчеркивание */
-}
-
-.collection-item a:hover {
-  color: #ffcc00; /* При наведении — желтый цвет (опционально) */
+.collection-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
 }
 
 /* Витрина коллекции MINIMAL */
