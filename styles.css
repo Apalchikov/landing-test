@@ -80,30 +80,32 @@ button:hover {
   text-align: center;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
+  text-decoration: none; /* Убираем подчеркивание */
 }
 
 .collection-item:hover {
   transform: scale(1.05);
 }
 
-.collection-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.collection-item h3 {
-  font-size: 1.5rem;
-  margin: 10px 0;
-}
-
+.collection-item h3,
 .collection-item p {
-  font-size: 1rem;
+  color: #fff; /* Белый цвет для заголовков и описания */
+  margin: 5px 0;
+}
+
+.collection-item a {
+  color: #fff; /* Белый цвет для ссылок внутри карточки */
+  text-decoration: none; /* Убираем подчеркивание */
+}
+
+.collection-item a:hover {
+  color: #ffcc00; /* При наведении — желтый цвет (опционально) */
 }
 
 /* Витрина коллекции MINIMAL */
 .showcase-section {
   padding: 40px 0;
+  background-color: #000; /* ЧЕРНЫЙ ФОН */
 }
 
 .product-grid {
@@ -114,7 +116,7 @@ button:hover {
 }
 
 .product-item {
-  background-color: #333;
+  background-color: #333; /* Темно-серый фон для карточек товаров */
   border-radius: 5px;
   padding: 10px;
   text-align: center;
@@ -135,11 +137,13 @@ button:hover {
 .product-item h4 {
   font-size: 1.2rem;
   margin: 10px 0;
+  color: #fff; /* БЕЛЫЙ ТЕКСТ */
 }
 
 .product-item span {
   font-size: 1rem;
   font-weight: bold;
+  color: #fff; /* БЕЛЫЙ ТЕКСТ */
 }
 
 .hidden {
