@@ -25,11 +25,11 @@
       <h2>Наши коллекции</h2>
       <div class="collection-grid">
         <!-- Коллекция MINIMAL -->
-        <div class="collection-item" onclick="showCollection('minimal')">
+        <a href="#minimal-showcase" class="collection-item">
           <img src="https://cdn.zenden.cloud/oeR8tNVmuRHmH_25FzuAnTVGysUaT0qU17nqj7Bfya8/resize:fit:1440:600:false:false:ce:0:0/aHR0cHM6Ly9iYWNrZW5kLnNhbGFtYW5kZXIucnUvdXBsb2FkL2libG9jay8wN2QvanEwaDlkMXM0NDk4dG14MjE2dDducGt2bDIwMm0yeGQucG5n.png" alt="MINIMAL Collection">
           <h3>MINIMAL</h3>
           <p>Минимализм в каждом детале.</p>
-        </div>
+        </a>
 
         <!-- Коллекция FIGHTER -->
         <div class="collection-item" onclick="showCollection('fighter')">
@@ -41,14 +41,43 @@
     </div>
   </section>
 
-  <!-- Модальное окно для просмотра коллекции -->
-  <div id="collection-modal" class="modal hidden">
-    <div class="modal-content">
-      <h2 id="collection-title"></h2>
-      <ul id="collection-items"></ul>
-      <button onclick="closeCollection()">Закрыть</button>
+  <!-- Витрина коллекции MINIMAL -->
+  <section id="minimal-showcase" class="section showcase-section hidden">
+    <div class="container">
+      <h2>Коллекция MINIMAL</h2>
+      <p>Минимализм в каждой детали. Простота и элегантность.</p>
+      <div class="product-grid">
+        <!-- Товар 1 -->
+        <div class="product-item">
+          <img src="https://via.placeholder.com/300" alt="Белая рубашка">
+          <h4>Белая рубашка</h4>
+          <span>$60</span>
+        </div>
+
+        <!-- Товар 2 -->
+        <div class="product-item">
+          <img src="https://via.placeholder.com/300" alt="Черные брюки">
+          <h4>Черные брюки</h4>
+          <span>$80</span>
+        </div>
+
+        <!-- Товар 3 -->
+        <div class="product-item">
+          <img src="https://via.placeholder.com/300" alt="Классические туфли">
+          <h4>Классические туфли</h4>
+          <span>$120</span>
+        </div>
+
+        <!-- Товар 4 -->
+        <div class="product-item">
+          <img src="https://via.placeholder.com/300" alt="Простой свитер">
+          <h4>Простой свитер</h4>
+          <span>$70</span>
+        </div>
+      </div>
+      <button onclick="goBack()">Назад к коллекциям</button>
     </div>
-  </div>
+  </section>
 
   <!-- Секция "Контакты" -->
   <section id="contacts" class="section">
