@@ -27,7 +27,7 @@ body {
   text-align: center;
 
   /* Фон грозового неба */
-  background: url('https://bogatyr.club/uploads/posts/2023-01/1674804636_bogatyr-club-p-zvezdnoe-nebo-chernoe-fon-pinterest-1.jpg') no-repeat center center;
+  background: url('https://i.imgur.com/9QZKfEe.jpg') no-repeat center center;
   background-size: cover;
   position: relative;
 }
@@ -93,8 +93,15 @@ button:hover {
 
 /* Секция "Коллекции" */
 .collections-section {
-  padding: 40px 0;
+  padding: 80px 0 40px; /* Увеличиваем отступ сверху */
   background-color: #000; /* ЧИСТО-ЧЕРНЫЙ ФОН */
+  text-align: center; /* Центрируем текст */
+}
+
+/* Надпись "Наши коллекции" */
+#collections h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px; /* Отделяем надпись от карточек */
 }
 
 .collection-grid {
@@ -195,15 +202,21 @@ button:hover {
   display: none;
 }
 
-/* Секция "Контакты" */
+/* Блок "Свяжитесь с нами" в левый нижний угол */
+#contacts {
+  position: fixed; /* Фиксированное положение */
+  bottom: 20px; /* Отступ от нижнего края экрана */
+  left: 20px; /* Отступ от левого края экрана */
+}
+
 #contacts h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
 #contacts a {
   display: inline-block;
-  margin: 10px;
+  margin: 5px;
   padding: 10px 20px;
   background-color: #fff;
   color: #000;
@@ -239,11 +252,12 @@ button:hover {
     height: 300px;
   }
 
-  .collection-item-content h3 {
-    font-size: 1.6rem;
+  #contacts h2 {
+    font-size: 1.2rem;
   }
 
-  .collection-item-content p {
-    font-size: 1.1rem;
+  #contacts a {
+    font-size: 0.9rem;
+    padding: 8px 16px;
   }
 }
