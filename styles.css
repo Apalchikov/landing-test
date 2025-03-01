@@ -172,106 +172,8 @@ button:hover {
   color: #ffcc00; /* ЖЕЛТЫЙ ЦВЕТ ДЛЯ ЦЕН */
 }
 
-/* Корзина (всегда видна в правом нижнем углу) */
-.cart-preview {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  width: 200px;
-  z-index: 1000;
-}
-
-#cart-preview-toggle {
-  background-color: #ffcc00;
-  color: #000;
-  border: none;
-  padding: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  width: 100%;
-  transition: transform 0.3s ease-in-out;
-}
-
-#cart-preview-toggle:hover {
-  transform: scale(1.1);
-}
-
-#cart-preview-items {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0;
-  max-height: 100px;
-  overflow-y: auto;
-}
-
-#cart-preview-items li {
-  font-size: 1rem;
-  margin-bottom: 5px;
-}
-
-/* Модальное окно корзины */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1001;
-}
-
-.modal.hidden {
+.hidden {
   display: none;
-}
-
-.modal-content {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 600px;
-  text-align: center;
-}
-
-#cart-modal-items {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-#cart-modal-items li {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-#cart-modal-items button {
-  background-color: #ff3333; /* КРАСНЫЙ ЦВЕТ ДЛЯ КНОПКИ УДАЛЕНИЯ */
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: transform 0.3s ease-in-out;
-}
-
-#cart-modal-items button:hover {
-  transform: scale(1.1);
-}
-
-#cart-modal-total {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
 }
 
 /* Секция "Контакты" */
@@ -317,3 +219,10 @@ button:hover {
   }
 
   .collection-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .collection-item img {
+    height: 300px;
+  }
+}
