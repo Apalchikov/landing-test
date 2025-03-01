@@ -26,13 +26,12 @@ body {
   align-items: center;
   text-align: center;
 
-  /* Фон грозового неба */
-  background: url('https://i.imgur.com/9QZKfEe.jpg') no-repeat center center;
-  background-size: cover;
+  /* Чисто-черный фон */
+  background-color: #000;
   position: relative;
 }
 
-/* Затемнение фона для контраста */
+/* Убираем затемнение, так как фон уже черный */
 .hero-section::before {
   content: '';
   position: absolute;
@@ -40,7 +39,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Полупрозрачный черный фон */
+  background: none; /* Убираем фон */
   z-index: 1;
 }
 
@@ -95,13 +94,6 @@ button:hover {
 .collections-section {
   padding: 80px 0 40px; /* Увеличиваем отступ сверху */
   background-color: #000; /* ЧИСТО-ЧЕРНЫЙ ФОН */
-  text-align: center; /* Центрируем текст */
-}
-
-/* Надпись "Наши коллекции" */
-#collections h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px; /* Отделяем надпись от карточек */
 }
 
 .collection-grid {
@@ -202,7 +194,7 @@ button:hover {
   display: none;
 }
 
-/* Блок "Свяжитесь с нами" в левый нижний угол */
+/* Секция "Контакты" */
 #contacts {
   position: fixed; /* Фиксированное положение */
   bottom: 20px; /* Отступ от нижнего края экрана */
