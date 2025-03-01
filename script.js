@@ -1,162 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DYNASTY - Официальный сайт</title>
-  <link rel="stylesheet" href="styles.css">
-  <!-- Подключение шрифта Bebas Neue -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-</head>
-<body>
-  <!-- Главная секция -->
-  <header class="hero-section">
-    <div class="container">
-      <h1 class="logo">DYNASTY</h1>
-      <p class="slogan">Ваш стиль — ваша история.</p>
-      <p class="about-text">DYNASTY — это ваша свобода самовыражения через стиль. Каждый образ становится частью вашей уникальной истории с качественной одеждой, отражающей современные тренды и индивидуальность.</p>
-      <button onclick="scrollToSection('collections')">Просмотреть коллекции</button>
-    </div>
-  </header>
+// Переменная для хранения товаров в корзине
+let cart = [];
 
-  <!-- Секция "Коллекции" -->
-  <section id="collections" class="section collections-section">
-    <div class="container">
-      <h2>Наши коллекции</h2>
-      <div class="collection-grid">
-        <!-- Коллекция MINIMAL -->
-        <div class="collection-item" onclick="showMinimalShowcase()">
-          <img src="https://cdn.zenden.cloud/oeR8tNVmuRHmH_25FzuAnTVGysUaT0qU17nqj7Bfya8/resize:fit:1440:600:false:false:ce:0:0/aHR0cHM6Ly9iYWNrZW5kLnNhbGFtYW5kZXIucnUvdXBsb2FkL2libG9jay8wN2QvanEwaDlkMXM0NDk4dG14MjE2dDducGt2bDIwMm0yeGQucG5n.png" alt="MINIMAL Collection">
-          <div class="collection-item-content">
-            <h3>MINIMAL</h3>
-            <p>Минимализм в каждом детале.</p>
-          </div>
-        </div>
+// Функция для прокрутки к секции
+function scrollToSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 
-        <!-- Коллекция FIGHTER -->
-        <div class="collection-item" onclick="showFighterShowcase()">
-          <img src="https://img08.rl0.ru/afisha/e1200x800i/daily.afisha.ru/uploads/images/b/8a/b8a18c1b099ac560f5c1fc27618ed838.jpg" alt="FIGHTER Collection">
-          <div class="collection-item-content">
-            <h3>FIGHTER</h3>
-            <p>Сила и уверенность в каждом образе.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+// Функция для показа витрины MINIMAL
+function showMinimalShowcase() {
+  hideAllShowcases(); // Скрываем все витрины
+  const showcase = document.getElementById('minimal-showcase');
+  if (showcase) {
+    showcase.classList.remove('hidden'); // Показываем витрину MINIMAL
+  }
+}
 
-  <!-- Витрина коллекции MINIMAL -->
-  <section id="minimal-showcase" class="section showcase-section hidden">
-    <div class="container">
-      <h2>Коллекция MINIMAL</h2>
-      <p>Минимализм в каждой детали. Простота и элегантность.</p>
-      <div class="product-grid">
-        <!-- Товар 1 -->
-        <div class="product-item">
-          <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Белая рубашка">
-          <h4>Белая рубашка</h4>
-          <span>$60</span>
-          <button onclick="addToCart('Белая рубашка', 60)">Добавить в корзину</button>
-        </div>
+// Функция для показа витрины FIGHTER
+function showFighterShowcase() {
+  hideAllShowcases(); // Скрываем все витрины
+  const showcase = document.getElementById('fighter-showcase');
+  if (showcase) {
+    showcase.classList.remove('hidden'); // Показываем витрину FIGHTER
+  }
+}
 
-        <!-- Товар 2 -->
-        <div class="product-item">
-          <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Черные брюки">
-          <h4>Черные брюки</h4>
-          <span>$80</span>
-          <button onclick="addToCart('Черные брюки', 80)">Добавить в корзину</button>
-        </div>
+// Функция для скрытия всех витрин
+function hideAllShowcases() {
+  const showcases = document.querySelectorAll('.showcase-section');
+  showcases.forEach(showcase => {
+    showcase.classList.add('hidden');
+  });
+}
 
-        <!-- Товар 3 -->
-        <div class="product-item">
-          <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Классические туфли">
-          <h4>Классические туфли</h4>
-          <span>$120</span>
-          <button onclick="addToCart('Классические туфли', 120)">Добавить в корзину</button>
-        </div>
+// Функция для возврата к коллекциям
+function goBack() {
+  hideAllShowcases(); // Скрываем все витрины
+}
 
-        <!-- Товар 4 -->
-        <div class="product-item">
-          <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Простой свитер">
-          <h4>Простой свитер</h4>
-          <span>$70</span>
-          <button onclick="addToCart('Простой свитер', 70)">Добавить в корзину</button>
-        </div>
-      </div>
-      <button onclick="openCart()">Посмотреть корзину</button>
-      <button onclick="goBack()">Назад к коллекциям</button>
-    </div>
-  </section>
+// Функция для добавления товара в корзину
+function addToCart(itemName, price) {
+  cart.push({ name: itemName, price }); // Добавляем товар в корзину
+  updateCartPreview(); // Обновляем мини-корзину
+  updateCartModal(); // Обновляем модальное окно корзины
+}
 
-  <!-- Витрина коллекции FIGHTER -->
-  <section id="fighter-showcase" class="section showcase-section hidden">
-    <div class="container">
-      <h2>Коллекция FIGHTER</h2>
-      <p>Сила и уверенность в каждом образе. Агрессивный стиль для настоящих бойцов.</p>
-      <div class="product-grid">
-        <!-- Товар 1 -->
-        <div class="product-item">
-          <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Спортивный костюм">
-          <h4>Спортивный костюм</h4>
-          <span>$90</span>
-          <button onclick="addToCart('Спортивный костюм', 90)">Добавить в корзину</button>
-        </div>
+// Функция для обновления мини-корзины
+function updateCartPreview() {
+  const cartPreviewToggle = document.getElementById('cart-preview-toggle');
+  const cartPreviewItems = document.getElementById('cart-preview-items');
+  const total = cart.reduce((sum, item) => sum + item.price, 0); // Считаем общую сумму
 
-        <!-- Товар 2 -->
-        <div class="product-item">
-          <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Кроссовки">
-          <h4>Кроссовки</h4>
-          <span>$100</span>
-          <button onclick="addToCart('Кроссовки', 100)">Добавить в корзину</button>
-        </div>
+  // Обновляем текст кнопки мини-корзины
+  cartPreviewToggle.textContent = `Корзина ($${total})`;
 
-        <!-- Товар 3 -->
-        <div class="product-item">
-          <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Бейсболка">
-          <h4>Бейсболка</h4>
-          <span>$25</span>
-          <button onclick="addToCart('Бейсболка', 25)">Добавить в корзину</button>
-        </div>
+  // Очищаем список товаров в мини-корзине
+  cartPreviewItems.innerHTML = '';
 
-        <!-- Товар 4 -->
-        <div class="product-item">
-          <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Тренировочный жилет">
-          <h4>Тренировочный жилет</h4>
-          <span>$45</span>
-          <button onclick="addToCart('Тренировочный жилет', 45)">Добавить в корзину</button>
-        </div>
-      </div>
-      <button onclick="openCart()">Посмотреть корзину</button>
-      <button onclick="goBack()">Назад к коллекциям</button>
-    </div>
-  </section>
+  // Добавляем каждый товар в мини-корзину
+  if (cart.length > 0) {
+    cart.forEach(item => {
+      const listItem = document.createElement('li');
+      listItem.textContent = `${item.name} - $${item.price}`;
+      cartPreviewItems.appendChild(listItem);
+    });
+  } else {
+    cartPreviewItems.innerHTML = '<li>Корзина пуста</li>';
+  }
+}
 
-  <!-- Корзина (всегда видна в правом нижнем углу) -->
-  <div id="cart-preview" class="cart-preview">
-    <button id="cart-preview-toggle" onclick="toggleCartPreview()">Корзина ($0)</button>
-    <ul id="cart-preview-items"></ul>
-  </div>
+// Функция для открытия/закрытия мини-корзины
+function toggleCartPreview() {
+  const cartPreview = document.getElementById('cart-preview');
+  if (cartPreview) {
+    cartPreview.classList.toggle('expanded'); // Переключаем класс expanded
+  }
+}
 
-  <!-- Модальное окно корзины -->
-  <section id="cart-modal" class="modal hidden">
-    <div class="modal-content">
-      <h2>Корзина</h2>
-      <ul id="cart-modal-items"></ul>
-      <p id="cart-modal-total">Общая сумма: $0</p>
-      <button onclick="clearCart()">Очистить корзину</button>
-      <button onclick="closeCart()">Закрыть</button>
-    </div>
-  </section>
+// Функция для открытия модального окна корзины
+function openCart() {
+  const cartModal = document.getElementById('cart-modal');
+  if (cartModal) {
+    cartModal.classList.remove('hidden'); // Показываем модальное окно
+  }
+}
 
-  <!-- Секция "Контакты" -->
-  <section id="contacts" class="section">
-    <div class="container">
-      <h2>Свяжитесь с нами</h2>
-      <p>Напишите нам в Telegram:</p>
-      <a href="https://t.me/dynastybrand" target="_blank">Telegram</a>
-    </div>
-  </section>
+// Функция для закрытия модального окна корзины
+function closeCart() {
+  const cartModal = document.getElementById('cart-modal');
+  if (cartModal) {
+    cartModal.classList.add('hidden'); // Скрываем модальное окно
+  }
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+// Функция для обновления модального окна корзины
+function updateCartModal() {
+  const cartModalItems = document.getElementById('cart-modal-items');
+  const cartModalTotal = document.getElementById('cart-modal-total');
+
+  // Очищаем список товаров в модальном окне
+  cartModalItems.innerHTML = '';
+
+  let total = 0;
+
+  // Добавляем каждый товар в модальное окно
+  if (cart.length > 0) {
+    cart.forEach((item, index) => {
+      const listItem = document.createElement('li');
+      listItem.innerHTML = `
+        ${item.name} - $${item.price} 
+        <button onclick="removeFromCart(${index})">Удалить</button>
+      `;
+      cartModalItems.appendChild(listItem);
+
+      total += item.price; // Считаем общую сумму
+    });
+  } else {
+    cartModalItems.innerHTML = '<li>Корзина пуста</li>';
+  }
+
+  // Обновляем общую сумму
+  cartModalTotal.textContent = `Общая сумма: $${total}`;
+}
+
+// Функция для удаления товара из корзины
+function removeFromCart(index) {
+  cart.splice(index, 1); // Удаляем товар по индексу
+  updateCartPreview(); // Обновляем мини-корзину
+  updateCartModal(); // Обновляем модальное окно корзины
+}
+
+// Функция для очистки корзины
+function clearCart() {
+  cart = []; // Очищаем массив корзины
+  updateCartPreview(); // Обновляем мини-корзину
+  updateCartModal(); // Обновляем модальное окно корзины
+}
