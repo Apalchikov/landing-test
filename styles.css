@@ -172,42 +172,90 @@ button:hover {
   color: #ffcc00; /* ЖЕЛТЫЙ ЦВЕТ ДЛЯ ЦЕН */
 }
 
-.hidden {
-  display: none;
-}
-
-/* Секция "Контакты" */
-#contacts {
-  position: fixed; /* Фиксированное положение */
-  bottom: 20px; /* Отступ от нижнего края */
-  left: 20px; /* Отступ от левого края */
-  color: #fff;
-}
-
-#contacts h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-#contacts a {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #fff;
+/* Кнопка "Добавить в корзину" */
+.product-item button {
+  background-color: #ffcc00; /* ЖЕЛТЫЙ ЦВЕТ КНОПКИ */
   color: #000;
-  text-decoration: none;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
   border-radius: 5px;
   transition: transform 0.3s ease-in-out;
 }
 
-#contacts a:hover {
+.product-item button:hover {
   transform: scale(1.1);
 }
 
-/* Кнопка корзины (в правом нижнем углу) */
+/* Модальное окно корзины (на весь экран) */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+}
+
+#cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+#cart-items li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#cart-items button {
+  background-color: #ff3333; /* КРАСНЫЙ ЦВЕТ КНОПКИ "Удалить" */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+#cart-items button:hover {
+  transform: scale(1.1);
+}
+
+#cart-total {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Кнопка корзины в правом нижнем углу */
 .cart-button {
-  position: fixed; /* Фиксированное положение */
-  bottom: 20px; /* Отступ от нижнего края */
-  right: 20px; /* Отступ от правого края */
+  position: fixed;
+  bottom: 40px; /* Поднимаем кнопку выше */
+  right: 20px;
   background-color: #ffcc00; /* ЖЕЛТЫЙ ЦВЕТ КНОПКИ */
   color: #000;
   border: none;
@@ -215,12 +263,38 @@ button:hover {
   font-size: 1rem;
   cursor: pointer;
   border-radius: 5px;
-  z-index: 1000; /* Помещаем кнопку поверх других элементов */
+  z-index: 1000;
   transition: transform 0.3s ease-in-out;
 }
 
 .cart-button:hover {
-  transform: scale(1.1); /* Эффект увеличения при наведении */
+  transform: scale(1.1);
+}
+
+/* Кнопка "Назад к коллекциям" ниже витрины */
+.back-to-collections {
+  margin-top: 40px; /* Отделяем кнопку от витрины */
+}
+
+/* Уведомление о добавлении товара */
+.toast-message {
+  position: fixed;
+  bottom: 80px; /* Располагаем уведомление выше кнопки Telegram */
+  right: 20px;
+  background-color: #ffcc00; /* ЖЕЛТЫЙ ЦВЕТ УВЕДОМЛЕНИЯ */
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  z-index: 1001;
+  opacity: 0; /* Сначала скрываем уведомление */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateY(20px); /* Начальная позиция ниже экрана */
+}
+
+.toast-message.active {
+  opacity: 1; /* Показываем уведомление */
+  transform: translateY(0); /* Поднимаем его на место */
 }
 
 /* Адаптивность */
@@ -246,16 +320,8 @@ button:hover {
     height: 300px;
   }
 
-  #contacts h2 {
-    font-size: 1.2rem;
-  }
-
-  #contacts a {
-    font-size: 0.9rem;
-    padding: 8px 16px;
-  }
-
   .cart-button {
+    bottom: 30px; /* На мобильных немного ниже */
     font-size: 0.9rem;
     padding: 8px 16px;
   }
