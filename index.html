@@ -56,6 +56,7 @@
           <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Белая рубашка">
           <h4>Белая рубашка</h4>
           <span>$60</span>
+          <button onclick="addToCart('Белая рубашка', 60)">Добавить в корзину</button>
         </div>
 
         <!-- Товар 2 -->
@@ -63,6 +64,7 @@
           <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Черные брюки">
           <h4>Черные брюки</h4>
           <span>$80</span>
+          <button onclick="addToCart('Черные брюки', 80)">Добавить в корзину</button>
         </div>
 
         <!-- Товар 3 -->
@@ -70,6 +72,7 @@
           <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Классические туфли">
           <h4>Классические туфли</h4>
           <span>$120</span>
+          <button onclick="addToCart('Классические туфли', 120)">Добавить в корзину</button>
         </div>
 
         <!-- Товар 4 -->
@@ -77,8 +80,10 @@
           <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Простой свитер">
           <h4>Простой свитер</h4>
           <span>$70</span>
+          <button onclick="addToCart('Простой свитер', 70)">Добавить в корзину</button>
         </div>
       </div>
+      <button onclick="openCart()">Посмотреть корзину</button>
       <button onclick="goBack()">Назад к коллекциям</button>
     </div>
   </section>
@@ -94,6 +99,7 @@
           <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Спортивный костюм">
           <h4>Спортивный костюм</h4>
           <span>$90</span>
+          <button onclick="addToCart('Спортивный костюм', 90)">Добавить в корзину</button>
         </div>
 
         <!-- Товар 2 -->
@@ -101,6 +107,7 @@
           <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Кроссовки">
           <h4>Кроссовки</h4>
           <span>$100</span>
+          <button onclick="addToCart('Кроссовки', 100)">Добавить в корзину</button>
         </div>
 
         <!-- Товар 3 -->
@@ -108,6 +115,7 @@
           <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Бейсболка">
           <h4>Бейсболка</h4>
           <span>$25</span>
+          <button onclick="addToCart('Бейсболка', 25)">Добавить в корзину</button>
         </div>
 
         <!-- Товар 4 -->
@@ -115,9 +123,21 @@
           <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Тренировочный жилет">
           <h4>Тренировочный жилет</h4>
           <span>$45</span>
+          <button onclick="addToCart('Тренировочный жилет', 45)">Добавить в корзину</button>
         </div>
       </div>
+      <button onclick="openCart()">Посмотреть корзину</button>
       <button onclick="goBack()">Назад к коллекциям</button>
+    </div>
+  </section>
+
+  <!-- Модальное окно корзины -->
+  <section id="cart-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Корзина</h2>
+      <ul id="cart-items"></ul>
+      <p id="total-price">Общая сумма: $0</p>
+      <button onclick="closeCart()">Закрыть</button>
     </div>
   </section>
 
