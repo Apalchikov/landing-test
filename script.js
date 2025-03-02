@@ -12,15 +12,15 @@ function scrollToSection(sectionId) {
 }
 
 // Функция для показа витрины MINIMAL
-function showMinimalShowcase() {
+function showMinimalShowcase(gender) {
   hideAllShowcases();
-  const showcase = document.getElementById('minimal-showcase');
+  const showcase = document.getElementById(`minimal-${gender}`);
   if (showcase) {
     showcase.classList.remove('hidden');
   }
 }
 
-// Функция для показа витрины FIGHTER
+// Функция для показа витрины FIGHTER (без изменений)
 function showFighterShowcase() {
   hideAllShowcases();
   const showcase = document.getElementById('fighter-showcase');
@@ -73,9 +73,9 @@ function removeFromCart(id) {
 // Данные товаров с несколькими фото
 const products = {
   1: {
-    name: "Белая рубашка",
+    name: "Белая рубашка (Ж)",
     price: 60,
-    description: "Классическая белая рубашка из 100% хлопка. Идеальна для минималистичного стиля.",
+    description: "Классическая белая рубашка из 100% хлопка для женщин. Идеальна для минималистичного стиля.",
     material: "100% хлопок",
     features: "Прямой крой, дышащая ткань",
     images: [
@@ -85,39 +85,15 @@ const products = {
     ]
   },
   2: {
-    name: "Черные брюки",
+    name: "Черные брюки (М)",
     price: 80,
-    description: "Стильные черные брюки с прямым кроем. Комфорт и элегантность в одном.",
+    description: "Стильные черные брюки с прямым кроем для мужчин. Комфорт и элегантность в одном.",
     material: "Хлопок, полиэстер",
     features: "Устойчивость к износу, удобная посадка",
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
       "https://via.placeholder.com/600x600.png?text=Black+Pants+2",
       "https://via.placeholder.com/600x600.png?text=Black+Pants+3"
-    ]
-  },
-  3: {
-    name: "Классические туфли",
-    price: 120,
-    description: "Кожаные туфли для любого случая. Сдержанный стиль и долговечность.",
-    material: "Натуральная кожа",
-    features: "Прочная подошва, классический дизайн",
-    images: [
-      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
-      "https://via.placeholder.com/600x600.png?text=Shoes+2",
-      "https://via.placeholder.com/600x600.png?text=Shoes+3"
-    ]
-  },
-  4: {
-    name: "Простой свитер",
-    price: 70,
-    description: "Мягкий свитер из шерсти. Тепло и уют в минималистичном дизайне.",
-    material: "Шерсть, акрил",
-    features: "Теплый, мягкий на ощупь",
-    images: [
-      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
-      "https://via.placeholder.com/600x600.png?text=Sweater+2",
-      "https://via.placeholder.com/600x600.png?text=Sweater+3"
     ]
   },
   5: {
