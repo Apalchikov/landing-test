@@ -38,7 +38,13 @@
       <h2>Наши коллекции</h2>
       <div class="collection-grid">
         <!-- Коллекция MINIMAL -->
-        <div class="collection-item" onclick="showMinimalShowcase()">
+        <div class="collection-item">
+          <div class="collection-half left" onclick="showMinimalShowcase('female')">
+            <span class="hover-text">Для нее</span>
+          </div>
+          <div class="collection-half right" onclick="showMinimalShowcase('male')">
+            <span class="hover-text">Для него</span>
+          </div>
           <img src="https://cdn.zenden.cloud/oeR8tNVmuRHmH_25FzuAnTVGysUaT0qU17nqj7Bfya8/resize:fit:1440:600:false:false:ce:0:0/aHR0cHM6Ly9iYWNrZW5kLnNhbGFtYW5kZXIucnUvdXBsb2FkL2libG9jay8wN2QvanEwaDlkMXM0NDk4dG14MjE2dDducGt2bDIwMm0yeGQucG5n.png" alt="MINIMAL Collection">
           <div class="collection-item-content">
             <h3>MINIMAL</h3>
@@ -46,7 +52,7 @@
           </div>
         </div>
 
-        <!-- Коллекция FIGHTER -->
+        <!-- Коллекция FIGHTER (без изменений) -->
         <div class="collection-item" onclick="showFighterShowcase()">
           <img src="https://img08.rl0.ru/afisha/e1200x800i/daily.afisha.ru/uploads/images/b/8a/b8a18c1b099ac560f5c1fc27618ed838.jpg" alt="FIGHTER Collection">
           <div class="collection-item-content">
@@ -58,65 +64,23 @@
     </div>
   </section>
 
-  <!-- Витрина коллекции MINIMAL -->
-  <section id="minimal-showcase" class="section showcase-section hidden">
+  <!-- Витрина коллекции MINIMAL (женская) -->
+  <section id="minimal-female" class="section showcase-section hidden">
     <div class="container">
-      <h2>Коллекция MINIMAL</h2>
-      <p>Минимализм в каждой детали. Простота и элегантность.</p>
+      <h2>Коллекция MINIMAL - Для нее</h2>
+      <p>Минимализм в каждой детали. Простота и элегантность для женщин.</p>
       <div class="product-grid">
         <!-- Товар 1 -->
         <div class="product-row" onclick="openProductModal(1)">
-          <div class="product-item" data-id="1" data-name="Белая рубашка" data-price="60">
-            <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Белая рубашка">
+          <div class="product-item" data-id="1" data-name="Белая рубашка (Ж)" data-price="60">
+            <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Белая рубашка (Ж)">
             <div class="product-info">
-              <h4>Белая рубашка</h4>
+              <h4>Белая рубашка (Ж)</h4>
               <span class="price">$60</span>
             </div>
           </div>
           <div class="product-description">
-            <p>Классическая белая рубашка из 100% хлопка. Идеальна для минималистичного стиля.</p>
-          </div>
-        </div>
-
-        <!-- Товар 2 -->
-        <div class="product-row" onclick="openProductModal(2)">
-          <div class="product-item" data-id="2" data-name="Черные брюки" data-price="80">
-            <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Черные брюки">
-            <div class="product-info">
-              <h4>Черные брюки</h4>
-              <span class="price">$80</span>
-            </div>
-          </div>
-          <div class="product-description">
-            <p>Стильные черные брюки с прямым кроем. Комфорт и элегантность в одном.</p>
-          </div>
-        </div>
-
-        <!-- Товар 3 -->
-        <div class="product-row" onclick="openProductModal(3)">
-          <div class="product-item" data-id="3" data-name="Классические туфли" data-price="120">
-            <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Классические туфли">
-            <div class="product-info">
-              <h4>Классические туфли</h4>
-              <span class="price">$120</span>
-            </div>
-          </div>
-          <div class="product-description">
-            <p>Кожаные туфли для любого случая. Сдержанный стиль и долговечность.</p>
-          </div>
-        </div>
-
-        <!-- Товар 4 -->
-        <div class="product-row" onclick="openProductModal(4)">
-          <div class="product-item" data-id="4" data-name="Простой свитер" data-price="70">
-            <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Простой свитер">
-            <div class="product-info">
-              <h4>Простой свитер</h4>
-              <span class="price">$70</span>
-            </div>
-          </div>
-          <div class="product-description">
-            <p>Мягкий свитер из шерсти. Тепло и уют в минималистичном дизайне.</p>
+            <p>Легкая рубашка для стильных женщин.</p>
           </div>
         </div>
       </div>
@@ -124,11 +88,35 @@
     </div>
   </section>
 
-  <!-- Витрина коллекции FIGHTER -->
+  <!-- Витрина коллекции MINIMAL (мужская) -->
+  <section id="minimal-male" class="section showcase-section hidden">
+    <div class="container">
+      <h2>Коллекция MINIMAL - Для него</h2>
+      <p>Минимализм в каждой детали. Простота и элегантность для мужчин.</p>
+      <div class="product-grid">
+        <!-- Товар 2 -->
+        <div class="product-row" onclick="openProductModal(2)">
+          <div class="product-item" data-id="2" data-name="Черные брюки (М)" data-price="80">
+            <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Черные брюки (М)">
+            <div class="product-info">
+              <h4>Черные брюки (М)</h4>
+              <span class="price">$80</span>
+            </div>
+          </div>
+          <div class="product-description">
+            <p>Стильные брюки для уверенных мужчин.</p>
+          </div>
+        </div>
+      </div>
+      <button onclick="goBack()">Назад к коллекциям</button>
+    </div>
+  </section>
+
+  <!-- Витрина коллекции FIGHTER (без разделения) -->
   <section id="fighter-showcase" class="section showcase-section hidden">
     <div class="container">
       <h2>Коллекция FIGHTER</h2>
-      <p>Сила и уверенность в каждом образе. Агрессивный стиль для настоящих бойцов.</p>
+      <p>Сила и уверенность в каждом образе.</p>
       <div class="product-grid">
         <!-- Товар 1 -->
         <div class="product-row" onclick="openProductModal(5)">
