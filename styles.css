@@ -75,12 +75,52 @@ body {
   text-transform: uppercase;
   margin: 0;
   color: #fff;
+  display: flex;
 }
+
+.logo .letter {
+  opacity: 0;
+  animation: fadeInLetter 0.3s forwards;
+}
+
+@keyframes fadeInLetter {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Задержка появления для каждой буквы */
+.logo .letter:nth-child(1) { animation-delay: 0.1s; }
+.logo .letter:nth-child(2) { animation-delay: 0.2s; }
+.logo .letter:nth-child(3) { animation-delay: 0.3s; }
+.logo .letter:nth-child(4) { animation-delay: 0.4s; }
+.logo .letter:nth-child(5) { animation-delay: 0.5s; }
+.logo .letter:nth-child(6) { animation-delay: 0.6s; }
+.logo .letter:nth-child(7) { animation-delay: 0.7s; }
 
 .slogan {
   font-size: 1.5rem;
   margin-bottom: 10px;
   color: #fff;
+  opacity: 0;
+  animation: fadeInSlogan 1s ease forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeInSlogan {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .about-text {
@@ -571,5 +611,9 @@ button:hover {
   .cart-item img {
     width: 40px;
     height: 40px;
+  }
+
+  .logo .letter {
+    font-size: 4rem;
   }
 }
