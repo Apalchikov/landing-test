@@ -8,19 +8,19 @@ function scrollToSection(sectionId) {
 
 // Функция для показа витрины MINIMAL
 function showMinimalShowcase() {
-  hideAllShowcases(); // Скрываем все витрины
+  hideAllShowcases();
   const showcase = document.getElementById('minimal-showcase');
   if (showcase) {
-    showcase.classList.remove('hidden'); // Показываем витрину MINIMAL
+    showcase.classList.remove('hidden');
   }
 }
 
 // Функция для показа витрины FIGHTER
 function showFighterShowcase() {
-  hideAllShowcases(); // Скрываем все витрины
+  hideAllShowcases();
   const showcase = document.getElementById('fighter-showcase');
   if (showcase) {
-    showcase.classList.remove('hidden'); // Показываем витрину FIGHTER
+    showcase.classList.remove('hidden');
   }
 }
 
@@ -34,5 +34,51 @@ function hideAllShowcases() {
 
 // Функция для возврата к коллекциям
 function goBack() {
-  hideAllShowcases(); // Скрываем все витрины
+  hideAllShowcases();
 }
+
+// Корзина
+let cart = [];
+
+function updateCart() {
+  const cartItems = document.getElementById('cart-items');
+  cartItems.innerHTML = '';
+  cart.forEach(item => {
+    const cartItem = document.createElement('div');
+    cartItem.classList.add('cart-item');
+    cartItem.innerHTML = `
+      <span>${item.name} - $${item.price}</span>
+      <button onclick="removeFromCart(${item.id})">Удалить</button>
+    `;
+    cartItems.appendChild(cartItem);
+  });
+}
+
+function addToCart(id, name, price) {
+  cart.push({ id, name, price });
+  updateCart();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  updateCart();
+}
+
+// Обработчики событий
+document.querySelectorAll('.add-to-cart').forEach(button => {
+  button.addEventListener('click', () => {
+    const product = button.parentElement;
+    const id = parseInt(product.dataset.id);
+    const name = product.dataset.name;
+    const price = parseInt(product.dataset.price);
+    addToCart(id, name, price);
+  });
+});
+
+document.getElementById('cart-button').addEventListener('click', () => {
+  document.getElementById('cart-modal').classList.remove('hidden');
+});
+
+document.getElementById('close-cart').addEventListener('click', () => {
+  document.getElementById('cart-modal').classList.add('hidden');
+});
