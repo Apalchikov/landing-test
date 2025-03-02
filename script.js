@@ -67,7 +67,7 @@ function removeFromCart(id) {
 // Обработчики событий
 document.querySelectorAll('.add-to-cart').forEach(button => {
   button.addEventListener('click', () => {
-    const product = button.parentElement.parentElement; // Изменено из-за новой структуры
+    const product = button.parentElement.parentElement;
     const id = parseInt(product.dataset.id);
     const name = product.dataset.name;
     const price = parseInt(product.dataset.price);
