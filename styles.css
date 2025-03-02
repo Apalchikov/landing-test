@@ -172,8 +172,8 @@ button:hover {
   color: #ffcc00; /* ЖЕЛТЫЙ ЦВЕТ ДЛЯ ЦЕН */
 }
 
-.hidden {
-  display: none;
+.product-item .add-to-cart {
+  margin: 10px 0;
 }
 
 /* Секция "Контакты" */
@@ -203,24 +203,79 @@ button:hover {
   transform: scale(1.1);
 }
 
-/* Кнопка корзины (в правом нижнем углу) */
+/* Кнопка корзины */
 .cart-button {
-  position: fixed; /* Фиксированное положение */
-  bottom: 20px; /* Отступ от нижнего края */
-  right: 20px; /* Отступ от правого края */
-  background-color: #ffcc00; /* ЖЕЛТЫЙ ЦВЕТ КНОПКИ */
-  color: #000;
+  position: fixed;
+  bottom: 60px; /* Подняли выше */
+  right: 20px;
+  background-color: #fff; /* Белый фон */
+  color: #000; /* Черный текст */
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
   border-radius: 5px;
-  z-index: 1000; /* Помещаем кнопку поверх других элементов */
+  z-index: 1000;
   transition: transform 0.3s ease-in-out;
 }
 
 .cart-button:hover {
-  transform: scale(1.1); /* Эффект увеличения при наведении */
+  transform: scale(1.1);
+}
+
+/* Модальное окно корзины */
+.cart-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.cart-content {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.cart-content h2 {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+#cart-items {
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #555;
+}
+
+.cart-item span {
+  color: #fff;
+}
+
+.cart-item button {
+  background-color: #ff4444;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.hidden {
+  display: none;
 }
 
 /* Адаптивность */
