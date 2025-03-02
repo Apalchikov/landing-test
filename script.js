@@ -4,7 +4,6 @@ function scrollToSection(sectionId) {
   if (section) {
     section.classList.remove('hidden');
     section.scrollIntoView({ behavior: 'smooth' });
-    // Скрываем другие секции
     document.querySelectorAll('.section:not(#' + sectionId + ')').forEach(sec => {
       sec.classList.add('hidden');
     });
@@ -184,14 +183,16 @@ document.getElementById('close-product-modal').addEventListener('click', () => {
   document.getElementById('product-modal').classList.add('hidden');
 });
 
-// Открытие корзины
+// Открытие/закрытие корзины
+const cartModal = document.getElementById('cart-modal');
 document.getElementById('cart-button').addEventListener('click', () => {
-  document.getElementById('cart-modal').classList.remove('hidden');
+  cartModal.classList.toggle('open');
+  cartModal.classList.remove('hidden'); // Убираем visibility для анимации
 });
 
-// Закрытие корзины крестиком
 document.getElementById('close-cart').addEventListener('click', () => {
-  document.getElementById('cart-modal').classList.add('hidden');
+  cartModal.classList.remove('open');
+  setTimeout(() => cartModal.classList.add('hidden'), 500); // Задержка для анимации
 });
 
 // Пока заглушка для "Оформить заказ"
