@@ -2,7 +2,12 @@
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
   if (section) {
+    section.classList.remove('hidden');
     section.scrollIntoView({ behavior: 'smooth' });
+    // Скрываем другие секции
+    document.querySelectorAll('.section:not(#' + sectionId + ')').forEach(sec => {
+      sec.classList.add('hidden');
+    });
   }
 }
 
@@ -35,6 +40,7 @@ function hideAllShowcases() {
 // Функция для возврата к коллекциям
 function goBack() {
   hideAllShowcases();
+  scrollToSection('collections');
 }
 
 // Корзина
