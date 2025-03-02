@@ -47,15 +47,15 @@ function updateCart() {
     const cartItem = document.createElement('div');
     cartItem.classList.add('cart-item');
     cartItem.innerHTML = `
-      <span>${item.name} - $${item.price}</span>
+      <span>${item.name} - $${item.price} (${item.size})</span>
       <button onclick="removeFromCart(${item.id})">Удалить</button>
     `;
     cartItems.appendChild(cartItem);
   });
 }
 
-function addToCart(id, name, price) {
-  cart.push({ id, name, price });
+function addToCart(id, name, price, size) {
+  cart.push({ id, name, price, size });
   updateCart();
 }
 
@@ -64,14 +64,15 @@ function removeFromCart(id) {
   updateCart();
 }
 
-// Обработчики событий
+// Обработчики событий для добавления в корзину
 document.querySelectorAll('.add-to-cart').forEach(button => {
   button.addEventListener('click', () => {
     const product = button.parentElement.parentElement;
     const id = parseInt(product.dataset.id);
     const name = product.dataset.name;
     const price = parseInt(product.dataset.price);
-    addToCart(id, name, price);
+    const size = product.nextElementSibling.querySelector('.size-select').value; // Получаем выбранный размер
+    addToCart(id, name, price, size);
   });
 });
 
