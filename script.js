@@ -186,13 +186,17 @@ document.getElementById('close-product-modal').addEventListener('click', () => {
 // Открытие/закрытие корзины
 const cartModal = document.getElementById('cart-modal');
 document.getElementById('cart-button').addEventListener('click', () => {
-  cartModal.classList.toggle('open');
-  cartModal.classList.remove('hidden'); // Убираем visibility для анимации
+  if (cartModal.classList.contains('open')) {
+    cartModal.classList.remove('open');
+  } else {
+    cartModal.classList.remove('hidden'); // Убираем visibility: hidden
+    setTimeout(() => cartModal.classList.add('open'), 10); // Небольшая задержка для анимации
+  }
 });
 
 document.getElementById('close-cart').addEventListener('click', () => {
   cartModal.classList.remove('open');
-  setTimeout(() => cartModal.classList.add('hidden'), 500); // Задержка для анимации
+  setTimeout(() => cartModal.classList.add('hidden'), 500); // Задержка для завершения анимации
 });
 
 // Пока заглушка для "Оформить заказ"
