@@ -55,15 +55,16 @@ button {
   background-color: #fff;
   color: #000;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 1rem;
   cursor: pointer;
   border-radius: 5px;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, background-color 0.3s;
 }
 
 button:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  background-color: #e0e0e0;
 }
 
 /* Секция "Коллекции" */
@@ -135,44 +136,57 @@ button:hover {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Увеличил ширину карточек */
+  gap: 30px;
   margin-top: 20px;
 }
 
 .product-item {
   text-align: center;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .product-item:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px); /* Поднимается вверх при наведении */
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* Легкая тень */
 }
 
 .product-item img {
   width: 100%;
-  height: 200px;
+  height: 300px; /* Увеличил высоту картинки */
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px 10px 0 0;
+}
+
+.product-info {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05); /* Легкий белый оттенок для контраста */
+  border-radius: 0 0 10px 10px;
 }
 
 .product-item h4 {
-  font-size: 1.2rem;
+  font-family: 'Bebas Neue', cursive; /* Тот же шрифт, что у логотипа */
+  font-size: 1.5rem;
   margin: 10px 0;
   color: #fff;
+  text-transform: uppercase;
 }
 
 .product-item .price {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  color: #fff; /* Белый цвет вместо желтого */
-  margin: 5px 0;
+  color: #fff;
+  margin: 10px 0;
   display: block;
 }
 
 .product-item .add-to-cart {
   margin: 10px 0;
+  font-family: 'Arial', sans-serif;
 }
 
 /* Секция "Контакты" */
