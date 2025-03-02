@@ -75,12 +75,12 @@ body {
   text-transform: uppercase;
   margin: 0;
   color: #fff;
-  display: flex;
 }
 
 .logo .letter {
+  display: inline-block; /* Убрал flex, чтобы не ломать центровку */
   opacity: 0;
-  animation: fadeInLetter 0.3s forwards;
+  animation: fadeInLetter 0.6s forwards; /* Увеличил длительность до 0.6s */
 }
 
 @keyframes fadeInLetter {
@@ -95,13 +95,13 @@ body {
 }
 
 /* Задержка появления для каждой буквы */
-.logo .letter:nth-child(1) { animation-delay: 0.1s; }
-.logo .letter:nth-child(2) { animation-delay: 0.2s; }
-.logo .letter:nth-child(3) { animation-delay: 0.3s; }
-.logo .letter:nth-child(4) { animation-delay: 0.4s; }
-.logo .letter:nth-child(5) { animation-delay: 0.5s; }
-.logo .letter:nth-child(6) { animation-delay: 0.6s; }
-.logo .letter:nth-child(7) { animation-delay: 0.7s; }
+.logo .letter:nth-child(1) { animation-delay: 0.2s; } /* Увеличил задержки */
+.logo .letter:nth-child(2) { animation-delay: 0.4s; }
+.logo .letter:nth-child(3) { animation-delay: 0.6s; }
+.logo .letter:nth-child(4) { animation-delay: 0.8s; }
+.logo .letter:nth-child(5) { animation-delay: 1.0s; }
+.logo .letter:nth-child(6) { animation-delay: 1.2s; }
+.logo .letter:nth-child(7) { animation-delay: 1.4s; }
 
 .slogan {
   font-size: 1.5rem;
@@ -109,7 +109,7 @@ body {
   color: #fff;
   opacity: 0;
   animation: fadeInSlogan 1s ease forwards;
-  animation-delay: 0.8s;
+  animation-delay: 1.6s; /* Сдвинул задержку под новые тайминги букв */
 }
 
 @keyframes fadeInSlogan {
@@ -188,7 +188,7 @@ button:hover {
 }
 
 .collection-item:hover img {
-  opacity: 0.5; /* Затемнение при наведении только для Minimal */
+  opacity: 0.5;
 }
 
 .collection-half {
@@ -611,9 +611,5 @@ button:hover {
   .cart-item img {
     width: 40px;
     height: 40px;
-  }
-
-  .logo .letter {
-    font-size: 4rem;
   }
 }
