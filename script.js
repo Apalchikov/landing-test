@@ -20,7 +20,7 @@ function showMinimalShowcase(gender) {
   }
 }
 
-// Функция для показа витрины FIGHTER (без изменений)
+// Функция для показа витрины FIGHTER
 function showFighterShowcase() {
   hideAllShowcases();
   const showcase = document.getElementById('fighter-showcase');
@@ -53,6 +53,7 @@ function updateCart() {
     const cartItem = document.createElement('div');
     cartItem.classList.add('cart-item');
     cartItem.innerHTML = `
+      <img src="${products[item.id].images[0]}" alt="${item.name}">
       <span>${item.name} - $${item.price} (${item.size})</span>
       <button onclick="removeFromCart(${item.id})">Удалить</button>
     `;
@@ -178,7 +179,7 @@ function openProductModal(id) {
   };
 }
 
-// Закрытие модального окна
+// Закрытие модального окна товара
 document.getElementById('close-product-modal').addEventListener('click', () => {
   document.getElementById('product-modal').classList.add('hidden');
 });
@@ -188,7 +189,12 @@ document.getElementById('cart-button').addEventListener('click', () => {
   document.getElementById('cart-modal').classList.remove('hidden');
 });
 
-// Закрытие корзины
+// Закрытие корзины крестиком
 document.getElementById('close-cart').addEventListener('click', () => {
   document.getElementById('cart-modal').classList.add('hidden');
+});
+
+// Пока заглушка для "Оформить заказ"
+document.getElementById('checkout').addEventListener('click', () => {
+  alert('Функция оформления заказа пока в разработке!');
 });
