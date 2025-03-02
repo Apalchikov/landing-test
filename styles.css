@@ -144,7 +144,7 @@ button:hover {
 
 .product-row {
   display: flex;
-  align-items: flex-start; /* Поднимаем описание наверх */
+  align-items: flex-start;
   width: 100%;
   gap: 20px;
   cursor: pointer;
@@ -178,11 +178,12 @@ button:hover {
 }
 
 .product-item h4 {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 1.5rem;
+  font-family: 'Anton', sans-serif; /* Более агрессивный шрифт */
+  font-size: 1.8rem; /* Увеличил размер для большей брутальности */
   margin: 5px 0;
   color: #fff;
   text-transform: uppercase;
+  letter-spacing: 0.1em; /* Добавил разрядку */
 }
 
 .product-item .price {
@@ -309,7 +310,7 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.95); /* Темнее для полноэкранности */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -318,34 +319,40 @@ button:hover {
 
 .product-modal-content {
   background-color: #222;
-  padding: 20px;
+  padding: 40px;
   border-radius: 10px;
-  width: 800px;
-  max-height: 90vh;
-  overflow-y: auto;
+  width: 100vw; /* Полная ширина */
+  height: 100vh; /* Полная высота */
   display: flex;
-  gap: 20px;
+  gap: 40px;
   position: relative;
+  overflow-y: auto; /* Скролл, если контента много */
 }
 
 .close-modal {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 2rem;
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  font-size: 3rem;
   color: #fff;
   cursor: pointer;
+  z-index: 2100;
 }
 
 .modal-gallery {
   flex: 1;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #modal-image {
   width: 100%;
-  height: 500px;
-  object-fit: cover;
+  max-width: 800px; /* Ограничил максимальную ширину */
+  height: auto;
+  max-height: 80vh; /* Ограничил высоту */
+  object-fit: contain; /* Сохраняем пропорции */
   border-radius: 10px;
 }
 
@@ -356,51 +363,54 @@ button:hover {
   background-color: rgba(255, 255, 255, 0.8);
   color: #000;
   border: none;
-  padding: 10px;
-  font-size: 1.5rem;
+  padding: 15px;
+  font-size: 2rem;
   cursor: pointer;
   border-radius: 5px;
 }
 
 #prev-image {
-  left: 10px;
+  left: 20px;
 }
 
 #next-image {
-  right: 10px;
+  right: 20px;
 }
 
 .modal-details {
   flex: 1;
   text-align: left;
+  padding: 20px;
 }
 
 .modal-details h2 {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-family: 'Anton', sans-serif; /* Агрессивный шрифт для заголовка */
+  font-size: 3rem; /* Увеличил для брутальности */
+  margin-bottom: 20px;
   color: #fff;
+  letter-spacing: 0.1em; /* Разрядка */
 }
 
 .modal-details p {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.2rem;
+  line-height: 1.6;
   color: #ccc;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 #modal-price {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #fff;
 }
 
 .modal-details .size-select {
-  padding: 5px;
-  font-size: 1rem;
+  padding: 10px;
+  font-size: 1.2rem;
   border-radius: 5px;
-  margin: 10px 0;
+  margin: 20px 0;
   display: block;
+  width: 100px;
 }
 
 .hidden {
