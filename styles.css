@@ -55,10 +55,6 @@ body {
   color: #000;
 }
 
-.cart-li {
-  margin-left: 20px; /* Сдвигаем корзину правее */
-}
-
 .cart-icon {
   border: none !important; /* Убираем рамку для значка корзины */
   font-size: 1.5rem;
@@ -404,7 +400,7 @@ button:hover {
 }
 
 .cart-modal.open {
-  right: 0; /* Выдвигается до края */
+  right: 0; /* Появляется справа */
 }
 
 .cart-content {
@@ -607,7 +603,8 @@ button:hover {
 }
 
 .hidden {
-  visibility: hidden; /* Используем visibility для совместимости с анимацией */
+  display: block; /* Для корзины hidden не работает как display: none */
+  visibility: hidden; /* Скрываем вместо display: none */
 }
 
 /* Адаптивность */
@@ -643,12 +640,8 @@ button:hover {
   }
 
   .cart-modal {
-    width: 300px;
-    right: -300px; /* Корректируем начальную позицию для мобильных */
-  }
-
-  .cart-modal.open {
-    right: 0;
+    width: 300px; /* Меньше для мобильных */
+    right: -300px;
   }
 
   .cart-content {
