@@ -11,6 +11,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Навигационное меню -->
+  <nav class="top-nav">
+    <div class="container">
+      <ul class="nav-menu">
+        <li><button onclick="scrollToSection('contacts')">Контакты</button></li>
+        <li><button onclick="scrollToSection('about')">Про нас</button></li>
+        <li><button onclick="scrollToSection('info')">Важная информация</button></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- Главная секция -->
   <header class="hero-section">
     <div class="container">
@@ -179,12 +190,28 @@
     </div>
   </section>
 
-  <!-- Секция "Контакты" -->
-  <section id="contacts" class="section">
+  <!-- Секция "Про нас" -->
+  <section id="about" class="section hidden">
     <div class="container">
-      <h2>Свяжитесь с нами</h2>
-      <p>Напишите нам в Telegram:</p>
-      <a href="https://t.me/dynastybrand" target="_blank">Telegram</a>
+      <h2>Про нас</h2>
+      <p>DYNASTY — это бренд для тех, кто создает свою историю через стиль. Мы сочетаем качество, минимализм и силу в каждой вещи. Наша миссия — дать тебе одежду, которая говорит за тебя.</p>
+    </div>
+  </section>
+
+  <!-- Секция "Контакты" -->
+  <section id="contacts" class="section hidden">
+    <div class="container">
+      <h2>Контакты</h2>
+      <p>Свяжитесь с нами в Telegram:</p>
+      <a href="https://t.me/dynastybrand" target="_blank" class="telegram-btn">Telegram</a>
+    </div>
+  </section>
+
+  <!-- Секция "Важная информация" -->
+  <section id="info" class="section hidden">
+    <div class="container">
+      <h2>Важная информация</h2>
+      <p>Доставка по всему миру. Возврат в течение 14 дней. Все изделия проходят контроль качества.</p>
     </div>
   </section>
 
