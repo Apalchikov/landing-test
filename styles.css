@@ -78,9 +78,9 @@ body {
 }
 
 .logo .letter {
-  display: inline-block; /* Убрал flex, чтобы не ломать центровку */
+  display: inline-block;
   opacity: 0;
-  animation: fadeInLetter 0.6s forwards; /* Увеличил длительность до 0.6s */
+  animation: fadeInLetter 0.6s forwards;
 }
 
 @keyframes fadeInLetter {
@@ -94,8 +94,7 @@ body {
   }
 }
 
-/* Задержка появления для каждой буквы */
-.logo .letter:nth-child(1) { animation-delay: 0.2s; } /* Увеличил задержки */
+.logo .letter:nth-child(1) { animation-delay: 0.2s; }
 .logo .letter:nth-child(2) { animation-delay: 0.4s; }
 .logo .letter:nth-child(3) { animation-delay: 0.6s; }
 .logo .letter:nth-child(4) { animation-delay: 0.8s; }
@@ -109,7 +108,7 @@ body {
   color: #fff;
   opacity: 0;
   animation: fadeInSlogan 1s ease forwards;
-  animation-delay: 1.6s; /* Сдвинул задержку под новые тайминги букв */
+  animation-delay: 1.6s;
 }
 
 @keyframes fadeInSlogan {
@@ -324,18 +323,62 @@ button:hover {
 }
 
 /* Секция "Контакты" */
-#contacts .telegram-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #fff;
-  color: #000;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: transform 0.3s ease-in-out;
+.contacts-section {
+  padding: 80px 0;
+  background-color: #000;
+  min-height: 100vh; /* Высота экрана для центровки */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#contacts .telegram-btn:hover {
-  transform: scale(1.1);
+.contacts-content {
+  text-align: center;
+}
+
+.contacts-content h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 4rem;
+  margin-bottom: 40px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.contact-link {
+  display: block;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.5rem;
+  color: #fff;
+  text-decoration: none;
+  margin: 20px 0;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.contact-link:hover {
+  color: #ffcc00;
+  transform: scale(1.05);
+}
+
+.telegram-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.telegram-icon {
+  font-size: 2.5rem;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.telegram-link:hover .telegram-icon {
+  color: #ffcc00;
+}
+
+.phone-link {
+  font-family: 'Bebas Neue', cursive;
 }
 
 /* Кнопка корзины */
@@ -611,5 +654,17 @@ button:hover {
   .cart-item img {
     width: 40px;
     height: 40px;
+  }
+
+  .contacts-content h2 {
+    font-size: 3rem;
+  }
+
+  .contact-link {
+    font-size: 1.8rem;
+  }
+
+  .telegram-icon {
+    font-size: 1.8rem;
   }
 }
