@@ -29,9 +29,10 @@ body {
 
 .nav-menu {
   list-style: none;
-  display: flex;
-  justify-content: flex-end;
-  gap: 20px;
+  display: flex; /* Горизонтальное расположение */
+  flex-direction: row; /* Убедимся, что горизонтально */
+  justify-content: flex-end; /* Справа */
+  gap: 20px; /* Расстояние между кнопками */
   margin: 0;
   padding: 0;
 }
