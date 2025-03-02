@@ -55,6 +55,16 @@ body {
   color: #000;
 }
 
+.cart-li {
+  margin-left: 20px; /* Сдвигаем корзину правее */
+}
+
+.cart-icon {
+  border: none !important; /* Убираем рамку для значка корзины */
+  font-size: 1.5rem;
+  padding: 5px;
+}
+
 /* Главная секция */
 .hero-section {
   height: 100vh;
@@ -381,50 +391,30 @@ button:hover {
   font-family: 'Bebas Neue', cursive;
 }
 
-/* Кнопка корзины */
-.cart-button {
-  position: fixed;
-  bottom: 60px;
-  right: 20px;
-  background-color: #fff;
-  color: #000;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  z-index: 1000;
-  transition: transform 0.3s ease-in-out;
-}
-
-.cart-button:hover {
-  transform: scale(1.1);
-}
-
 /* Модальное окно корзины */
 .cart-modal {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  right: -500px; /* Начальная позиция за экраном */
+  width: 500px;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #222;
   z-index: 2000;
+  transition: right 0.5s ease; /* Плавное выдвижение */
+}
+
+.cart-modal.open {
+  right: 0; /* Выдвигается до края */
 }
 
 .cart-content {
-  background-color: #222;
   padding: 40px;
-  border-radius: 10px;
-  width: 600px;
-  max-height: 80vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow-y: auto;
-  text-align: left;
   position: relative;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .close-cart {
@@ -452,6 +442,7 @@ button:hover {
 }
 
 #cart-items {
+  flex-grow: 1;
   margin-bottom: 30px;
 }
 
@@ -515,7 +506,7 @@ button:hover {
 }
 
 .product-modal-content {
-  background-color: #000; /* Черный фон вместо серого */
+  background-color: #000;
   padding: 40px;
   border-radius: 10px;
   width: 100vw;
@@ -564,11 +555,11 @@ button:hover {
   font-size: 2rem;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s; /* Только фон меняется */
+  transition: background-color 0.3s;
 }
 
 .gallery-btn:hover {
-  background-color: rgba(255, 255, 255, 1); /* Без съезда вниз */
+  background-color: rgba(255, 255, 255, 1);
 }
 
 #prev-image {
@@ -616,7 +607,7 @@ button:hover {
 }
 
 .hidden {
-  display: none;
+  visibility: hidden; /* Используем visibility для совместимости с анимацией */
 }
 
 /* Адаптивность */
@@ -651,8 +642,16 @@ button:hover {
     font-size: 1.5rem;
   }
 
+  .cart-modal {
+    width: 300px;
+    right: -300px; /* Корректируем начальную позицию для мобильных */
+  }
+
+  .cart-modal.open {
+    right: 0;
+  }
+
   .cart-content {
-    width: 90%;
     padding: 20px;
   }
 
