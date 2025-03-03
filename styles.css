@@ -397,9 +397,9 @@ button:hover {
   right: -500px; /* Начальная позиция за экраном */
   width: 500px;
   height: 100vh;
-  background-color: rgba(192, 192, 192, 0.7); /* Серебристо-полупрозрачный фон */
+  background-color: rgba(0, 0, 0, 0.3); /* Черный с прозрачностью 30% */
   z-index: 2000;
-  transition: right 0.5s ease-in-out; /* Плавное выдвижение */
+  transition: right 0.5s ease-in-out; /* Плавное движение в обе стороны */
 }
 
 .cart-modal.open {
@@ -431,7 +431,7 @@ button:hover {
 
 .cart-content h2 {
   font-family: 'Anton', sans-serif;
-  font-size: 1.25rem; /* Уменьшили в два раза (было 2.5rem) */
+  font-size: 1.25rem; /* Уменьшено в два раза */
   margin-bottom: 30px;
   color: #fff;
   text-transform: uppercase;
@@ -473,19 +473,19 @@ button:hover {
 }
 
 .checkout-btn {
-  background-color: #fff; /* Черно-белая кнопка */
+  background-color: #fff; /* Черно-белая */
   color: #000;
   width: 100%;
-  padding: 12px; /* Чуть уменьшили (было 15px) */
+  padding: 12px; /* Чуть меньше */
   font-family: 'Bebas Neue', cursive;
-  font-size: 1rem; /* Чуть уменьшили (было 1.2rem) */
+  font-size: 1rem; /* Чуть меньше */
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transition: background-color 0.3s, transform 0.3s;
 }
 
 .checkout-btn:hover {
-  background-color: #ccc; /* Серый при наведении */
+  background-color: #ccc;
   transform: scale(1.05);
 }
 
