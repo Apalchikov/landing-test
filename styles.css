@@ -394,16 +394,16 @@ button:hover {
 .cart-modal {
   position: fixed;
   top: 0;
-  right: -500px; /* Начальная позиция за экраном */
+  right: -500px;
   width: 500px;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8); /* Черный с прозрачностью 30% */
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 2000;
-  transition: right 0.5s ease-in-out; /* Плавное движение в обе стороны */
+  transition: right 0.5s ease-in-out;
 }
 
 .cart-modal.open {
-  right: 0; /* Выдвигается до края */
+  right: 0;
 }
 
 .cart-content {
@@ -431,7 +431,7 @@ button:hover {
 
 .cart-content h2 {
   font-family: 'Anton', sans-serif;
-  font-size: 1.25rem; /* Уменьшено в два раза */
+  font-size: 1.25rem;
   margin-bottom: 30px;
   color: #fff;
   text-transform: uppercase;
@@ -473,12 +473,12 @@ button:hover {
 }
 
 .checkout-btn {
-  background-color: #fff; /* Черно-белая */
+  background-color: #fff;
   color: #000;
   width: 100%;
-  padding: 12px; /* Чуть меньше */
+  padding: 12px;
   font-family: 'Bebas Neue', cursive;
-  font-size: 1rem; /* Чуть меньше */
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transition: background-color 0.3s, transform 0.3s;
@@ -603,6 +603,98 @@ button:hover {
   width: 100px;
 }
 
+/* Модальное окно оформления заказа */
+.checkout-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2100;
+}
+
+.checkout-modal-content {
+  background-color: #222;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+}
+
+.checkout-modal-content h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.checkout-modal-content p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+#checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#checkout-form label {
+  font-size: 1rem;
+  color: #fff;
+}
+
+#contact-input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+}
+
+#submit-checkout {
+  background-color: #ffcc00;
+  color: #000;
+  padding: 10px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+#submit-checkout:hover {
+  background-color: #e6b800;
+  transform: scale(1.05);
+}
+
+/* Уведомление о добавлении в корзину */
+.cart-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  z-index: 2200;
+  transition: opacity 0.5s ease;
+}
+
+.cart-notification.show {
+  opacity: 1;
+}
+
+.cart-notification.hidden {
+  opacity: 0;
+}
+
 .hidden {
   display: none;
 }
@@ -681,5 +773,10 @@ button:hover {
 
   #modal-image {
     max-width: 100%;
+  }
+
+  .checkout-modal-content {
+    width: 90%;
+    padding: 20px;
   }
 }
