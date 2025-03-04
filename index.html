@@ -18,7 +18,7 @@
         <li><button onclick="scrollToSection('contacts')">Контакты</button></li>
         <li><button onclick="scrollToSection('about')">Про нас</button></li>
         <li><button onclick="scrollToSection('info')">Важная информация</button></li>
-        <li><button id="cart-button" class="cart-icon">🛒</button></li> <!-- Значок корзины -->
+        <li class="cart-li"><button id="cart-button" class="cart-icon">🛒</button></li>
       </ul>
     </div>
   </nav>
@@ -244,6 +244,25 @@
         <button id="add-to-cart-modal" class="add-to-cart">Добавить в корзину</button>
       </div>
     </div>
+  </div>
+
+  <!-- Модальное окно для оформления заказа -->
+  <div id="checkout-modal" class="checkout-modal hidden">
+    <div class="checkout-modal-content">
+      <span id="close-checkout-modal" class="close-modal">×</span>
+      <h2>Оформление заказа</h2>
+      <p>Мы свяжемся с вами для подтверждения заказа</p>
+      <form id="checkout-form">
+        <label for="contact-input">Номер телефона или Telegram:</label>
+        <input type="text" id="contact-input" name="contact" placeholder="+7 (999) 123-45-67 или @username" required>
+        <button type="submit" id="submit-checkout">Отправить</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Уведомление о добавлении в корзину -->
+  <div id="cart-notification" class="cart-notification hidden">
+    Товар добавлен в корзину
   </div>
 
   <script src="script.js"></script>
