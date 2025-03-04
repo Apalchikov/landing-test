@@ -63,11 +63,23 @@ function updateCart() {
 function addToCart(id, name, price, size) {
   cart.push({ id, name, price, size });
   updateCart();
+  showCartNotification();
 }
 
 function removeFromCart(id) {
   cart = cart.filter(item => item.id !== id);
   updateCart();
+}
+
+// Показать уведомление о добавлении в корзину
+function showCartNotification() {
+  const notification = document.getElementById('cart-notification');
+  notification.classList.remove('hidden');
+  notification.classList.add('show');
+  setTimeout(() => {
+    notification.classList.remove('show');
+    notification.classList.add('hidden');
+  }, 2000); // Исчезает через 2 секунды
 }
 
 // Данные товаров с несколькими фото
@@ -187,15 +199,38 @@ document.getElementById('close-product-modal').addEventListener('click', () => {
 const cartModal = document.getElementById('cart-modal');
 document.getElementById('cart-button').addEventListener('click', () => {
   cartModal.classList.toggle('open');
-  cartModal.classList.remove('hidden'); // Убираем visibility для анимации
+  cartModal.classList.toggle('hidden');
 });
 
 document.getElementById('close-cart').addEventListener('click', () => {
   cartModal.classList.remove('open');
-  setTimeout(() => cartModal.classList.add('hidden'), 500); // Задержка для анимации
+  cartModal.classList.add('hidden');
 });
 
-// Пока заглушка для "Оформить заказ"
+// Открытие модального окна оформления заказа
+const checkoutModal = document.getElementById('checkout-modal');
 document.getElementById('checkout').addEventListener('click', () => {
-  alert('Функция оформления заказа пока в разработке!');
+  cartModal.classList.remove('open');
+  cartModal.classList.add('hidden');
+  checkoutModal.classList.remove('hidden');
+});
+
+document.getElementById('close-checkout-modal').addEventListener('click', () => {
+  checkoutModal.classList.add('hidden');
+});
+
+// Отправка данных заказа в Telegram (заглушка, нужно настроить бота)
+document.getElementById('checkout-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const contact = document.getElementById('contact-input').value;
+  const orderDetails = cart.map(item => `${item.name} - $${item.price} (${item.size})`).join(', ');
+  const message = `Новый заказ:\n${orderDetails}\nКонтакт: ${contact}`;
+
+  // Здесь будет вызов Telegram API (пока заглушка)
+  alert(`Заказ отправлен:\n${message}`);
+
+  // Закрываем модалку после отправки
+  checkoutModal.classList.add('hidden');
+  cart = []; // Очищаем корзину
+  updateCart();
 });
