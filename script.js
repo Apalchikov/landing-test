@@ -227,7 +227,7 @@ document.getElementById('checkout-form').addEventListener('submit', (e) => {
   const message = `Новый заказ:\n${orderDetails}\nКонтакт: ${contact}`;
 
   const token = '8090185279:AAH5J9QOJkU96VsTyXIJhIe4kbsrswue7M0'; // Твой токен бота
-  const chatId = '-4711226618'; // Твой ID чата
+  const chatId = '4711226618'; // Твой ID чата
   const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
 
   fetch(url)
