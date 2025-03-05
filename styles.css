@@ -623,6 +623,7 @@ button:hover {
   border-radius: 10px;
   width: 400px;
   text-align: center;
+  position: relative;
 }
 
 .checkout-modal-content h2 {
@@ -649,7 +650,7 @@ button:hover {
   color: #fff;
 }
 
-#contact-input {
+#name-input, #contact-input {
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #444;
@@ -684,7 +685,7 @@ button:hover {
   border-radius: 5px;
   font-size: 1rem;
   z-index: 2200;
-  border: 2px solid #fff; /* Белая рамка */ 
+  border: 2px solid #fff;
   transition: opacity 0.5s ease;
 }
 
@@ -694,6 +695,23 @@ button:hover {
 
 .cart-notification.hidden {
   opacity: 0;
+}
+
+/* Стили для сообщения об успешном заказе */
+#checkout-form-container, #checkout-success {
+  transition: opacity 0.3s ease;
+}
+
+#checkout-success h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+#checkout-success p {
+  font-size: 1rem;
+  color: #ccc;
 }
 
 .hidden {
