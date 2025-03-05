@@ -219,18 +219,31 @@ document.getElementById('close-checkout-modal').addEventListener('click', () => 
   checkoutModal.classList.add('hidden');
 });
 
-// Отправка данных заказа в Telegram (заглушка, нужно настроить бота)
+// Отправка данных заказа в Telegram
 document.getElementById('checkout-form').addEventListener('submit', (e) => {
   e.preventDefault();
   const contact = document.getElementById('contact-input').value;
   const orderDetails = cart.map(item => `${item.name} - $${item.price} (${item.size})`).join(', ');
   const message = `Новый заказ:\n${orderDetails}\nКонтакт: ${contact}`;
 
-  // Здесь будет вызов Telegram API (пока заглушка)
-  alert(`Заказ отправлен:\n${message}`);
+  const token = '8090185279:AAH5J9QOJkU96VsTyXIJhIe4kbsrswue7M0'; // Твой токен бота
+  const chatId = '-4711226618'; // Твой ID чата
+  const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
 
-  // Закрываем модалку после отправки
-  checkoutModal.classList.add('hidden');
-  cart = []; // Очищаем корзину
-  updateCart();
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if (data.ok) {
+        alert('Заказ успешно отправлен!');
+        checkoutModal.classList.add('hidden');
+        cart = []; // Очищаем корзину
+        updateCart();
+      } else {
+        alert('Ошибка при отправке заказа');
+      }
+    })
+    .catch(error => {
+      console.error('Ошибка:', error);
+      alert('Ошибка при отправке заказа');
+    });
 });
