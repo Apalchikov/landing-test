@@ -213,6 +213,8 @@ document.getElementById('checkout').addEventListener('click', () => {
   cartModal.classList.remove('open');
   cartModal.classList.add('hidden');
   checkoutModal.classList.remove('hidden');
+  document.getElementById('checkout-form-container').classList.remove('hidden');
+  document.getElementById('checkout-success').classList.add('hidden');
 });
 
 document.getElementById('close-checkout-modal').addEventListener('click', () => {
@@ -222,9 +224,10 @@ document.getElementById('close-checkout-modal').addEventListener('click', () => 
 // Отправка данных заказа в Telegram
 document.getElementById('checkout-form').addEventListener('submit', (e) => {
   e.preventDefault();
+  const name = document.getElementById('name-input').value;
   const contact = document.getElementById('contact-input').value;
   const orderDetails = cart.map(item => `${item.name} - $${item.price} (${item.size})`).join(', ');
-  const message = `Новый заказ:\n${orderDetails}\nКонтакт: ${contact}`;
+  const message = `Новый заказ:\n${orderDetails}\nИмя: ${name}\nКонтакт: ${contact}`;
 
   const token = '8090185279:AAH5J9QOJkU96VsTyXIJhIe4kbsrswue7M0'; // Твой токен бота
   const chatId = '-4711226618'; // Твой ID чата
@@ -234,10 +237,13 @@ document.getElementById('checkout-form').addEventListener('submit', (e) => {
     .then(response => response.json())
     .then(data => {
       if (data.ok) {
-        alert('Заказ успешно отправлен!');
-        checkoutModal.classList.add('hidden');
-        cart = []; // Очищаем корзину
-        updateCart();
+        document.getElementById('checkout-form-container').classList.add('hidden');
+        document.getElementById('checkout-success').classList.remove('hidden');
+        setTimeout(() => {
+          checkoutModal.classList.add('hidden');
+          cart = []; // Очищаем корзину
+          updateCart();
+        }, 3000); // Модалка закроется через 3 секунды
       } else {
         alert('Ошибка при отправке заказа');
       }
