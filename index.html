@@ -250,13 +250,21 @@
   <div id="checkout-modal" class="checkout-modal hidden">
     <div class="checkout-modal-content">
       <span id="close-checkout-modal" class="close-modal">×</span>
-      <h2>Оформление заказа</h2>
-      <p>Мы свяжемся с вами для подтверждения заказа</p>
-      <form id="checkout-form">
-        <label for="contact-input">Номер телефона или Telegram:</label>
-        <input type="text" id="contact-input" name="contact" placeholder="+7 (999) 123-45-67 или @username" required>
-        <button type="submit" id="submit-checkout">Отправить</button>
-      </form>
+      <div id="checkout-form-container">
+        <h2>Оформление заказа</h2>
+        <p>Мы свяжемся с вами для подтверждения заказа</p>
+        <form id="checkout-form">
+          <label for="name-input">Ваше имя:</label>
+          <input type="text" id="name-input" name="name" placeholder="Иван" required>
+          <label for="contact-input">Номер телефона или Telegram:</label>
+          <input type="text" id="contact-input" name="contact" placeholder="+7 (999) 123-45-67 или @username" required>
+          <button type="submit" id="submit-checkout">Отправить</button>
+        </form>
+      </div>
+      <div id="checkout-success" class="hidden">
+        <h2>Спасибо за заказ!</h2>
+        <p>Наш менеджер скоро с вами свяжется</p>
+      </div>
     </div>
   </div>
 
