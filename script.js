@@ -48,16 +48,28 @@ let cart = [];
 function updateCart() {
   const cartItems = document.getElementById('cart-items');
   cartItems.innerHTML = '';
-  cart.forEach(item => {
+  let total = 0;
+  cart.forEach((item, index) => {
     const cartItem = document.createElement('div');
     cartItem.classList.add('cart-item');
     cartItem.innerHTML = `
       <img src="${products[item.id].images[0]}" alt="${item.name}">
       <span>${item.name} - $${item.price} (${item.size})</span>
-      <button onclick="removeFromCart(${item.id})">Удалить</button>
+      <button onclick="removeFromCart(${index})">Удалить</button>
     `;
     cartItems.appendChild(cartItem);
+    total += item.price;
   });
+  const totalDiv = document.createElement('div');
+  totalDiv.classList.add('cart-total');
+  totalDiv.innerHTML = `<strong>Итого: $${total}</strong>`;
+  cartItems.appendChild(totalDiv);
+
+  const clearButton = document.createElement('button');
+  clearButton.classList.add('clear-cart-btn');
+  clearButton.textContent = 'Очистить корзину';
+  clearButton.onclick = clearCart;
+  cartItems.appendChild(clearButton);
 }
 
 function addToCart(id, name, price, size) {
@@ -66,8 +78,13 @@ function addToCart(id, name, price, size) {
   showCartNotification();
 }
 
-function removeFromCart(id) {
-  cart = cart.filter(item => item.id !== id);
+function removeFromCart(index) {
+  cart.splice(index, 1); // Удаляем только один товар по индексу
+  updateCart();
+}
+
+function clearCart() {
+  cart = [];
   updateCart();
 }
 
