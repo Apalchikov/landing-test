@@ -10,38 +10,6 @@ function scrollToSection(sectionId) {
   }
 }
 
-// Функция для показа витрины MINIMAL
-function showMinimalShowcase(gender) {
-  hideAllShowcases();
-  const showcase = document.getElementById(`minimal-${gender}`);
-  if (showcase) {
-    showcase.classList.remove('hidden');
-  }
-}
-
-// Функция для показа витрины FIGHTER
-function showFighterShowcase() {
-  hideAllShowcases();
-  const showcase = document.getElementById('fighter-showcase');
-  if (showcase) {
-    showcase.classList.remove('hidden');
-  }
-}
-
-// Функция для скрытия всех витрин
-function hideAllShowcases() {
-  const showcases = document.querySelectorAll('.showcase-section');
-  showcases.forEach(showcase => {
-    showcase.classList.add('hidden');
-  });
-}
-
-// Функция для возврата к коллекциям
-function goBack() {
-  hideAllShowcases();
-  scrollToSection('collections');
-}
-
 // Корзина
 let cart = [];
 
@@ -79,7 +47,7 @@ function addToCart(id, name, price, size) {
 }
 
 function removeFromCart(index) {
-  cart.splice(index, 1); // Удаляем только один товар по индексу
+  cart.splice(index, 1);
   updateCart();
 }
 
@@ -96,15 +64,15 @@ function showCartNotification() {
   setTimeout(() => {
     notification.classList.remove('show');
     notification.classList.add('hidden');
-  }, 2000); // Исчезает через 2 секунды
+  }, 2000);
 }
 
-// Данные товаров с несколькими фото
+// Данные товаров
 const products = {
   1: {
-    name: "Белая рубашка (Ж)",
+    name: "Белая рубашка",
     price: 60,
-    description: "Классическая белая рубашка из 100% хлопка для женщин. Идеальна для минималистичного стиля.",
+    description: "Легкая рубашка для стильного образа.",
     material: "100% хлопок",
     features: "Прямой крой, дышащая ткань",
     images: [
@@ -114,9 +82,9 @@ const products = {
     ]
   },
   2: {
-    name: "Черные брюки (М)",
+    name: "Черные брюки",
     price: 80,
-    description: "Стильные черные брюки с прямым кроем для мужчин. Комфорт и элегантность в одном.",
+    description: "Стильные черные брюки с прямым кроем. Комфорт и элегантность в одном.",
     material: "Хлопок, полиэстер",
     features: "Устойчивость к износу, удобная посадка",
     images: [
@@ -171,6 +139,18 @@ const products = {
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
       "https://via.placeholder.com/600x600.png?text=Vest+2",
       "https://via.placeholder.com/600x600.png?text=Vest+3"
+    ]
+  },
+  9: {
+    name: "Спортивные шорты",
+    price: 50,
+    description: "Спортивные шорты с логотипом DYNASTY. Идеальны для тренировок и уличного стиля.",
+    material: "Полиэстер, хлопок",
+    features: "Дышащая ткань, эластичный пояс",
+    images: [
+      "images/fighter-shorts.png",
+      "https://via.placeholder.com/600x600.png?text=Shorts+2",
+      "https://via.placeholder.com/600x600.png?text=Shorts+3"
     ]
   }
 };
@@ -246,8 +226,8 @@ document.getElementById('checkout-form').addEventListener('submit', (e) => {
   const orderDetails = cart.map(item => `${item.name} - $${item.price} (${item.size})`).join(', ');
   const message = `Новый заказ:\n${orderDetails}\nИмя: ${name}\nКонтакт: ${contact}`;
 
-  const token = '8090185279:AAH5J9QOJkU96VsTyXIJhIe4kbsrswue7M0'; // Твой токен бота
-  const chatId = '-4711226618'; // Твой ID чата
+  const token = '8090185279:AAH5J9QOJkU96VsTyXIJhIe4kbsrswue7M0';
+  const chatId = '-4711226618';
   const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
 
   fetch(url)
@@ -258,9 +238,9 @@ document.getElementById('checkout-form').addEventListener('submit', (e) => {
         document.getElementById('checkout-success').classList.remove('hidden');
         setTimeout(() => {
           checkoutModal.classList.add('hidden');
-          cart = []; // Очищаем корзину
+          cart = [];
           updateCart();
-        }, 3000); // Модалка закроется через 3 секунды
+        }, 3000);
       } else {
         alert('Ошибка при отправке заказа');
       }
