@@ -314,6 +314,14 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.showcase-section button:hover {
+  transform: scale(1.05);
+  background-color: #ccc;
 }
 
 /* Секция "Контакты" */
@@ -454,6 +462,13 @@ body {
   color: #fff;
   padding: 5px 10px;
   font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cart-item button:hover {
+  background-color: #cc3333;
 }
 
 .cart-total {
@@ -473,6 +488,8 @@ body {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  border: none;
+  cursor: pointer;
 }
 
 .clear-cart-btn:hover {
@@ -489,6 +506,8 @@ body {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  border: none;
+  cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
 }
 
@@ -675,6 +694,8 @@ body {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  border: none;
+  cursor: pointer;
 }
 
 #submit-checkout:hover {
@@ -692,3 +713,153 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  z-index: 2200;
+  border: 2px solid #fff;
+  transition: opacity 0.5s ease;
+}
+
+.cart-notification.show {
+  opacity: 1;
+}
+
+.cart-notification.hidden {
+  opacity: 0;
+}
+
+/* Стили для сообщения об успешном заказе */
+#checkout-form-container, #checkout-success {
+  transition: opacity 0.3s ease;
+}
+
+#checkout-success h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+#checkout-success p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 6rem;
+  }
+
+  .slogan {
+    font-size: 1.2rem;
+  }
+
+  .collection-item {
+    width: 90%;
+  }
+
+  .collection-item img {
+    height: 300px;
+  }
+
+  .nav-menu li button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .cart-modal {
+    width: 300px;
+    right: -300px;
+  }
+
+  .cart-modal.open {
+    right: 0;
+  }
+
+  .cart-content {
+    padding: 20px;
+  }
+
+  .cart-item img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contacts-content h2 {
+    font-size: 3rem;
+  }
+
+  .contact-link {
+    font-size: 1.8rem;
+  }
+
+  .telegram-icon {
+    font-size: 1.8rem;
+  }
+
+  .product-modal-content {
+    flex-direction: column;
+    padding: 20px;
+    max-height: 100vh;
+  }
+
+  .modal-gallery {
+    width: 100%;
+  }
+
+  #modal-image {
+    max-width: 100%;
+  }
+
+  .checkout-modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .product-item {
+    width: calc(50% - 20px); /* На мобильных по 2 в ряд */
+    max-width: 200px;
+  }
+
+  .product-item img {
+    height: 200px;
+  }
+
+  .product-item h4 {
+    font-size: 1.2rem;
+  }
+
+  .product-item .price {
+    font-size: 1rem;
+  }
+
+  .category-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .category-list button {
+    width: 80%;
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-item {
+    width: 100%; /* На совсем маленьких экранах по 1 в ряд */
+    max-width: 250px;
+  }
+
+  .product-item img {
+    height: 250px;
+  }
+}
