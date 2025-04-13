@@ -39,101 +39,84 @@
             </h1>
             <p class="slogan">Ваш стиль — ваша история.</p>
             <p class="about-text">DYNASTY — это ваша свобода самовыражения через стиль. Каждый образ становится частью вашей уникальной истории с качественной одеждой, отражающей современные тренды и индивидуальность.</p>
-            <button class="catalog-btn" onclick="scrollToSection('catalog')">Каталог товаров</button>
+            <div class="collection-grid">
+                <div class="collection-item" onclick="scrollToSection('catalog')">
+                    <img src="https://img08.rl0.ru/afisha/e1200x800i/daily.afisha.ru/uploads/images/b/8a/b8a18c1b099ac560f5c1fc27618ed838.jpg" alt="DYNASTY Collection">
+                    <div class="collection-item-content">
+                        <h3>DYNASTY</h3>
+                        <p>Сила и стиль в каждой детали</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- Каталог товаров -->
-    <section id="catalog" class="section showcase-section">
+    <section id="catalog" class="section catalog-section hidden">
         <div class="container">
             <h2>Каталог товаров</h2>
-            <p>Всё для твоего стиля — от минимализма до уличной дерзости.</p>
+            <div class="category-list">
+                <button onclick="showCategory('tshirts')">Футболки</button>
+                <button onclick="showCategory('tanktops')">Майки</button>
+                <button onclick="showCategory('shorts')">Шорты</button>
+                <button onclick="showCategory('pants')">Штаны</button>
+                <button onclick="showCategory('hoodies')">Худи</button>
+                <button onclick="showCategory('outerwear')">Верхняя одежда</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Витрина: Футболки -->
+    <section id="tshirts" class="section showcase-section hidden">
+        <div class="container">
+            <h2>Футболки</h2>
             <div class="product-grid">
-                <!-- Товар 1: Белая рубашка -->
-                <div class="product-row" onclick="openProductModal(1)">
-                    <div class="product-item" data-id="1" data-name="Белая рубашка" data-price="60">
-                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Белая рубашка">
+                <!-- Здесь можно добавить футболки -->
+                <div class="product-row" onclick="openProductModal(10)">
+                    <div class="product-item" data-id="10" data-name="Футболка DYNASTY" data-price="30">
+                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Футболка DYNASTY">
                         <div class="product-info">
-                            <h4>Белая рубашка</h4>
-                            <span class="price">$60</span>
+                            <h4>Футболка DYNASTY</h4>
+                            <span class="price">$30</span>
                         </div>
                     </div>
                     <div class="product-description">
-                        <p>Легкая рубашка для стильного образа.</p>
+                        <p>Классическая футболка с логотипом DYNASTY. Идеальна для повседневного стиля.</p>
                     </div>
                 </div>
+            </div>
+            <button onclick="goBackToCatalog()">Назад к каталогу</button>
+        </div>
+    </section>
 
-                <!-- Товар 2: Черные брюки -->
-                <div class="product-row" onclick="openProductModal(2)">
-                    <div class="product-item" data-id="2" data-name="Черные брюки" data-price="80">
-                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Черные брюки">
+    <!-- Витрина: Майки -->
+    <section id="tanktops" class="section showcase-section hidden">
+        <div class="container">
+            <h2>Майки</h2>
+            <div class="product-grid">
+                <!-- Здесь можно добавить майки -->
+                <div class="product-row" onclick="openProductModal(11)">
+                    <div class="product-item" data-id="11" data-name="Майка DYNASTY" data-price="25">
+                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Майка DYNASTY">
                         <div class="product-info">
-                            <h4>Черные брюки</h4>
-                            <span class="price">$80</span>
-                        </div>
-                    </div>
-                    <div class="product-description">
-                        <p>Стильные брюки для уверенного образа.</p>
-                    </div>
-                </div>
-
-                <!-- Товар 3: Спортивный костюм -->
-                <div class="product-row" onclick="openProductModal(5)">
-                    <div class="product-item" data-id="5" data-name="Спортивный костюм" data-price="90">
-                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Спортивный костюм">
-                        <div class="product-info">
-                            <h4>Спортивный костюм</h4>
-                            <span class="price">$90</span>
-                        </div>
-                    </div>
-                    <div class="product-description">
-                        <p>Спортивный костюм для активных. Свобода движений и стиль.</p>
-                    </div>
-                </div>
-
-                <!-- Товар 4: Кроссовки -->
-                <div class="product-row" onclick="openProductModal(6)">
-                    <div class="product-item" data-id="6" data-name="Кроссовки" data-price="100">
-                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Кроссовки">
-                        <div class="product-info">
-                            <h4>Кроссовки</h4>
-                            <span class="price">$100</span>
-                        </div>
-                    </div>
-                    <div class="product-description">
-                        <p>Прочные кроссовки для улицы. Уверенность в каждом шаге.</p>
-                    </div>
-                </div>
-
-                <!-- Товар 5: Бейсболка -->
-                <div class="product-row" onclick="openProductModal(7)">
-                    <div class="product-item" data-id="7" data-name="Бейсболка" data-price="25">
-                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Бейсболка">
-                        <div class="product-info">
-                            <h4>Бейсболка</h4>
+                            <h4>Майка DYNASTY</h4>
                             <span class="price">$25</span>
                         </div>
                     </div>
                     <div class="product-description">
-                        <p>Простая бейсболка с дерзким дизайном. Завершай образ.</p>
+                        <p>Лёгкая майка для жарких дней и тренировок.</p>
                     </div>
                 </div>
+            </div>
+            <button onclick="goBackToCatalog()">Назад к каталогу</button>
+        </div>
+    </section>
 
-                <!-- Товар 6: Тренировочный жилет -->
-                <div class="product-row" onclick="openProductModal(8)">
-                    <div class="product-item" data-id="8" data-name="Тренировочный жилет" data-price="45">
-                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Тренировочный жилет">
-                        <div class="product-info">
-                            <h4>Тренировочный жилет</h4>
-                            <span class="price">$45</span>
-                        </div>
-                    </div>
-                    <div class="product-description">
-                        <p>Легкий жилет для тренировок. Докажи свою силу.</p>
-                    </div>
-                </div>
-
-                <!-- Товар 7: Спортивные шорты -->
+    <!-- Витрина: Шорты -->
+    <section id="shorts" class="section showcase-section hidden">
+        <div class="container">
+            <h2>Шорты</h2>
+            <div class="product-grid">
                 <div class="product-row" onclick="openProductModal(9)">
                     <div class="product-item" data-id="9" data-name="Спортивные шорты" data-price="50">
                         <img src="images/fighter-shorts.png" alt="Спортивные шорты">
@@ -147,6 +130,86 @@
                     </div>
                 </div>
             </div>
+            <button onclick="goBackToCatalog()">Назад к каталогу</button>
+        </div>
+    </section>
+
+    <!-- Витрина: Штаны -->
+    <section id="pants" class="section showcase-section hidden">
+        <div class="container">
+            <h2>Штаны</h2>
+            <div class="product-grid">
+                <div class="product-row" onclick="openProductModal(2)">
+                    <div class="product-item" data-id="2" data-name="Черные брюки" data-price="80">
+                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Черные брюки">
+                        <div class="product-info">
+                            <h4>Черные брюки</h4>
+                            <span class="price">$80</span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>Стильные черные брюки с прямым кроем. Комфорт и элегантность в одном.</p>
+                    </div>
+                </div>
+                <div class="product-row" onclick="openProductModal(5)">
+                    <div class="product-item" data-id="5" data-name="Спортивный костюм" data-price="90">
+                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Спортивный костюм">
+                        <div class="product-info">
+                            <h4>Спортивный костюм</h4>
+                            <span class="price">$90</span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>Спортивный костюм для активных. Свобода движений и стиль.</p>
+                    </div>
+                </div>
+            </div>
+            <button onclick="goBackToCatalog()">Назад к каталогу</button>
+        </div>
+    </section>
+
+    <!-- Витрина: Худи -->
+    <section id="hoodies" class="section showcase-section hidden">
+        <div class="container">
+            <h2>Худи</h2>
+            <div class="product-grid">
+                <!-- Здесь можно добавить худи -->
+                <div class="product-row" onclick="openProductModal(12)">
+                    <div class="product-item" data-id="12" data-name="Худи DYNASTY" data-price="70">
+                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Худи DYNASTY">
+                        <div class="product-info">
+                            <h4>Худи DYNASTY</h4>
+                            <span class="price">$70</span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>Тёплое худи для уличного стиля.</p>
+                    </div>
+                </div>
+            </div>
+            <button onclick="goBackToCatalog()">Назад к каталогу</button>
+        </div>
+    </section>
+
+    <!-- Витрина: Верхняя одежда -->
+    <section id="outerwear" class="section showcase-section hidden">
+        <div class="container">
+            <h2>Верхняя одежда</h2>
+            <div class="product-grid">
+                <div class="product-row" onclick="openProductModal(8)">
+                    <div class="product-item" data-id="8" data-name="Тренировочный жилет" data-price="45">
+                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Тренировочный жилет">
+                        <div class="product-info">
+                            <h4>Тренировочный жилет</h4>
+                            <span class="price">$45</span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>Легкий жилет для тренировок. Докажи свою силу.</p>
+                    </div>
+                </div>
+            </div>
+            <button onclick="goBackToCatalog()">Назад к каталогу</button>
         </div>
     </section>
 
