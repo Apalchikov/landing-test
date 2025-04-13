@@ -158,7 +158,7 @@ body {
 
 .collection-item {
   position: relative;
-  width: 80%; /* Большое окно */
+  width: 80%;
   max-width: 800px;
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s;
@@ -249,18 +249,10 @@ body {
 
 .product-grid {
   display: flex;
-  flex-direction: column;
-  gap: 40px;
-  margin-top: 20px;
-  align-items: flex-start;
-}
-
-.product-row {
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
+  flex-wrap: wrap;
   gap: 20px;
-  cursor: pointer;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .product-item {
@@ -269,7 +261,9 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  width: 400px;
+  width: calc(33.33% - 20px); /* По 3 в ряд */
+  max-width: 300px;
+  cursor: pointer;
 }
 
 .product-item:hover {
@@ -279,7 +273,7 @@ body {
 
 .product-item img {
   width: 100%;
-  height: 450px;
+  height: 300px;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
 }
@@ -292,7 +286,7 @@ body {
 
 .product-item h4 {
   font-family: 'Anton', sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   margin: 5px 0;
   color: #fff;
   text-transform: uppercase;
@@ -300,22 +294,11 @@ body {
 }
 
 .product-item .price {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #fff;
   margin: 5px 0;
   display: block;
-}
-
-.product-description {
-  flex: 1;
-  text-align: left;
-}
-
-.product-description p {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #ccc;
 }
 
 /* Кнопка "Назад к каталогу" */
@@ -709,139 +692,3 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: rgba(0, 0, 0, 0.9);
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1rem;
-  z-index: 2200;
-  border: 2px solid #fff;
-  transition: opacity 0.5s ease;
-}
-
-.cart-notification.show {
-  opacity: 1;
-}
-
-.cart-notification.hidden {
-  opacity: 0;
-}
-
-/* Стили для сообщения об успешном заказе */
-#checkout-form-container, #checkout-success {
-  transition: opacity 0.3s ease;
-}
-
-#checkout-success h2 {
-  font-family: 'Anton', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #fff;
-}
-
-#checkout-success p {
-  font-size: 1rem;
-  color: #ccc;
-}
-
-.hidden {
-  display: none;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  .logo {
-    font-size: 6rem;
-  }
-
-  .slogan {
-    font-size: 1.2rem;
-  }
-
-  .collection-item {
-    width: 90%;
-  }
-
-  .collection-item img {
-    height: 300px;
-  }
-
-  .nav-menu li button {
-    padding: 6px 12px;
-    font-size: 0.9rem;
-  }
-
-  .cart-modal {
-    width: 300px;
-    right: -300px;
-  }
-
-  .cart-modal.open {
-    right: 0;
-  }
-
-  .cart-content {
-    padding: 20px;
-  }
-
-  .cart-item img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .contacts-content h2 {
-    font-size: 3rem;
-  }
-
-  .contact-link {
-    font-size: 1.8rem;
-  }
-
-  .telegram-icon {
-    font-size: 1.8rem;
-  }
-
-  .product-modal-content {
-    flex-direction: column;
-    padding: 20px;
-    max-height: 100vh;
-  }
-
-  .modal-gallery {
-    width: 100%;
-  }
-
-  #modal-image {
-    max-width: 100%;
-  }
-
-  .checkout-modal-content {
-    width: 90%;
-    padding: 20px;
-  }
-
-  .product-row {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .product-item {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .product-description {
-    text-align: center;
-  }
-
-  .category-list {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .category-list button {
-    width: 80%;
-    font-size: 1rem;
-    padding: 10px;
-  }
-}
