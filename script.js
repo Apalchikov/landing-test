@@ -97,88 +97,227 @@ function showCartNotification() {
 
 // Данные товаров
 const products = {
-  2: {
-    name: "Черные брюки",
-    price: 80,
-    description: "Стильные черные брюки с прямым кроем. Комфорт и элегантность в одном.",
-    material: "Хлопок, полиэстер",
-    features: "Устойчивость к износу, удобная посадка",
-    images: [
-      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
-      "https://via.placeholder.com/600x600.png?text=Black+Pants+2",
-      "https://via.placeholder.com/600x600.png?text=Black+Pants+3"
-    ]
-  },
-  5: {
-    name: "Спортивный костюм",
-    price: 90,
-    description: "Спортивный костюм для активных. Свобода движений и стиль.",
-    material: "Полиэстер, хлопок",
-    features: "Эластичность, легкость",
-    images: [
-      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
-      "https://via.placeholder.com/600x600.png?text=Sport+2",
-      "https://via.placeholder.com/600x600.png?text=Sport+3"
-    ]
-  },
-  8: {
-    name: "Тренировочный жилет",
-    price: 45,
-    description: "Легкий жилет для тренировок. Докажи свою силу.",
-    material: "Полиэстер",
-    features: "Дышащая ткань, легкий вес",
-    images: [
-      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
-      "https://via.placeholder.com/600x600.png?text=Vest+2",
-      "https://via.placeholder.com/600x600.png?text=Vest+3"
-    ]
-  },
-  9: {
-    name: "Спортивные шорты",
-    price: 50,
-    description: "Спортивные шорты с логотипом DYNASTY. Идеальны для тренировок и уличного стиля.",
-    material: "Полиэстер, хлопок",
-    features: "Дышащая ткань, эластичный пояс",
-    images: [
-      "images/fighter-shorts.png",
-      "https://via.placeholder.com/600x600.png?text=Shorts+2",
-      "https://via.placeholder.com/600x600.png?text=Shorts+3"
-    ]
-  },
+  // Футболки
   10: {
-    name: "Футболка DYNASTY",
+    name: "Футболка DYNASTY 1",
     price: 30,
     description: "Классическая футболка с логотипом DYNASTY. Идеальна для повседневного стиля.",
     material: "Хлопок",
     features: "Мягкая ткань, удобная посадка",
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
-      "https://via.placeholder.com/600x600.png?text=Tshirt+2",
-      "https://via.placeholder.com/600x600.png?text=Tshirt+3"
+      "https://via.placeholder.com/600x600.png?text=Tshirt+1_2",
+      "https://via.placeholder.com/600x600.png?text=Tshirt+1_3"
     ]
   },
+  13: {
+    name: "Футболка DYNASTY 2",
+    price: 35,
+    description: "Футболка с уникальным дизайном DYNASTY. Для тех, кто выделяется.",
+    material: "Хлопок",
+    features: "Дышащая ткань, свободный крой",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Tshirt+2_2",
+      "https://via.placeholder.com/600x600.png?text=Tshirt+2_3"
+    ]
+  },
+  // Майки
   11: {
-    name: "Майка DYNASTY",
+    name: "Майка DYNASTY 1",
     price: 25,
     description: "Лёгкая майка для жарких дней и тренировок.",
     material: "Полиэстер",
     features: "Дышащая ткань, свободный крой",
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
-      "https://via.placeholder.com/600x600.png?text=Tanktop+2",
-      "https://via.placeholder.com/600x600.png?text=Tanktop+3"
+      "https://via.placeholder.com/600x600.png?text=Tanktop+1_2",
+      "https://via.placeholder.com/600x600.png?text=Tanktop+1_3"
     ]
   },
+  14: {
+    name: "Майка DYNASTY 2",
+    price: 28,
+    description: "Стильная майка для активного образа жизни.",
+    material: "Полиэстер",
+    features: "Лёгкая, устойчивая к износу",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Tanktop+2_2",
+      "https://via.placeholder.com/600x600.png?text=Tanktop+2_3"
+    ]
+  },
+  // Шорты
+  9: {
+    name: "Спортивные шорты DYNASTY 1",
+    price: 50,
+    description: "Спортивные шорты с логотипом DYNASTY. Идеальны для тренировок и уличного стиля.",
+    material: "Полиэстер, хлопок",
+    features: "Дышащая ткань, эластичный пояс",
+    images: [
+      "images/fighter-shorts.png",
+      "https://via.placeholder.com/600x600.png?text=Shorts+1_2",
+      "https://via.placeholder.com/600x600.png?text=Shorts+1_3"
+    ]
+  },
+  15: {
+    name: "Спортивные шорты DYNASTY 2",
+    price: 55,
+    description: "Шорты для спорта и отдыха с дерзким дизайном.",
+    material: "Полиэстер",
+    features: "Эластичный пояс, лёгкие",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Shorts+2_2",
+      "https://via.placeholder.com/600x600.png?text=Shorts+2_3"
+    ]
+  },
+  // Штаны
+  2: {
+    name: "Черные брюки DYNASTY 1",
+    price: 80,
+    description: "Стильные черные брюки с прямым кроем. Комфорт и элегантность в одном.",
+    material: "Хлопок, полиэстер",
+    features: "Устойчивость к износу, удобная посадка",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Pants+1_2",
+      "https://via.placeholder.com/600x600.png?text=Pants+1_3"
+    ]
+  },
+  5: {
+    name: "Спортивные штаны DYNASTY 2",
+    price: 90,
+    description: "Спортивные штаны для активных. Свобода движений и стиль.",
+    material: "Полиэстер, хлопок",
+    features: "Эластичность, легкость",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Pants+2_2",
+      "https://via.placeholder.com/600x600.png?text=Pants+2_3"
+    ]
+  },
+  16: {
+    name: "Штаны DYNASTY 3",
+    price: 85,
+    description: "Удобные штаны для повседневного ношения.",
+    material: "Хлопок",
+    features: "Мягкая ткань, прямой крой",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Pants+3_2",
+      "https://via.placeholder.com/600x600.png?text=Pants+3_3"
+    ]
+  },
+  17: {
+    name: "Штаны DYNASTY 4",
+    price: 88,
+    description: "Стильные штаны для уличного вайба.",
+    material: "Полиэстер, хлопок",
+    features: "Прочная ткань, удобные карманы",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Pants+4_2",
+      "https://via.placeholder.com/600x600.png?text=Pants+4_3"
+    ]
+  },
+  18: {
+    name: "Штаны DYNASTY 5",
+    price: 95,
+    description: "Штаны для тех, кто ценит комфорт и стиль.",
+    material: "Хлопок, эластан",
+    features: "Эластичная ткань, свободная посадка",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Pants+5_2",
+      "https://via.placeholder.com/600x600.png?text=Pants+5_3"
+    ]
+  },
+  // Худи
   12: {
-    name: "Худи DYNASTY",
+    name: "Худи DYNASTY 1",
     price: 70,
     description: "Тёплое худи для уличного стиля.",
     material: "Хлопок, полиэстер",
     features: "Тёплая подкладка, капюшон с утяжкой",
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
-      "https://via.placeholder.com/600x600.png?text=Hoodie+2",
-      "https://via.placeholder.com/600x600.png?text=Hoodie+3"
+      "https://via.placeholder.com/600x600.png?text=Hoodie+1_2",
+      "https://via.placeholder.com/600x600.png?text=Hoodie+1_3"
+    ]
+  },
+  19: {
+    name: "Худи DYNASTY 2",
+    price: 75,
+    description: "Стильное худи для холодной погоды.",
+    material: "Хлопок, полиэстер",
+    features: "Плотная ткань, удобный капюшон",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Hoodie+2_2",
+      "https://via.placeholder.com/600x600.png?text=Hoodie+2_3"
+    ]
+  },
+  // Куртки
+  20: {
+    name: "Куртка DYNASTY 1",
+    price: 120,
+    description: "Тёплая куртка для холодной погоды.",
+    material: "Полиэстер, утеплитель",
+    features: "Водонепроницаемая, тёплая подкладка",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Jacket+1_2",
+      "https://via.placeholder.com/600x600.png?text=Jacket+1_3"
+    ]
+  },
+  21: {
+    name: "Куртка DYNASTY 2",
+    price: 130,
+    description: "Стильная куртка для уличного образа.",
+    material: "Полиэстер, утеплитель",
+    features: "Прочная, ветрозащитная",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Jacket+2_2",
+      "https://via.placeholder.com/600x600.png?text=Jacket+2_3"
+    ]
+  },
+  22: {
+    name: "Куртка DYNASTY 3",
+    price: 140,
+    description: "Куртка для экстремальных условий.",
+    material: "Полиэстер, утеплитель",
+    features: "Водонепроницаемая, тёплая",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Jacket+3_2",
+      "https://via.placeholder.com/600x600.png?text=Jacket+3_3"
+    ]
+  },
+  // Жилетки
+  8: {
+    name: "Жилетка DYNASTY 1",
+    price: 45,
+    description: "Легкий жилет для тренировок. Докажи свою силу.",
+    material: "Полиэстер",
+    features: "Дышащая ткань, легкий вес",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Vest+1_2",
+      "https://via.placeholder.com/600x600.png?text=Vest+1_3"
+    ]
+  },
+  23: {
+    name: "Жилетка DYNASTY 2",
+    price: 50,
+    description: "Стильный жилет для повседневного ношения.",
+    material: "Полиэстер",
+    features: "Лёгкий, удобный",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Vest+2_2",
+      "https://via.placeholder.com/600x600.png?text=Vest+2_3"
     ]
   }
 };
