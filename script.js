@@ -10,6 +10,34 @@ function scrollToSection(sectionId) {
   }
 }
 
+// Показать категорию
+function showCategory(categoryId) {
+  const categorySection = document.getElementById(categoryId);
+  const catalogSection = document.getElementById('catalog');
+  if (categorySection) {
+    categorySection.classList.remove('hidden');
+    catalogSection.classList.add('hidden');
+    categorySection.scrollIntoView({ behavior: 'smooth' });
+    document.querySelectorAll('.section:not(#' + categoryId + ')').forEach(sec => {
+      if (sec.id !== 'catalog') {
+        sec.classList.add('hidden');
+      }
+    });
+  }
+}
+
+// Вернуться к каталогу
+function goBackToCatalog() {
+  const catalogSection = document.getElementById('catalog');
+  if (catalogSection) {
+    catalogSection.classList.remove('hidden');
+    catalogSection.scrollIntoView({ behavior: 'smooth' });
+    document.querySelectorAll('.section:not(#catalog)').forEach(sec => {
+      sec.classList.add('hidden');
+    });
+  }
+}
+
 // Корзина
 let cart = [];
 
@@ -69,18 +97,6 @@ function showCartNotification() {
 
 // Данные товаров
 const products = {
-  1: {
-    name: "Белая рубашка",
-    price: 60,
-    description: "Легкая рубашка для стильного образа.",
-    material: "100% хлопок",
-    features: "Прямой крой, дышащая ткань",
-    images: [
-      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
-      "https://via.placeholder.com/600x600.png?text=White+Shirt+2",
-      "https://via.placeholder.com/600x600.png?text=White+Shirt+3"
-    ]
-  },
   2: {
     name: "Черные брюки",
     price: 80,
@@ -105,30 +121,6 @@ const products = {
       "https://via.placeholder.com/600x600.png?text=Sport+3"
     ]
   },
-  6: {
-    name: "Кроссовки",
-    price: 100,
-    description: "Прочные кроссовки для улицы. Уверенность в каждом шаге.",
-    material: "Кожа, резина",
-    features: "Амортизация, износостойкость",
-    images: [
-      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
-      "https://via.placeholder.com/600x600.png?text=Sneakers+2",
-      "https://via.placeholder.com/600x600.png?text=Sneakers+3"
-    ]
-  },
-  7: {
-    name: "Бейсболка",
-    price: 25,
-    description: "Простая бейсболка с дерзким дизайном. Завершай образ.",
-    material: "Хлопок",
-    features: "Регулируемый ремешок",
-    images: [
-      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
-      "https://via.placeholder.com/600x600.png?text=Cap+2",
-      "https://via.placeholder.com/600x600.png?text=Cap+3"
-    ]
-  },
   8: {
     name: "Тренировочный жилет",
     price: 45,
@@ -151,6 +143,42 @@ const products = {
       "images/fighter-shorts.png",
       "https://via.placeholder.com/600x600.png?text=Shorts+2",
       "https://via.placeholder.com/600x600.png?text=Shorts+3"
+    ]
+  },
+  10: {
+    name: "Футболка DYNASTY",
+    price: 30,
+    description: "Классическая футболка с логотипом DYNASTY. Идеальна для повседневного стиля.",
+    material: "Хлопок",
+    features: "Мягкая ткань, удобная посадка",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Tshirt+2",
+      "https://via.placeholder.com/600x600.png?text=Tshirt+3"
+    ]
+  },
+  11: {
+    name: "Майка DYNASTY",
+    price: 25,
+    description: "Лёгкая майка для жарких дней и тренировок.",
+    material: "Полиэстер",
+    features: "Дышащая ткань, свободный крой",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Tanktop+2",
+      "https://via.placeholder.com/600x600.png?text=Tanktop+3"
+    ]
+  },
+  12: {
+    name: "Худи DYNASTY",
+    price: 70,
+    description: "Тёплое худи для уличного стиля.",
+    material: "Хлопок, полиэстер",
+    features: "Тёплая подкладка, капюшон с утяжкой",
+    images: [
+      "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
+      "https://via.placeholder.com/600x600.png?text=Hoodie+2",
+      "https://via.placeholder.com/600x600.png?text=Hoodie+3"
     ]
   }
 };
