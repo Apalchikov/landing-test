@@ -61,7 +61,9 @@
                 <button onclick="showCategory('shorts')">Шорты</button>
                 <button onclick="showCategory('pants')">Штаны</button>
                 <button onclick="showCategory('hoodies')">Худи</button>
-                <button onclick="showCategory('outerwear')">Верхняя одежда</button>
+                <button onclick="showCategory('jackets')">Куртки</button>
+                <button onclick="showCategory('vests')">Жилетки</button>
+                <button onclick="showCategory('all-products')">Все товары</button>
             </div>
         </div>
     </section>
@@ -71,17 +73,18 @@
         <div class="container">
             <h2>Футболки</h2>
             <div class="product-grid">
-                <!-- Здесь можно добавить футболки -->
-                <div class="product-row" onclick="openProductModal(10)">
-                    <div class="product-item" data-id="10" data-name="Футболка DYNASTY" data-price="30">
-                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Футболка DYNASTY">
-                        <div class="product-info">
-                            <h4>Футболка DYNASTY</h4>
-                            <span class="price">$30</span>
-                        </div>
+                <div class="product-item" onclick="openProductModal(10)" data-id="10" data-name="Футболка DYNASTY 1" data-price="30">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Футболка DYNASTY 1">
+                    <div class="product-info">
+                        <h4>Футболка DYNASTY 1</h4>
+                        <span class="price">$30</span>
                     </div>
-                    <div class="product-description">
-                        <p>Классическая футболка с логотипом DYNASTY. Идеальна для повседневного стиля.</p>
+                </div>
+                <div class="product-item" onclick="openProductModal(13)" data-id="13" data-name="Футболка DYNASTY 2" data-price="35">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Футболка DYNASTY 2">
+                    <div class="product-info">
+                        <h4>Футболка DYNASTY 2</h4>
+                        <span class="price">$35</span>
                     </div>
                 </div>
             </div>
@@ -94,17 +97,18 @@
         <div class="container">
             <h2>Майки</h2>
             <div class="product-grid">
-                <!-- Здесь можно добавить майки -->
-                <div class="product-row" onclick="openProductModal(11)">
-                    <div class="product-item" data-id="11" data-name="Майка DYNASTY" data-price="25">
-                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Майка DYNASTY">
-                        <div class="product-info">
-                            <h4>Майка DYNASTY</h4>
-                            <span class="price">$25</span>
-                        </div>
+                <div class="product-item" onclick="openProductModal(11)" data-id="11" data-name="Майка DYNASTY 1" data-price="25">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Майка DYNASTY 1">
+                    <div class="product-info">
+                        <h4>Майка DYNASTY 1</h4>
+                        <span class="price">$25</span>
                     </div>
-                    <div class="product-description">
-                        <p>Лёгкая майка для жарких дней и тренировок.</p>
+                </div>
+                <div class="product-item" onclick="openProductModal(14)" data-id="14" data-name="Майка DYNASTY 2" data-price="28">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Майка DYNASTY 2">
+                    <div class="product-info">
+                        <h4>Майка DYNASTY 2</h4>
+                        <span class="price">$28</span>
                     </div>
                 </div>
             </div>
@@ -117,16 +121,18 @@
         <div class="container">
             <h2>Шорты</h2>
             <div class="product-grid">
-                <div class="product-row" onclick="openProductModal(9)">
-                    <div class="product-item" data-id="9" data-name="Спортивные шорты" data-price="50">
-                        <img src="images/fighter-shorts.png" alt="Спортивные шорты">
-                        <div class="product-info">
-                            <h4>Спортивные шорты</h4>
-                            <span class="price">$50</span>
-                        </div>
+                <div class="product-item" onclick="openProductModal(9)" data-id="9" data-name="Спортивные шорты DYNASTY 1" data-price="50">
+                    <img src="images/fighter-shorts.png" alt="Спортивные шорты DYNASTY 1">
+                    <div class="product-info">
+                        <h4>Спортивные шорты DYNASTY 1</h4>
+                        <span class="price">$50</span>
                     </div>
-                    <div class="product-description">
-                        <p>Спортивные шорты с логотипом DYNASTY. Идеальны для тренировок и уличного стиля.</p>
+                </div>
+                <div class="product-item" onclick="openProductModal(15)" data-id="15" data-name="Спортивные шорты DYNASTY 2" data-price="55">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Спортивные шорты DYNASTY 2">
+                    <div class="product-info">
+                        <h4>Спортивные шорты DYNASTY 2</h4>
+                        <span class="price">$55</span>
                     </div>
                 </div>
             </div>
@@ -139,28 +145,39 @@
         <div class="container">
             <h2>Штаны</h2>
             <div class="product-grid">
-                <div class="product-row" onclick="openProductModal(2)">
-                    <div class="product-item" data-id="2" data-name="Черные брюки" data-price="80">
-                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Черные брюки">
-                        <div class="product-info">
-                            <h4>Черные брюки</h4>
-                            <span class="price">$80</span>
-                        </div>
-                    </div>
-                    <div class="product-description">
-                        <p>Стильные черные брюки с прямым кроем. Комфорт и элегантность в одном.</p>
+                <div class="product-item" onclick="openProductModal(2)" data-id="2" data-name="Черные брюки DYNASTY 1" data-price="80">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Черные брюки DYNASTY 1">
+                    <div class="product-info">
+                        <h4>Черные брюки DYNASTY 1</h4>
+                        <span class="price">$80</span>
                     </div>
                 </div>
-                <div class="product-row" onclick="openProductModal(5)">
-                    <div class="product-item" data-id="5" data-name="Спортивный костюм" data-price="90">
-                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Спортивный костюм">
-                        <div class="product-info">
-                            <h4>Спортивный костюм</h4>
-                            <span class="price">$90</span>
-                        </div>
+                <div class="product-item" onclick="openProductModal(5)" data-id="5" data-name="Спортивные штаны DYNASTY 2" data-price="90">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Спортивные штаны DYNASTY 2">
+                    <div class="product-info">
+                        <h4>Спортивные штаны DYNASTY 2</h4>
+                        <span class="price">$90</span>
                     </div>
-                    <div class="product-description">
-                        <p>Спортивный костюм для активных. Свобода движений и стиль.</p>
+                </div>
+                <div class="product-item" onclick="openProductModal(16)" data-id="16" data-name="Штаны DYNASTY 3" data-price="85">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Штаны DYNASTY 3">
+                    <div class="product-info">
+                        <h4>Штаны DYNASTY 3</h4>
+                        <span class="price">$85</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(17)" data-id="17" data-name="Штаны DYNASTY 4" data-price="88">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Штаны DYNASTY 4">
+                    <div class="product-info">
+                        <h4>Штаны DYNASTY 4</h4>
+                        <span class="price">$88</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(18)" data-id="18" data-name="Штаны DYNASTY 5" data-price="95">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Штаны DYNASTY 5">
+                    <div class="product-info">
+                        <h4>Штаны DYNASTY 5</h4>
+                        <span class="price">$95</span>
                     </div>
                 </div>
             </div>
@@ -173,17 +190,18 @@
         <div class="container">
             <h2>Худи</h2>
             <div class="product-grid">
-                <!-- Здесь можно добавить худи -->
-                <div class="product-row" onclick="openProductModal(12)">
-                    <div class="product-item" data-id="12" data-name="Худи DYNASTY" data-price="70">
-                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Худи DYNASTY">
-                        <div class="product-info">
-                            <h4>Худи DYNASTY</h4>
-                            <span class="price">$70</span>
-                        </div>
+                <div class="product-item" onclick="openProductModal(12)" data-id="12" data-name="Худи DYNASTY 1" data-price="70">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Худи DYNASTY 1">
+                    <div class="product-info">
+                        <h4>Худи DYNASTY 1</h4>
+                        <span class="price">$70</span>
                     </div>
-                    <div class="product-description">
-                        <p>Тёплое худи для уличного стиля.</p>
+                </div>
+                <div class="product-item" onclick="openProductModal(19)" data-id="19" data-name="Худи DYNASTY 2" data-price="75">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Худи DYNASTY 2">
+                    <div class="product-info">
+                        <h4>Худи DYNASTY 2</h4>
+                        <span class="price">$75</span>
                     </div>
                 </div>
             </div>
@@ -191,21 +209,197 @@
         </div>
     </section>
 
-    <!-- Витрина: Верхняя одежда -->
-    <section id="outerwear" class="section showcase-section hidden">
+    <!-- Витрина: Куртки -->
+    <section id="jackets" class="section showcase-section hidden">
         <div class="container">
-            <h2>Верхняя одежда</h2>
+            <h2>Куртки</h2>
             <div class="product-grid">
-                <div class="product-row" onclick="openProductModal(8)">
-                    <div class="product-item" data-id="8" data-name="Тренировочный жилет" data-price="45">
-                        <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Тренировочный жилет">
-                        <div class="product-info">
-                            <h4>Тренировочный жилет</h4>
-                            <span class="price">$45</span>
-                        </div>
+                <div class="product-item" onclick="openProductModal(20)" data-id="20" data-name="Куртка DYNASTY 1" data-price="120">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Куртка DYNASTY 1">
+                    <div class="product-info">
+                        <h4>Куртка DYNASTY 1</h4>
+                        <span class="price">$120</span>
                     </div>
-                    <div class="product-description">
-                        <p>Легкий жилет для тренировок. Докажи свою силу.</p>
+                </div>
+                <div class="product-item" onclick="openProductModal(21)" data-id="21" data-name="Куртка DYNASTY 2" data-price="130">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Куртка DYNASTY 2">
+                    <div class="product-info">
+                        <h4>Куртка DYNASTY 2</h4>
+                        <span class="price">$130</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(22)" data-id="22" data-name="Куртка DYNASTY 3" data-price="140">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Куртка DYNASTY 3">
+                    <div class="product-info">
+                        <h4>Куртка DYNASTY 3</h4>
+                        <span class="price">$140</span>
+                    </div>
+                </div>
+            </div>
+            <button onclick="goBackToCatalog()">Назад к каталогу</button>
+        </div>
+    </section>
+
+    <!-- Витрина: Жилетки -->
+    <section id="vests" class="section showcase-section hidden">
+        <div class="container">
+            <h2>Жилетки</h2>
+            <div class="product-grid">
+                <div class="product-item" onclick="openProductModal(8)" data-id="8" data-name="Жилетка DYNASTY 1" data-price="45">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Жилетка DYNASTY 1">
+                    <div class="product-info">
+                        <h4>Жилетка DYNASTY 1</h4>
+                        <span class="price">$45</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(23)" data-id="23" data-name="Жилетка DYNASTY 2" data-price="50">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Жилетка DYNASTY 2">
+                    <div class="product-info">
+                        <h4>Жилетка DYNASTY 2</h4>
+                        <span class="price">$50</span>
+                    </div>
+                </div>
+            </div>
+            <button onclick="goBackToCatalog()">Назад к каталогу</button>
+        </div>
+    </section>
+
+    <!-- Витрина: Все товары -->
+    <section id="all-products" class="section showcase-section hidden">
+        <div class="container">
+            <h2>Все товары</h2>
+            <div class="product-grid">
+                <!-- Футболки -->
+                <div class="product-item" onclick="openProductModal(10)" data-id="10" data-name="Футболка DYNASTY 1" data-price="30">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Футболка DYNASTY 1">
+                    <div class="product-info">
+                        <h4>Футболка DYNASTY 1</h4>
+                        <span class="price">$30</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(13)" data-id="13" data-name="Футболка DYNASTY 2" data-price="35">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Футболка DYNASTY 2">
+                    <div class="product-info">
+                        <h4>Футболка DYNASTY 2</h4>
+                        <span class="price">$35</span>
+                    </div>
+                </div>
+                <!-- Майки -->
+                <div class="product-item" onclick="openProductModal(11)" data-id="11" data-name="Майка DYNASTY 1" data-price="25">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Майка DYNASTY 1">
+                    <div class="product-info">
+                        <h4>Майка DYNASTY 1</h4>
+                        <span class="price">$25</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(14)" data-id="14" data-name="Майка DYNASTY 2" data-price="28">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Майка DYNASTY 2">
+                    <div class="product-info">
+                        <h4>Майка DYNASTY 2</h4>
+                        <span class="price">$28</span>
+                    </div>
+                </div>
+                <!-- Шорты -->
+                <div class="product-item" onclick="openProductModal(9)" data-id="9" data-name="Спортивные шорты DYNASTY 1" data-price="50">
+                    <img src="images/fighter-shorts.png" alt="Спортивные шорты DYNASTY 1">
+                    <div class="product-info">
+                        <h4>Спортивные шорты DYNASTY 1</h4>
+                        <span class="price">$50</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(15)" data-id="15" data-name="Спортивные шорты DYNASTY 2" data-price="55">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Спортивные шорты DYNASTY 2">
+                    <div class="product-info">
+                        <h4>Спортивные шорты DYNASTY 2</h4>
+                        <span class="price">$55</span>
+                    </div>
+                </div>
+                <!-- Штаны -->
+                <div class="product-item" onclick="openProductModal(2)" data-id="2" data-name="Черные брюки DYNASTY 1" data-price="80">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Черные брюки DYNASTY 1">
+                    <div class="product-info">
+                        <h4>Черные брюки DYNASTY 1</h4>
+                        <span class="price">$80</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(5)" data-id="5" data-name="Спортивные штаны DYNASTY 2" data-price="90">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Спортивные штаны DYNASTY 2">
+                    <div class="product-info">
+                        <h4>Спортивные штаны DYNASTY 2</h4>
+                        <span class="price">$90</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(16)" data-id="16" data-name="Штаны DYNASTY 3" data-price="85">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Штаны DYNASTY 3">
+                    <div class="product-info">
+                        <h4>Штаны DYNASTY 3</h4>
+                        <span class="price">$85</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(17)" data-id="17" data-name="Штаны DYNASTY 4" data-price="88">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Штаны DYNASTY 4">
+                    <div class="product-info">
+                        <h4>Штаны DYNASTY 4</h4>
+                        <span class="price">$88</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(18)" data-id="18" data-name="Штаны DYNASTY 5" data-price="95">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Штаны DYNASTY 5">
+                    <div class="product-info">
+                        <h4>Штаны DYNASTY 5</h4>
+                        <span class="price">$95</span>
+                    </div>
+                </div>
+                <!-- Худи -->
+                <div class="product-item" onclick="openProductModal(12)" data-id="12" data-name="Худи DYNASTY 1" data-price="70">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Худи DYNASTY 1">
+                    <div class="product-info">
+                        <h4>Худи DYNASTY 1</h4>
+                        <span class="price">$70</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(19)" data-id="19" data-name="Худи DYNASTY 2" data-price="75">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Худи DYNASTY 2">
+                    <div class="product-info">
+                        <h4>Худи DYNASTY 2</h4>
+                        <span class="price">$75</span>
+                    </div>
+                </div>
+                <!-- Куртки -->
+                <div class="product-item" onclick="openProductModal(20)" data-id="20" data-name="Куртка DYNASTY 1" data-price="120">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Куртка DYNASTY 1">
+                    <div class="product-info">
+                        <h4>Куртка DYNASTY 1</h4>
+                        <span class="price">$120</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(21)" data-id="21" data-name="Куртка DYNASTY 2" data-price="130">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Куртка DYNASTY 2">
+                    <div class="product-info">
+                        <h4>Куртка DYNASTY 2</h4>
+                        <span class="price">$130</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(22)" data-id="22" data-name="Куртка DYNASTY 3" data-price="140">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Куртка DYNASTY 3">
+                    <div class="product-info">
+                        <h4>Куртка DYNASTY 3</h4>
+                        <span class="price">$140</span>
+                    </div>
+                </div>
+                <!-- Жилетки -->
+                <div class="product-item" onclick="openProductModal(8)" data-id="8" data-name="Жилетка DYNASTY 1" data-price="45">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Жилетка DYNASTY 1">
+                    <div class="product-info">
+                        <h4>Жилетка DYNASTY 1</h4>
+                        <span class="price">$45</span>
+                    </div>
+                </div>
+                <div class="product-item" onclick="openProductModal(23)" data-id="23" data-name="Жилетка DYNASTY 2" data-price="50">
+                    <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Жилетка DYNASTY 2">
+                    <div class="product-info">
+                        <h4>Жилетка DYNASTY 2</h4>
+                        <span class="price">$50</span>
                     </div>
                 </div>
             </div>
