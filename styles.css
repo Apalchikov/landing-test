@@ -45,7 +45,7 @@ body {
   border: 1px solid #fff;
   padding: 8px 16px;
   font-size: 1rem;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Добавляем запасной шрифт */
   text-transform: uppercase;
   letter-spacing: 0.1em;
   cursor: pointer;
@@ -76,14 +76,14 @@ body {
 
 /* Главная секция */
 .hero-section {
-  min-height: 120vh; /* Увеличиваем высоту секции, чтобы оба логотипа поместились */
+  min-height: 120vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   background-color: #000;
-  padding-top: 130px;
+  padding-top: 130px; /* Установлено по твоему желанию */
   padding-bottom: 40px;
 }
 
@@ -92,25 +92,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px; /* Отступ между SVG и текстовым логотипом */
+  margin-bottom: 20px;
 }
 
 .logo-svg {
   width: 100%;
-  max-width: 150px; /* Размер SVG-логотипа */
+  max-width: 150px; /* Установлено по твоему желанию */
   height: auto;
   opacity: 0;
   animation: fadeInLogo 1s ease forwards;
-  animation-delay: 0.2s; /* SVG появляется чуть раньше текста */
+  animation-delay: 0.2s;
 }
 
 .logo-svg polygon {
-  fill: #fff; /* Логотип белый */
+  fill: #fff;
 }
 
 /* Текстовый логотип */
 .logo {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', Arial, sans-serif;
   font-size: 8rem;
   font-weight: bold;
   letter-spacing: 0.2em;
@@ -147,7 +147,7 @@ body {
   }
 }
 
-.logo .letter:nth-child(1) { animation-delay: 0.8s; } /* Задержка увеличена, чтобы текст появлялся после SVG */
+.logo .letter:nth-child(1) { animation-delay: 0.8s; }
 .logo .letter:nth-child(2) { animation-delay: 1.0s; }
 .logo .letter:nth-child(3) { animation-delay: 1.2s; }
 .logo .letter:nth-child(4) { animation-delay: 1.4s; }
@@ -187,7 +187,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 40px;
-  margin-top: 125px;
+  margin-top: 125px; /* Установлено по твоему желанию */
 }
 
 .collection-item {
@@ -222,7 +222,7 @@ body {
 }
 
 .collection-item h3 {
-  font-family: 'Anton', sans-serif;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Меняем на Bebas Neue */
   font-size: 2.5rem;
   margin-bottom: 10px;
   color: #fff;
@@ -245,7 +245,7 @@ body {
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: #fff;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Добавляем запасной шрифт */
   text-align: center;
 }
 
@@ -262,7 +262,7 @@ body {
   border: none;
   padding: 12px 24px;
   font-size: 1.2rem;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Добавляем запасной шрифт */
   text-transform: uppercase;
   letter-spacing: 0.1em;
   cursor: pointer;
@@ -295,7 +295,7 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  width: calc(33.33% - 20px); /* По 3 в ряд */
+  width: calc(33.33% - 20px);
   max-width: 300px;
   cursor: pointer;
 }
@@ -319,7 +319,7 @@ body {
 }
 
 .product-item h4 {
-  font-family: 'Anton', sans-serif;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Меняем на Bebas Neue */
   font-size: 1.4rem;
   margin: 5px 0;
   color: #fff;
@@ -341,7 +341,7 @@ body {
   color: #000;
   padding: 12px 24px;
   font-size: 1rem;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Добавляем запасной шрифт */
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-top: 20px;
@@ -369,7 +369,7 @@ body {
 }
 
 .contacts-content h2 {
-  font-family: 'Anton', sans-serif;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Меняем на Bebas Neue */
   font-size: 4rem;
   margin-bottom: 40px;
   color: #fff;
@@ -379,7 +379,7 @@ body {
 
 .contact-link {
   display: block;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Добавляем запасной шрифт */
   font-size: 2.5rem;
   color: #fff;
   text-decoration: none;
@@ -410,7 +410,7 @@ body {
 }
 
 .phone-link {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Добавляем запасной шрифт */
 }
 
 /* Модальное окно корзины */
@@ -453,7 +453,7 @@ body {
 }
 
 .cart-content h2 {
-  font-family: 'Anton', sans-serif;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Меняем на Bebas Neue */
   font-size: 1.25rem;
   margin-bottom: 30px;
   color: #fff;
@@ -518,7 +518,7 @@ body {
   padding: 10px;
   margin-top: 10px;
   width: 100%;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Добавляем запасной шрифт */
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -536,7 +536,7 @@ body {
   color: #000;
   width: 100%;
   padding: 12px;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Добавляем запасной шрифт */
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -635,7 +635,7 @@ body {
 }
 
 .modal-details h2 {
-  font-family: 'Anton', sans-serif;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Меняем на Bebas Neue */
   font-size: 3rem;
   margin-bottom: 20px;
   color: #fff;
@@ -664,6 +664,25 @@ body {
   width: 100px;
 }
 
+.add-to-cart {
+  background-color: #fff;
+  color: #000;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 20px;
+}
+
+.add-to-cart:hover {
+  background-color: #ccc;
+  transform: scale(1.05);
+}
+
 /* Модальное окно оформления заказа */
 .checkout-modal {
   position: fixed;
@@ -688,7 +707,7 @@ body {
 }
 
 .checkout-modal-content h2 {
-  font-family: 'Anton', sans-serif;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Меняем на Bebas Neue */
   font-size: 2rem;
   margin-bottom: 20px;
   color: #fff;
@@ -724,7 +743,7 @@ body {
   background-color: #ffcc00;
   color: #000;
   padding: 10px;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Добавляем запасной шрифт */
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -771,7 +790,7 @@ body {
 }
 
 #checkout-success h2 {
-  font-family: 'Anton', sans-serif;
+  font-family: 'Bebas Neue', Arial, sans-serif; /* Меняем на Bebas Neue */
   font-size: 2rem;
   margin-bottom: 20px;
   color: #fff;
@@ -859,7 +878,7 @@ body {
   }
 
   .product-item {
-    width: calc(50% - 20px); /* На мобильных по 2 в ряд */
+    width: calc(50% - 20px);
     max-width: 200px;
   }
 
@@ -887,13 +906,13 @@ body {
   }
 
   .logo-svg {
-    max-width: 200px; /* Уменьшаем SVG на мобильных */
+    max-width: 120px; /* Уменьшаем SVG на мобильных */
   }
 }
 
 @media (max-width: 480px) {
   .product-item {
-    width: 100%; /* На совсем маленьких экранах по 1 в ряд */
+    width: 100%;
     max-width: 250px;
   }
 
@@ -902,10 +921,10 @@ body {
   }
 
   .logo {
-    font-size: 4rem; /* Уменьшаем текстовый логотип на маленьких экранах */
+    font-size: 4rem;
   }
 
   .logo-svg {
-    max-width: 150px; /* Ещё меньше для SVG */
+    max-width: 100px; /* Ещё меньше для SVG */
   }
 }
