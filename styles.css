@@ -76,7 +76,7 @@ body {
 
 /* Главная секция */
 .hero-section {
-  height: 100vh;
+  min-height: 120vh; /* Увеличиваем высоту секции, чтобы оба логотипа поместились */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -84,8 +84,31 @@ body {
   text-align: center;
   background-color: #000;
   padding-top: 60px;
+  padding-bottom: 40px;
 }
 
+/* SVG-логотип */
+.svg-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Отступ между SVG и текстовым логотипом */
+}
+
+.logo-svg {
+  width: 100%;
+  max-width: 300px; /* Размер SVG-логотипа */
+  height: auto;
+  opacity: 0;
+  animation: fadeInLogo 1s ease forwards;
+  animation-delay: 0.2s; /* SVG появляется чуть раньше текста */
+}
+
+.logo-svg polygon {
+  fill: #fff; /* Логотип белый */
+}
+
+/* Текстовый логотип */
 .logo {
   font-family: 'Bebas Neue', cursive;
   font-size: 8rem;
@@ -102,6 +125,17 @@ body {
   animation: fadeInLetter 0.6s forwards;
 }
 
+@keyframes fadeInLogo {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeInLetter {
   from {
     opacity: 0;
@@ -113,13 +147,13 @@ body {
   }
 }
 
-.logo .letter:nth-child(1) { animation-delay: 0.2s; }
-.logo .letter:nth-child(2) { animation-delay: 0.4s; }
-.logo .letter:nth-child(3) { animation-delay: 0.6s; }
-.logo .letter:nth-child(4) { animation-delay: 0.8s; }
-.logo .letter:nth-child(5) { animation-delay: 1.0s; }
-.logo .letter:nth-child(6) { animation-delay: 1.2s; }
-.logo .letter:nth-child(7) { animation-delay: 1.4s; }
+.logo .letter:nth-child(1) { animation-delay: 0.8s; } /* Задержка увеличена, чтобы текст появлялся после SVG */
+.logo .letter:nth-child(2) { animation-delay: 1.0s; }
+.logo .letter:nth-child(3) { animation-delay: 1.2s; }
+.logo .letter:nth-child(4) { animation-delay: 1.4s; }
+.logo .letter:nth-child(5) { animation-delay: 1.6s; }
+.logo .letter:nth-child(6) { animation-delay: 1.8s; }
+.logo .letter:nth-child(7) { animation-delay: 2.0s; }
 
 .slogan {
   font-size: 1.5rem;
@@ -851,6 +885,10 @@ body {
     font-size: 1rem;
     padding: 10px;
   }
+
+  .logo-svg {
+    max-width: 200px; /* Уменьшаем SVG на мобильных */
+  }
 }
 
 @media (max-width: 480px) {
@@ -861,5 +899,13 @@ body {
 
   .product-item img {
     height: 250px;
+  }
+
+  .logo {
+    font-size: 4rem; /* Уменьшаем текстовый логотип на маленьких экранах */
+  }
+
+  .logo-svg {
+    max-width: 150px; /* Ещё меньше для SVG */
   }
 }
