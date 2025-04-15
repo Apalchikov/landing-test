@@ -97,7 +97,7 @@ body {
 
 .logo-svg {
   width: 100%;
-  max-width: 300px; /* Размер SVG-логотипа */
+  max-width: 150px; /* Размер SVG-логотипа */
   height: auto;
   opacity: 0;
   animation: fadeInLogo 1s ease forwards;
