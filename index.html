@@ -26,6 +26,7 @@
                 <li><button onclick="scrollToSection('contacts')">Контакты</button></li>
                 <li><button onclick="scrollToSection('about')">Про нас</button></li>
                 <li><button onclick="scrollToSection('info')">Важная информация</button></li>
+                <li><button onclick="scrollToSection('account')">Личный кабинет</button></li>
                 <li class="cart-li"><button id="cart-button" class="cart-icon">🛒</button></li>
             </ul>
         </div>
@@ -66,6 +67,49 @@
         </div>
     </header>
 
+    <!-- Личный кабинет -->
+    <section id="account" class="section hidden">
+        <div class="container">
+            <h2>Личный кабинет</h2>
+            <div id="login-form" class="login-form">
+                <h3>Вход для покупателя</h3>
+                <form id="customer-login">
+                    <label for="customer-name">Имя:</label>
+                    <input type="text" id="customer-name" name="name" placeholder="Иван" required>
+                    <label for="customer-contact">Телефон или Telegram:</label>
+                    <input type="text" id="customer-contact" name="contact" placeholder="+7 (999) 123-45-67 или @username" required>
+                    <button type="submit">Войти</button>
+                </form>
+                <h3>Вход для администратора</h3>
+                <form id="admin-login">
+                    <label for="admin-code">Код администратора:</label>
+                    <input type="password" id="admin-code" name="code" placeholder="Введите код" required>
+                    <button type="submit">Войти</button>
+                </form>
+            </div>
+            <div id="customer-account" class="account-content hidden">
+                <h3>Добро пожаловать, <span id="customer-name-display"></span>!</h3>
+                <button id="logout-customer">Выйти</button>
+                <div class="account-section">
+                    <h4>Избранное</h4>
+                    <div id="favorites-list" class="product-grid"></div>
+                </div>
+                <div class="account-section">
+                    <h4>Ваши заказы</h4>
+                    <div id="customer-orders"></div>
+                </div>
+            </div>
+            <div id="admin-account" class="account-content hidden">
+                <h3>Панель администратора</h3>
+                <button id="logout-admin">Выйти</button>
+                <div class="account-section">
+                    <h4>Все заказы</h4>
+                    <div id="admin-orders"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Каталог товаров -->
     <section id="catalog" class="section catalog-section hidden">
         <div class="container">
@@ -93,6 +137,7 @@
                     <div class="product-info">
                         <h4>Футболка DYNASTY 1</h4>
                         <span class="price">$30</span>
+                        <button onclick="toggleFavorite(10, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(13)" data-id="13" data-name="Футболка DYNASTY 2" data-price="35">
@@ -100,6 +145,7 @@
                     <div class="product-info">
                         <h4>Футболка DYNASTY 2</h4>
                         <span class="price">$35</span>
+                        <button onclick="toggleFavorite(13, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
             </div>
@@ -117,6 +163,7 @@
                     <div class="product-info">
                         <h4>Майка DYNASTY 1</h4>
                         <span class="price">$25</span>
+                        <button onclick="toggleFavorite(11, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(14)" data-id="14" data-name="Майка DYNASTY 2" data-price="28">
@@ -124,6 +171,7 @@
                     <div class="product-info">
                         <h4>Майка DYNASTY 2</h4>
                         <span class="price">$28</span>
+                        <button onclick="toggleFavorite(14, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
             </div>
@@ -141,6 +189,7 @@
                     <div class="product-info">
                         <h4>Спортивные шорты DYNASTY 1</h4>
                         <span class="price">$50</span>
+                        <button onclick="toggleFavorite(9, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(15)" data-id="15" data-name="Спортивные шорты DYNASTY 2" data-price="55">
@@ -148,6 +197,7 @@
                     <div class="product-info">
                         <h4>Спортивные шорты DYNASTY 2</h4>
                         <span class="price">$55</span>
+                        <button onclick="toggleFavorite(15, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
             </div>
@@ -165,6 +215,7 @@
                     <div class="product-info">
                         <h4>Черные брюки DYNASTY 1</h4>
                         <span class="price">$80</span>
+                        <button onclick="toggleFavorite(2, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(5)" data-id="5" data-name="Спортивные штаны DYNASTY 2" data-price="90">
@@ -172,6 +223,7 @@
                     <div class="product-info">
                         <h4>Спортивные штаны DYNASTY 2</h4>
                         <span class="price">$90</span>
+                        <button onclick="toggleFavorite(5, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(16)" data-id="16" data-name="Штаны DYNASTY 3" data-price="85">
@@ -179,13 +231,15 @@
                     <div class="product-info">
                         <h4>Штаны DYNASTY 3</h4>
                         <span class="price">$85</span>
+                        <button onclick="toggleFavorite(16, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
-                <div class="product-item" onclick="openProductModal(17)" data-id="17" data-name="Штаны DYNASTY 4" data-price="88">
+                <div class="product-item" onclick="openProductModal(17)" datahlteid="17" data-name="Штаны DYNASTY 4" data-price="88">
                     <img src="https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg" alt="Штаны DYNASTY 4">
                     <div class="product-info">
                         <h4>Штаны DYNASTY 4</h4>
                         <span class="price">$88</span>
+                        <button onclick="toggleFavorite(17, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(18)" data-id="18" data-name="Штаны DYNASTY 5" data-price="95">
@@ -193,6 +247,7 @@
                     <div class="product-info">
                         <h4>Штаны DYNASTY 5</h4>
                         <span class="price">$95</span>
+                        <button onclick="toggleFavorite(18, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
             </div>
@@ -210,6 +265,7 @@
                     <div class="product-info">
                         <h4>Худи DYNASTY 1</h4>
                         <span class="price">$70</span>
+                        <button onclick="toggleFavorite(12, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(19)" data-id="19" data-name="Худи DYNASTY 2" data-price="75">
@@ -217,6 +273,7 @@
                     <div class="product-info">
                         <h4>Худи DYNASTY 2</h4>
                         <span class="price">$75</span>
+                        <button onclick="toggleFavorite(19, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
             </div>
@@ -234,6 +291,7 @@
                     <div class="product-info">
                         <h4>Куртка DYNASTY 1</h4>
                         <span class="price">$120</span>
+                        <button onclick="toggleFavorite(20, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(21)" data-id="21" data-name="Куртка DYNASTY 2" data-price="130">
@@ -241,6 +299,7 @@
                     <div class="product-info">
                         <h4>Куртка DYNASTY 2</h4>
                         <span class="price">$130</span>
+                        <button onclick="toggleFavorite(21, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(22)" data-id="22" data-name="Куртка DYNASTY 3" data-price="140">
@@ -248,6 +307,7 @@
                     <div class="product-info">
                         <h4>Куртка DYNASTY 3</h4>
                         <span class="price">$140</span>
+                        <button onclick="toggleFavorite(22, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
             </div>
@@ -265,6 +325,7 @@
                     <div class="product-info">
                         <h4>Жилетка DYNASTY 1</h4>
                         <span class="price">$45</span>
+                        <button onclick="toggleFavorite(8, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(23)" data-id="23" data-name="Жилетка DYNASTY 2" data-price="50">
@@ -272,6 +333,7 @@
                     <div class="product-info">
                         <h4>Жилетка DYNASTY 2</h4>
                         <span class="price">$50</span>
+                        <button onclick="toggleFavorite(23, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
             </div>
@@ -290,6 +352,7 @@
                     <div class="product-info">
                         <h4>Футболка DYNASTY 1</h4>
                         <span class="price">$30</span>
+                        <button onclick="toggleFavorite(10, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(13)" data-id="13" data-name="Футболка DYNASTY 2" data-price="35">
@@ -297,6 +360,7 @@
                     <div class="product-info">
                         <h4>Футболка DYNASTY 2</h4>
                         <span class="price">$35</span>
+                        <button onclick="toggleFavorite(13, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <!-- Майки -->
@@ -305,6 +369,7 @@
                     <div class="product-info">
                         <h4>Майка DYNASTY 1</h4>
                         <span class="price">$25</span>
+                        <button onclick="toggleFavorite(11, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(14)" data-id="14" data-name="Майка DYNASTY 2" data-price="28">
@@ -312,6 +377,7 @@
                     <div class="product-info">
                         <h4>Майка DYNASTY 2</h4>
                         <span class="price">$28</span>
+                        <button onclick="toggleFavorite(14, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <!-- Шорты -->
@@ -320,6 +386,7 @@
                     <div class="product-info">
                         <h4>Спортивные шорты DYNASTY 1</h4>
                         <span class="price">$50</span>
+                        <button onclick="toggleFavorite(9, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(15)" data-id="15" data-name="Спортивные шорты DYNASTY 2" data-price="55">
@@ -327,6 +394,7 @@
                     <div class="product-info">
                         <h4>Спортивные шорты DYNASTY 2</h4>
                         <span class="price">$55</span>
+                        <button onclick="toggleFavorite(15, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <!-- Штаны -->
@@ -335,6 +403,7 @@
                     <div class="product-info">
                         <h4>Черные брюки DYNASTY 1</h4>
                         <span class="price">$80</span>
+                        <button onclick="toggleFavorite(2, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(5)" data-id="5" data-name="Спортивные штаны DYNASTY 2" data-price="90">
@@ -342,6 +411,7 @@
                     <div class="product-info">
                         <h4>Спортивные штаны DYNASTY 2</h4>
                         <span class="price">$90</span>
+                        <button onclick="toggleFavorite(5, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(16)" data-id="16" data-name="Штаны DYNASTY 3" data-price="85">
@@ -349,6 +419,7 @@
                     <div class="product-info">
                         <h4>Штаны DYNASTY 3</h4>
                         <span class="price">$85</span>
+                        <button onclick="toggleFavorite(16, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(17)" data-id="17" data-name="Штаны DYNASTY 4" data-price="88">
@@ -356,6 +427,7 @@
                     <div class="product-info">
                         <h4>Штаны DYNASTY 4</h4>
                         <span class="price">$88</span>
+                        <button onclick="toggleFavorite(17, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(18)" data-id="18" data-name="Штаны DYNASTY 5" data-price="95">
@@ -363,6 +435,7 @@
                     <div class="product-info">
                         <h4>Штаны DYNASTY 5</h4>
                         <span class="price">$95</span>
+                        <button onclick="toggleFavorite(18, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <!-- Худи -->
@@ -371,6 +444,7 @@
                     <div class="product-info">
                         <h4>Худи DYNASTY 1</h4>
                         <span class="price">$70</span>
+                        <button onclick="toggleFavorite(12, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(19)" data-id="19" data-name="Худи DYNASTY 2" data-price="75">
@@ -378,6 +452,7 @@
                     <div class="product-info">
                         <h4>Худи DYNASTY 2</h4>
                         <span class="price">$75</span>
+                        <button onclick="toggleFavorite(19, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <!-- Куртки -->
@@ -386,6 +461,7 @@
                     <div class="product-info">
                         <h4>Куртка DYNASTY 1</h4>
                         <span class="price">$120</span>
+                        <button onclick="toggleFavorite(20, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(21)" data-id="21" data-name="Куртка DYNASTY 2" data-price="130">
@@ -393,6 +469,7 @@
                     <div class="product-info">
                         <h4>Куртка DYNASTY 2</h4>
                         <span class="price">$130</span>
+                        <button onclick="toggleFavorite(21, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(22)" data-id="22" data-name="Куртка DYNASTY 3" data-price="140">
@@ -400,6 +477,7 @@
                     <div class="product-info">
                         <h4>Куртка DYNASTY 3</h4>
                         <span class="price">$140</span>
+                        <button onclick="toggleFavorite(22, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <!-- Жилетки -->
@@ -408,6 +486,7 @@
                     <div class="product-info">
                         <h4>Жилетка DYNASTY 1</h4>
                         <span class="price">$45</span>
+                        <button onclick="toggleFavorite(8, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
                 <div class="product-item" onclick="openProductModal(23)" data-id="23" data-name="Жилетка DYNASTY 2" data-price="50">
@@ -415,6 +494,7 @@
                     <div class="product-info">
                         <h4>Жилетка DYNASTY 2</h4>
                         <span class="price">$50</span>
+                        <button onclick="toggleFavorite(23, event)" class="favorite-btn">★</button>
                     </div>
                 </div>
             </div>
@@ -483,6 +563,7 @@
                     <option value="L">L</option>
                 </select>
                 <button id="add-to-cart-modal" class="add-to-cart">Добавить в корзину</button>
+                <button id="add-to-favorite-modal" class="add-to-favorite">Добавить в избранное ★</button>
             </div>
         </div>
     </div>
