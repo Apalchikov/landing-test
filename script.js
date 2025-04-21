@@ -39,7 +39,7 @@ function goBackToCatalog() {
 }
 
 // Корзина
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function updateCart() {
   const cartItems = document.getElementById('cart-items');
@@ -66,6 +66,8 @@ function updateCart() {
   clearButton.textContent = 'Очистить корзину';
   clearButton.onclick = clearCart;
   cartItems.appendChild(clearButton);
+
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 function addToCart(id, name, price, size) {
@@ -93,6 +95,145 @@ function showCartNotification() {
     notification.classList.remove('show');
     notification.classList.add('hidden');
   }, 2000);
+}
+
+// Избранное
+let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+function toggleFavorite(id, event) {
+  event.stopPropagation();
+  const index = favorites.indexOf(id);
+  if (index === -1) {
+    favorites.push(id);
+  } else {
+    favorites.splice(index, 1);
+  }
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+  updateFavoritesList();
+  updateFavoriteButtons();
+}
+
+function updateFavoriteButtons() {
+  document.querySelectorAll('.favorite-btn').forEach(btn => {
+    const id = parseInt(btn.parentElement.parentElement.dataset.id);
+    btn.classList.toggle('active', favorites.includes(id));
+  });
+}
+
+function updateFavoritesList() {
+  const favoritesList = document.getElementById('favorites-list');
+  favoritesList.innerHTML = '';
+  favorites.forEach(id => {
+    const product = products[id];
+    const item = document.createElement('div');
+    item.classList.add('product-item');
+    item.innerHTML = `
+      <img src="${product.images[0]}" alt="${product.name}">
+      <div class="product-info">
+        <h4>${product.name}</h4>
+        <span class="price">$${product.price}</span>
+        <button onclick="toggleFavorite(${id}, event)" class="favorite-btn">★</button>
+      </div>
+    `;
+    item.onclick = () => openProductModal(id);
+    favoritesList.appendChild(item);
+  });
+}
+
+// Заказы
+let orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+function saveOrder(name, contact, items) {
+  const orderId = Date.now();
+  const order = {
+    id: orderId,
+    name,
+    contact,
+    items,
+    status: 'В обработке',
+    date: new Date().toLocaleString()
+  };
+  orders.push(order);
+  localStorage.setItem('orders', JSON.stringify(orders));
+  updateCustomerOrders();
+  updateAdminOrders();
+}
+
+function updateCustomerOrders() {
+  const customerOrders = document.getElementById('customer-orders');
+  customerOrders.innerHTML = '';
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  if (!currentUser) return;
+  const userOrders = orders.filter(order => order.name === currentUser.name && order.contact === currentUser.contact);
+  userOrders.forEach(order => {
+    const orderDiv = document.createElement('div');
+    orderDiv.classList.add('order-item');
+    orderDiv.innerHTML = `
+      <h4>Заказ #${order.id}</h4>
+      <p><strong>Дата:</strong> ${order.date}</p>
+      <p><strong>Товары:</strong> ${order.items.map(item => `${item.name} - $${item.price} (${item.size})`).join(', ')}</p>
+      <p><strong>Статус:</strong> ${order.status}</p>
+    `;
+    customerOrders.appendChild(orderDiv);
+  });
+}
+
+function updateAdminOrders() {
+  const adminOrders = document.getElementById('admin-orders');
+  adminOrders.innerHTML = '';
+  orders.forEach(order => {
+    const orderDiv = document.createElement('div');
+    orderDiv.classList.add('order-item');
+    orderDiv.innerHTML = `
+      <h4>Заказ #${order.id}</h4>
+      <p><strong>Клиент:</strong> ${order.name} (${order.contact})</p>
+      <p><strong>Дата:</strong> ${order.date}</p>
+      <p><strong>Товары:</strong> ${order.items.map(item => `${item.name} - $${item.price} (${item.size})`).join(', ')}</p>
+      <p><strong>Статус:</strong>
+        <select onchange="updateOrderStatus(${order.id}, this.value)">
+          <option value="В обработке" ${order.status === 'В обработке' ? 'selected' : ''}>В обработке</option>
+          <option value="Отправлен" ${order.status === 'Отправлен' ? 'selected' : ''}>Отправлен</option>
+          <option value="Доставлен" ${order.status === 'Доставлен' ? 'selected' : ''}>Доставлен</option>
+          <option value="Отменён" ${order.status === 'Отменён' ? 'selected' : ''}>Отменён</option>
+        </select>
+      </p>
+    `;
+    adminOrders.appendChild(orderDiv);
+  });
+}
+
+function updateOrderStatus(orderId, status) {
+  const order = orders.find(o => o.id === orderId);
+  if (order) {
+    order.status = status;
+    localStorage.setItem('orders', JSON.stringify(orders));
+    updateCustomerOrders();
+    updateAdminOrders();
+  }
+}
+
+// Авторизация
+function loginCustomer(name, contact) {
+  localStorage.setItem('currentUser', JSON.stringify({ name, contact }));
+  document.getElementById('login-form').classList.add('hidden');
+  document.getElementById('customer-account').classList.remove('hidden');
+  document.getElementById('customer-name-display').textContent = name;
+  updateFavoritesList();
+  updateCustomerOrders();
+  updateFavoriteButtons();
+}
+
+function loginAdmin() {
+  document.getElementById('login-form').classList.add('hidden');
+  document.getElementById('admin-account').classList.remove('hidden');
+  updateAdminOrders();
+}
+
+function logout() {
+  localStorage.removeItem('currentUser');
+  document.getElementById('login-form').classList.remove('hidden');
+  document.getElementById('customer-account').classList.add('hidden');
+  document.getElementById('admin-account').classList.add('hidden');
 }
 
 // Данные товаров
@@ -352,6 +493,11 @@ function openProductModal(id) {
     addToCart(id, product.name, product.price, size);
     modal.classList.add('hidden');
   };
+
+  document.getElementById('add-to-favorite-modal').onclick = () => {
+    toggleFavorite(id, new Event('click'));
+    modal.classList.add('hidden');
+  };
 }
 
 // Закрытие модального окна товара
@@ -401,6 +547,7 @@ document.getElementById('checkout-form').addEventListener('submit', (e) => {
     .then(response => response.json())
     .then(data => {
       if (data.ok) {
+        saveOrder(name, contact, cart);
         document.getElementById('checkout-form-container').classList.add('hidden');
         document.getElementById('checkout-success').classList.remove('hidden');
         setTimeout(() => {
@@ -417,3 +564,31 @@ document.getElementById('checkout-form').addEventListener('submit', (e) => {
       alert('Ошибка при отправке заказа');
     });
 });
+
+// Обработка авторизации
+document.getElementById('customer-login').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('customer-name').value;
+  const contact = document.getElementById('customer-contact').value;
+  loginCustomer(name, contact);
+});
+
+document.getElementById('admin-login').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const code = document.getElementById('admin-code').value;
+  if (code === 'admin123') { // Простой код для примера, замените на свой
+    loginAdmin();
+  } else {
+    alert('Неверный код администратора');
+  }
+});
+
+document.getElementById('logout-customer').addEventListener('click', logout);
+document.getElementById('logout-admin').addEventListener('click', logout);
+
+// Инициализация
+if (localStorage.getItem('currentUser')) {
+  const { name, contact } = JSON.parse(localStorage.getItem('currentUser'));
+  loginCustomer(name, contact);
+}
+updateFavoriteButtons();
