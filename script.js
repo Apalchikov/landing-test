@@ -327,10 +327,12 @@ const products = {
 
 // Модальное окно товара
 let currentImageIndex = 0;
+let currentProductId = null;
 
 function openProductModal(productId) {
   const product = products[productId];
   if (product) {
+    currentProductId = productId;
     document.getElementById('modal-title').textContent = product.name;
     document.getElementById('modal-price').textContent = `$${product.price}`;
     document.getElementById('modal-description').textContent = product.description;
@@ -350,7 +352,7 @@ function openProductModal(productId) {
       if (index === 0) indicator.classList.add('active');
       indicator.onclick = () => {
         currentImageIndex = index;
-        updateGallery(product);
+        updateGallery();
       };
       indicatorsContainer.appendChild(indicator);
     });
@@ -362,41 +364,43 @@ function openProductModal(productId) {
       addToCart(productId, product.name, product.price, size);
     };
 
-    // Показать модальное
+    // Показать модальное окно
     document.getElementById('product-modal').classList.remove('hidden');
   }
 }
 
-function updateGallery(product) {
-  document.getElementById('modal-image').src = product.images[currentImageIndex];
-  const indicators = document.querySelectorAll('.indicator');
-  indicators.forEach((indicator, index) => {
-    indicator.classList.toggle('active', index === currentImageIndex);
-  });
+function updateGallery() {
+  const product = products[currentProductId];
+  if (product) {
+    document.getElementById('modal-image').src = product.images[currentImageIndex];
+    const indicators = document.querySelectorAll('.indicator');
+    indicators.forEach((indicator, index) => {
+      indicator.classList.toggle('active', index === currentImageIndex);
+    });
+  }
 }
 
 // Обработчики для галереи
 document.getElementById('prev-image').onclick = () => {
-  const productId = document.querySelector('.product-modal:not(.hidden)').dataset.productId;
-  const product = products[productId];
-  if (product) {
+  if (currentProductId && products[currentProductId]) {
+    const product = products[currentProductId];
     currentImageIndex = (currentImageIndex - 1 + product.images.length) % product.images.length;
-    updateGallery(product);
+    updateGallery();
   }
 };
 
 document.getElementById('next-image').onclick = () => {
-  const productId = document.querySelector('.product-modal:not(.hidden)').dataset.productId;
-  const product = products[productId];
-  if (product) {
+  if (currentProductId && products[currentProductId]) {
+    const product = products[currentProductId];
     currentImageIndex = (currentImageIndex + 1) % product.images.length;
-    updateGallery(product);
+    updateGallery();
   }
 };
 
 // Закрытие модальных окон
 document.getElementById('close-product-modal').onclick = () => {
   document.getElementById('product-modal').classList.add('hidden');
+  currentProductId = null; // Сбрасываем текущий ID продукта
 };
 
 document.getElementById('close-cart').onclick = () => {
@@ -409,7 +413,8 @@ document.getElementById('close-checkout-modal').onclick = () => {
 
 // Открытие корзины
 document.getElementById('cart-button').onclick = () => {
-  document.getElementById('cart-modal').classList.add('open');
+  const cartModal = document.getElementById('cart-modal');
+  cartModal.classList.add('open');
   updateCart();
 };
 
