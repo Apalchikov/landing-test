@@ -412,11 +412,16 @@ document.getElementById('close-checkout-modal').onclick = () => {
 };
 
 // Открытие корзины
-document.getElementById('cart-button').onclick = () => {
+function openCart() {
+  console.log('Клик по корзине'); // Для отладки
   const cartModal = document.getElementById('cart-modal');
-  cartModal.classList.add('open');
-  updateCart();
-};
+  if (cartModal) {
+    cartModal.classList.add('open');
+    updateCart();
+  } else {
+    console.error('Элемент #cart-modal не найден');
+  }
+}
 
 // Оформление заказа
 document.getElementById('checkout').onclick = () => {
@@ -479,4 +484,12 @@ document.getElementById('checkout-form').addEventListener('submit', (e) => {
 // Инициализация
 document.addEventListener('DOMContentLoaded', () => {
   updateCart();
+  
+  // Привязка обработчика для корзины
+  const cartButton = document.getElementById('cart-button');
+  if (cartButton) {
+    cartButton.addEventListener('click', openCart);
+  } else {
+    console.error('Элемент #cart-button не найден');
+  }
 });
