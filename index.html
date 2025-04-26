@@ -26,7 +26,7 @@
                 <li><button onclick="scrollToSection('contacts')">Контакты</button></li>
                 <li><button onclick="scrollToSection('about')">Про нас</button></li>
                 <li><button onclick="scrollToSection('info')">Важная информация</button></li>
-                <li class="cart-li"><button id="cart-button" class="cart-icon">🛒 <span id="cart-count">0</span></button></li>
+                <li class="cart-li"><button id="cart-button" class="cart-icon">🛒</button></li>
             </ul>
         </div>
     </nav>
@@ -451,24 +451,13 @@
         </div>
     </section>
 
-    <!-- Футер -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 DYNASTY. Все права защищены.</p>
-            <div class="footer-links">
-                <a href="https://t.me/dynastybrand" target="_blank" class="footer-link">Telegram</a>
-                <a href="tel:+79686909999" class="footer-link">+7 (968) 690-99-99</a>
-            </div>
-        </div>
-    </footer>
-
     <!-- Модальное окно корзины -->
     <div id="cart-modal" class="cart-modal hidden">
         <div class="cart-content">
             <span id="close-cart" class="close-cart">×</span>
             <h2>Ваша корзина</h2>
             <div id="cart-items"></div>
-            <button id="checkout" class="checkout-btn" disabled>Оформить заказ</button>
+            <button id="checkout" class="checkout-btn">Оформить заказ</button>
         </div>
     </div>
 
@@ -493,10 +482,7 @@
                     <option value="M">M</option>
                     <option value="L">L</option>
                 </select>
-                <div class="modal-buttons">
-                    <button id="add-to-cart-modal" class="add-to-cart">Добавить в корзину</button>
-                    <button id="buy-now-modal" class="buy-now">Купить сейчас</button>
-                </div>
+                <button id="add-to-cart-modal" class="add-to-cart">Добавить в корзину</button>
             </div>
         </div>
     </div>
