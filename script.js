@@ -84,15 +84,6 @@ function clearCart() {
   updateCart();
 }
 
-function updateCartIcon() {
-  const cartButton = document.getElementById('cart-button');
-  if (cart.length > 0) {
-    cartButton.innerHTML = `🛒 <span class="cart-count">${cart.length}</span>`;
-  } else {
-    cartButton.innerHTML = '🛒';
-  }
-}
-
 // Показать уведомление о добавлении в корзину
 function showCartNotification() {
   const notification = document.getElementById('cart-notification');
