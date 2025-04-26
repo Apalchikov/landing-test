@@ -41,8 +41,27 @@ function goBackToCatalog() {
 // Корзина
 let cart = [];
 
+// Загрузка корзины из localStorage при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+  const savedCart = localStorage.getItem('cart');
+  if (savedCart) {
+    cart = JSON.parse(savedCart);
+    updateCart();
+  }
+
+  // Обработчики для модальных окон
+  document.getElementById('cart-button').addEventListener('click', openCartModal);
+  document.getElementById('close-cart').addEventListener('click', closeCartModal);
+  document.getElementById('close-product-modal').addEventListener('click', closeProductModal);
+  document.getElementById('close-checkout-modal').addEventListener('click', closeCheckoutModal);
+  document.getElementById('checkout').addEventListener('click', openCheckoutModal);
+});
+
+// Обновление корзины
 function updateCart() {
   const cartItems = document.getElementById('cart-items');
+  const cartCount = document.getElementById('cart-count');
+  const checkoutButton = document.getElementById('checkout');
   cartItems.innerHTML = '';
   let total = 0;
   cart.forEach((item, index) => {
@@ -66,22 +85,33 @@ function updateCart() {
   clearButton.textContent = 'Очистить корзину';
   clearButton.onclick = clearCart;
   cartItems.appendChild(clearButton);
+
+  // Обновляем счётчик корзины
+  cartCount.textContent = cart.length;
+  // Активируем/деактивируем кнопку оформления заказа
+  checkoutButton.disabled = cart.length === 0;
+  // Сохраняем корзину в localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+// Добавление в корзину
 function addToCart(id, name, price, size) {
   cart.push({ id, name, price, size });
   updateCart();
   showCartNotification();
 }
 
+// Удаление из корзины
 function removeFromCart(index) {
   cart.splice(index, 1);
   updateCart();
 }
 
+// Очистка корзины
 function clearCart() {
   cart = [];
   updateCart();
+  localStorage.removeItem('cart');
 }
 
 // Показать уведомление о добавлении в корзину
@@ -94,6 +124,140 @@ function showCartNotification() {
     notification.classList.add('hidden');
   }, 2000);
 }
+
+// Открытие корзины
+function openCartModal() {
+  const cartModal = document.getElementById('cart-modal');
+  cartModal.classList.add('open');
+}
+
+// Закрытие корзины
+function closeCartModal() {
+  const cartModal = document.getElementById('cart-modal');
+  cartModal.classList.remove('open');
+}
+
+// Модальное окно товара
+let currentImageIndex = 0;
+
+function openProductModal(productId) {
+  const product = products[productId];
+  if (!product) return;
+
+  const modal = document.getElementById('product-modal');
+  const modalImage = document.getElementById('modal-image');
+  const modalTitle = document.getElementById('modal-title');
+  const modalPrice = document.getElementById('modal-price');
+  const modalDescription = document.getElementById('modal-description');
+  const modalMaterial = document.getElementById('modal-material');
+  const modalFeatures = document.getElementById('modal-features');
+  const modalSize = document.getElementById('modal-size');
+
+  currentImageIndex = 0;
+  modalImage.src = product.images[currentImageIndex];
+  modalTitle.textContent = product.name;
+  modalPrice.textContent = `$${product.price}`;
+  modalDescription.textContent = product.description;
+  modalMaterial.textContent = product.material;
+  modalFeatures.textContent = product.features;
+  modalSize.value = 'M';
+
+  const prevButton = document.getElementById('prev-image');
+  const nextButton = document.getElementById('next-image');
+  prevButton.onclick = () => changeImage(-1, product.images);
+  nextButton.onclick = () => changeImage(1, product.images);
+
+  const addToCartButton = document.getElementById('add-to-cart-modal');
+  addToCartButton.onclick = () => {
+    addToCart(productId, product.name, product.price, modalSize.value);
+  };
+
+  const buyNowButton = document.getElementById('buy-now-modal');
+  buyNowButton.onclick = () => {
+    addToCart(productId, product.name, product.price, modalSize.value);
+    closeProductModal();
+    openCheckoutModal();
+  };
+
+  modal.classList.remove('hidden');
+}
+
+function changeImage(direction, images) {
+  currentImageIndex += direction;
+  if (currentImageIndex < 0) currentImageIndex = images.length - 1;
+  if (currentImageIndex >= images.length) currentImageIndex = 0;
+  document.getElementById('modal-image').src = images[currentImageIndex];
+}
+
+function closeProductModal() {
+  const modal = document.getElementById('product-modal');
+  modal.classList.add('hidden');
+}
+
+// Модальное окно оформления заказа
+function openCheckoutModal() {
+  if (cart.length === 0) return; // Защита от открытия при пустой корзине
+  const checkoutModal = document.getElementById('checkout-modal');
+  const checkoutFormContainer = document.getElementById('checkout-form-container');
+  const checkoutSuccess = document.getElementById('checkout-success');
+  checkoutFormContainer.classList.remove('hidden');
+  checkoutSuccess.classList.add('hidden');
+  checkoutModal.classList.remove('hidden');
+  closeCartModal();
+}
+
+function closeCheckoutModal() {
+  const checkoutModal = document.getElementById('checkout-modal');
+  checkoutModal.classList.add('hidden');
+}
+
+// Отправка заказа в Telegram
+document.getElementById('checkout-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name-input').value;
+  const contact = document.getElementById('contact-input').value;
+
+  let orderDetails = `Новый заказ!\nИмя: ${name}\nКонтакт: ${contact}\n\nТовары:\n`;
+  let total = 0;
+  cart.forEach(item => {
+    orderDetails += `${item.name} (${item.size}) - $${item.price}\n`;
+    total += item.price;
+  });
+  orderDetails += `\nИтого: $${total}`;
+
+  const botToken = 'YOUR_BOT_TOKEN'; // Замени на свой токен
+  const chatId = 'YOUR_CHAT_ID'; // Замени на свой chat_id
+  const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: orderDetails
+      })
+    });
+
+    if (response.ok) {
+      const checkoutFormContainer = document.getElementById('checkout-form-container');
+      const checkoutSuccess = document.getElementById('checkout-success');
+      checkoutFormContainer.classList.add('hidden');
+      checkoutSuccess.classList.remove('hidden');
+      cart = [];
+      updateCart();
+      localStorage.removeItem('cart');
+      setTimeout(closeCheckoutModal, 3000);
+    } else {
+      alert('Ошибка при отправке заказа. Попробуйте снова.');
+    }
+  } catch (error) {
+    console.error('Ошибка:', error);
+    alert('Произошла ошибка. Проверьте подключение к интернету.');
+  }
+});
 
 // Данные товаров
 const products = {
@@ -144,6 +308,7 @@ const products = {
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
       "https://via.placeholder.com/600x600.png?text=Tanktop+2_2",
+      "https://via.placeholder.com/600x600 ascendancy: true,
       "https://via.placeholder.com/600x600.png?text=Tanktop+2_3"
     ]
   },
@@ -200,9 +365,9 @@ const products = {
   16: {
     name: "Штаны DYNASTY 3",
     price: 85,
-    description: "Удобные штаны для повседневного ношения.",
-    material: "Хлопок",
-    features: "Мягкая ткань, прямой крой",
+    description: "Комфортные штаны для повседневной носки.",
+    material: "Хлопок, полиэстер",
+    features: "Мягкая ткань, удобная посадка",
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
       "https://via.placeholder.com/600x600.png?text=Pants+3_2",
@@ -212,9 +377,9 @@ const products = {
   17: {
     name: "Штаны DYNASTY 4",
     price: 88,
-    description: "Стильные штаны для уличного вайба.",
-    material: "Полиэстер, хлопок",
-    features: "Прочная ткань, удобные карманы",
+    description: "Стильные штаны для современного образа.",
+    material: "Хлопок",
+    features: "Прочная ткань, свободный крой",
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
       "https://via.placeholder.com/600x600.png?text=Pants+4_2",
@@ -224,9 +389,9 @@ const products = {
   18: {
     name: "Штаны DYNASTY 5",
     price: 95,
-    description: "Штаны для тех, кто ценит комфорт и стиль.",
-    material: "Хлопок, эластан",
-    features: "Эластичная ткань, свободная посадка",
+    description: "Элегантные штаны для активных.",
+    material: "Полиэстер, хлопок",
+    features: "Лёгкость, устойчивость к износу",
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
       "https://via.placeholder.com/600x600.png?text=Pants+5_2",
@@ -237,9 +402,9 @@ const products = {
   12: {
     name: "Худи DYNASTY 1",
     price: 70,
-    description: "Тёплое худи для уличного стиля.",
+    description: "Уютное худи с логотипом DYNASTY. Для прохладной погоды.",
     material: "Хлопок, полиэстер",
-    features: "Тёплая подкладка, капюшон с утяжкой",
+    features: "Тёплое, мягкое",
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
       "https://via.placeholder.com/600x600.png?text=Hoodie+1_2",
@@ -249,9 +414,9 @@ const products = {
   19: {
     name: "Худи DYNASTY 2",
     price: 75,
-    description: "Стильное худи для холодной погоды.",
-    material: "Хлопок, полиэстер",
-    features: "Плотная ткань, удобный капюшон",
+    description: "Стильное худи для уличного вайба.",
+    material: "Хлопок",
+    features: "Комфортное, тёплое",
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
       "https://via.placeholder.com/600x600.png?text=Hoodie+2_2",
@@ -263,8 +428,8 @@ const products = {
     name: "Куртка DYNASTY 1",
     price: 120,
     description: "Тёплая куртка для холодной погоды.",
-    material: "Полиэстер, утеплитель",
-    features: "Водонепроницаемая, тёплая подкладка",
+    material: "Полиэстер",
+    features: "Водостойкая, тёплая",
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
       "https://via.placeholder.com/600x600.png?text=Jacket+1_2",
@@ -274,9 +439,9 @@ const products = {
   21: {
     name: "Куртка DYNASTY 2",
     price: 130,
-    description: "Стильная куртка для уличного образа.",
-    material: "Полиэстер, утеплитель",
-    features: "Прочная, ветрозащитная",
+    description: "Стильная куртка для городского лука.",
+    material: "Полиэстер, хлопок",
+    features: "Лёгкая, тёплая",
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
       "https://via.placeholder.com/600x600.png?text=Jacket+2_2",
@@ -286,8 +451,8 @@ const products = {
   22: {
     name: "Куртка DYNASTY 3",
     price: 140,
-    description: "Куртка для экстремальных условий.",
-    material: "Полиэстер, утеплитель",
+    description: "Премиум куртка для экстремальных условий.",
+    material: "Полиэстер",
     features: "Водонепроницаемая, тёплая",
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
@@ -299,9 +464,9 @@ const products = {
   8: {
     name: "Жилетка DYNASTY 1",
     price: 45,
-    description: "Легкий жилет для тренировок. Докажи свою силу.",
+    description: "Лёгкая жилетка для активного отдыха.",
     material: "Полиэстер",
-    features: "Дышащая ткань, легкий вес",
+    features: "Дышащая, лёгкая",
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
       "https://via.placeholder.com/600x600.png?text=Vest+1_2",
@@ -311,109 +476,13 @@ const products = {
   23: {
     name: "Жилетка DYNASTY 2",
     price: 50,
-    description: "Стильный жилет для повседневного ношения.",
-    material: "Полиэстер",
-    features: "Лёгкий, удобный",
+    description: "Стильная жилетка для повседневного образа.",
+    material: "Полиэстер, хлопок",
+    features: "Комфортная, лёгкая",
     images: [
       "https://kingboxer.ru/upload/iblock/69e/69e740686b62ccba98f5db40a85e9694.jpg",
       "https://via.placeholder.com/600x600.png?text=Vest+2_2",
       "https://via.placeholder.com/600x600.png?text=Vest+2_3"
     ]
   }
-};
-
-// Открытие модального окна товара
-function openProductModal(id) {
-  const product = products[id];
-  let currentImageIndex = 0;
-
-  document.getElementById('modal-title').textContent = product.name;
-  document.getElementById('modal-price').textContent = `$${product.price}`;
-  document.getElementById('modal-description').textContent = product.description;
-  document.getElementById('modal-material').textContent = product.material;
-  document.getElementById('modal-features').textContent = product.features;
-  document.getElementById('modal-image').src = product.images[currentImageIndex];
-
-  const modal = document.getElementById('product-modal');
-  modal.classList.remove('hidden');
-
-  document.getElementById('prev-image').onclick = () => {
-    currentImageIndex = (currentImageIndex - 1 + product.images.length) % product.images.length;
-    document.getElementById('modal-image').src = product.images[currentImageIndex];
-  };
-
-  document.getElementById('next-image').onclick = () => {
-    currentImageIndex = (currentImageIndex + 1) % product.images.length;
-    document.getElementById('modal-image').src = product.images[currentImageIndex];
-  };
-
-  document.getElementById('add-to-cart-modal').onclick = () => {
-    const size = document.getElementById('modal-size').value;
-    addToCart(id, product.name, product.price, size);
-    modal.classList.add('hidden');
-  };
-}
-
-// Закрытие модального окна товара
-document.getElementById('close-product-modal').addEventListener('click', () => {
-  document.getElementById('product-modal').classList.add('hidden');
-});
-
-// Открытие/закрытие корзины
-const cartModal = document.getElementById('cart-modal');
-document.getElementById('cart-button').addEventListener('click', () => {
-  cartModal.classList.toggle('open');
-  cartModal.classList.toggle('hidden');
-});
-
-document.getElementById('close-cart').addEventListener('click', () => {
-  cartModal.classList.remove('open');
-  cartModal.classList.add('hidden');
-});
-
-// Открытие модального окна оформления заказа
-const checkoutModal = document.getElementById('checkout-modal');
-document.getElementById('checkout').addEventListener('click', () => {
-  cartModal.classList.remove('open');
-  cartModal.classList.add('hidden');
-  checkoutModal.classList.remove('hidden');
-  document.getElementById('checkout-form-container').classList.remove('hidden');
-  document.getElementById('checkout-success').classList.add('hidden');
-});
-
-document.getElementById('close-checkout-modal').addEventListener('click', () => {
-  checkoutModal.classList.add('hidden');
-});
-
-// Отправка данных заказа в Telegram
-document.getElementById('checkout-form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = document.getElementById('name-input').value;
-  const contact = document.getElementById('contact-input').value;
-  const orderDetails = cart.map(item => `${item.name} - $${item.price} (${item.size})`).join(', ');
-  const message = `Новый заказ:\n${orderDetails}\nИмя: ${name}\nКонтакт: ${contact}`;
-
-  const token = '8090185279:AAH5J9QOJkU96VsTyXIJhIe4kbsrswue7M0';
-  const chatId = '-4711226618';
-  const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      if (data.ok) {
-        document.getElementById('checkout-form-container').classList.add('hidden');
-        document.getElementById('checkout-success').classList.remove('hidden');
-        setTimeout(() => {
-          checkoutModal.classList.add('hidden');
-          cart = [];
-          updateCart();
-        }, 3000);
-      } else {
-        alert('Ошибка при отправке заказа');
-      }
-    })
-    .catch(error => {
-      console.error('Ошибка:', error);
-      alert('Ошибка при отправке заказа');
-    });
-});
+}; 
